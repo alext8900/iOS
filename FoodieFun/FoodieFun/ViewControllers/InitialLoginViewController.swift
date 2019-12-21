@@ -8,7 +8,6 @@
 
 import UIKit
 
-import MapKit
 
 class InitialLoginViewController: UIViewController {
     
