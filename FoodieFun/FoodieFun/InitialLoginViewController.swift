@@ -8,6 +8,8 @@
 
 import UIKit
 
+import MapKit
+
 class InitialLoginViewController: UIViewController {
     
     @IBOutlet weak var userNameTF: UITextField!
