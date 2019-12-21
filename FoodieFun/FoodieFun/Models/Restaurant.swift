@@ -9,10 +9,10 @@
 import Foundation
 
 struct Restaurant: Codable, Equatable {
-    let restauraunt_id: String
+    let restaurauntId: String
     let cuisine: String
     let name: String
-    let photo_url: String
+    let photoUrl: String
     let rating: Int
     let review: String
     let userId: String
