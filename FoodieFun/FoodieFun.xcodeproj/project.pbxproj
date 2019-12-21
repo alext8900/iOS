@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1F4DF3C423ABFA9C00F48534 /* InitialLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4DF3C323ABFA9C00F48534 /* InitialLoginViewController.swift */; };
+		1F83020B23AE8FE000F1F799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020A23AE8FE000F1F799 /* User.swift */; };
+		1F83020D23AE90AB00F1F799 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020C23AE90AB00F1F799 /* Bearer.swift */; };
+		1F83020F23AE90F400F1F799 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020E23AE90F400F1F799 /* Restaurant.swift */; };
+		1F83021323AE9F4600F1F799 /* FoodieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83021223AE9F4600F1F799 /* FoodieController.swift */; };
+		1F83021523AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83021423AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift */; };
 		1F848DC623AB2DF300A8259C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F848DC523AB2DF300A8259C /* AppDelegate.swift */; };
 		1F848DC823AB2DF300A8259C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F848DC723AB2DF300A8259C /* SceneDelegate.swift */; };
 		1F848DCD23AB2DF300A8259C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F848DCB23AB2DF300A8259C /* Main.storyboard */; };
@@ -17,6 +22,11 @@
 
 /* Begin PBXFileReference section */
 		1F4DF3C323ABFA9C00F48534 /* InitialLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLoginViewController.swift; sourceTree = "<group>"; };
+		1F83020A23AE8FE000F1F799 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1F83020C23AE90AB00F1F799 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		1F83020E23AE90F400F1F799 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		1F83021223AE9F4600F1F799 /* FoodieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieController.swift; sourceTree = "<group>"; };
+		1F83021423AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateNearbyRestaurauntsViewController.swift; sourceTree = "<group>"; };
 		1F848DC223AB2DF300A8259C /* FoodieFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodieFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F848DC523AB2DF300A8259C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F848DC723AB2DF300A8259C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +47,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F83021123AE986200F1F799 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F83020E23AE90F400F1F799 /* Restaurant.swift */,
+				1F83020A23AE8FE000F1F799 /* User.swift */,
+				1F83020C23AE90AB00F1F799 /* Bearer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1F83021623AEA10400F1F799 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F4DF3C323ABFA9C00F48534 /* InitialLoginViewController.swift */,
+				1F83021423AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		1F848DB923AB2DF300A8259C = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +85,11 @@
 		1F848DC423AB2DF300A8259C /* FoodieFun */ = {
 			isa = PBXGroup;
 			children = (
+				1F83021623AEA10400F1F799 /* ViewControllers */,
+				1F83021123AE986200F1F799 /* Models */,
 				1F848DC523AB2DF300A8259C /* AppDelegate.swift */,
 				1F848DC723AB2DF300A8259C /* SceneDelegate.swift */,
-				1F4DF3C323ABFA9C00F48534 /* InitialLoginViewController.swift */,
+				1F83021223AE9F4600F1F799 /* FoodieController.swift */,
 				1F848DCB23AB2DF300A8259C /* Main.storyboard */,
 				1F848DCE23AB2DF500A8259C /* Assets.xcassets */,
 				1F848DD023AB2DF500A8259C /* LaunchScreen.storyboard */,
@@ -138,6 +169,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F83020D23AE90AB00F1F799 /* Bearer.swift in Sources */,
+				1F83020B23AE8FE000F1F799 /* User.swift in Sources */,
+				1F83021523AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift in Sources */,
+				1F83021323AE9F4600F1F799 /* FoodieController.swift in Sources */,
+				1F83020F23AE90F400F1F799 /* Restaurant.swift in Sources */,
 				1F848DC623AB2DF300A8259C /* AppDelegate.swift in Sources */,
 				1F848DC823AB2DF300A8259C /* SceneDelegate.swift in Sources */,
 				1F4DF3C423ABFA9C00F48534 /* InitialLoginViewController.swift in Sources */,

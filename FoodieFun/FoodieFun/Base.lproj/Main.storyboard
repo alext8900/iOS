@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PBm-GJ-5qT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rUK-um-Jwx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -45,7 +45,7 @@
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="b0q-29-y7V" kind="replace" splitViewControllerTargetIndex="1" id="W5P-7S-ihD"/>
+                                    <segue destination="b0q-29-y7V" kind="presentation" id="W5P-7S-ihD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -118,21 +118,32 @@
             </objects>
             <point key="canvasLocation" x="2237.68115942029" y="-88.392857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Find a Restaurant-->
         <scene sceneID="oeq-Bt-t6Q">
             <objects>
-                <viewController id="NHE-r9-LXM" sceneMemberID="viewController">
+                <viewController id="NHE-r9-LXM" customClass="LocateNearbyRestaurauntsViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7IU-Pg-cKi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2J9-44-1ly">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2J9-44-1ly" firstAttribute="leading" secondItem="XKY-5E-hgx" secondAttribute="leading" id="Fkp-KZ-mWA"/>
+                            <constraint firstItem="2J9-44-1ly" firstAttribute="top" secondItem="XKY-5E-hgx" secondAttribute="top" id="Pgg-G1-t8n"/>
+                            <constraint firstItem="XKY-5E-hgx" firstAttribute="trailing" secondItem="2J9-44-1ly" secondAttribute="trailing" id="mvv-fQ-oGZ"/>
+                            <constraint firstItem="XKY-5E-hgx" firstAttribute="bottom" secondItem="2J9-44-1ly" secondAttribute="bottom" id="pMq-Hk-7wI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XKY-5E-hgx"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xxt-4V-sCX"/>
+                    <navigationItem key="navigationItem" title="Find a Restaurant" id="Xxt-4V-sCX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlp-sX-fuI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4960.8695652173919" y="-244.41964285714283"/>
+            <point key="canvasLocation" x="5043" y="-230"/>
         </scene>
         <!--Item-->
         <scene sceneID="ZTx-71-w8q">
@@ -140,15 +151,18 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ijk-pq-zvh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="GWO-US-Xzz"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xqy-yI-Zjy">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Xqy-yI-Zjy">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NHE-r9-LXM" kind="relationship" relationship="rootViewController" id="xlv-LD-jnR"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0F-JG-Pwx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3839.130434782609" y="-230.35714285714283"/>
+            <point key="canvasLocation" x="4117" y="-230"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EST-Cd-bIr">
@@ -156,6 +170,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rUK-um-Jwx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tp6-RE-ow3">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
