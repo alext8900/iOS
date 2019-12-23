@@ -31,29 +31,34 @@ class SignUpController {
             return
         }
         
-        // For login
-//        URLSession.shared.dataTask(with: request) { (data, response, error) in
-//            if let response = response as? HTTPURLResponse,
-//                response.statusCode != 204 {
-//                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
-//                return
-//            }
-//
-//            if let error = error {
-//                completion(error)
-//                return
-//            }
-//
-//            guard let data = data else {
-//                completion(error)
-//                return
-//            }
-//
-//            let decoder = JSONDecoder()
-//            do {
-//
-//            }
-//
-//        }
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 201 {
+                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                return
+            }
+
+            if let error = error {
+                completion(error)
+                return
+            }
+
+            guard let data = data else {
+                completion(error)
+                return
+            }
+
+            let decoder = JSONDecoder()
+            do {
+                let user = try decoder.decode(User.self, from: data)
+                LoginController.shared.token = user.token
+            } catch {
+                print("Error decoding token: \(error)")
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+        }.resume()
     }
 }
