@@ -85,17 +85,33 @@
 		1F848DC423AB2DF300A8259C /* FoodieFun */ = {
 			isa = PBXGroup;
 			children = (
-				1F83021623AEA10400F1F799 /* ViewControllers */,
 				1F83021123AE986200F1F799 /* Models */,
+				E375C36B23B0A3E700EA25FD /* Model Controllers */,
+				E375C36A23B0A3B800EA25FD /* Storyboards */,
+				1F83021623AEA10400F1F799 /* ViewControllers */,
 				1F848DC523AB2DF300A8259C /* AppDelegate.swift */,
 				1F848DC723AB2DF300A8259C /* SceneDelegate.swift */,
-				1F83021223AE9F4600F1F799 /* FoodieController.swift */,
-				1F848DCB23AB2DF300A8259C /* Main.storyboard */,
 				1F848DCE23AB2DF500A8259C /* Assets.xcassets */,
 				1F848DD023AB2DF500A8259C /* LaunchScreen.storyboard */,
 				1F848DD323AB2DF500A8259C /* Info.plist */,
 			);
 			path = FoodieFun;
+			sourceTree = "<group>";
+		};
+		E375C36A23B0A3B800EA25FD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1F848DCB23AB2DF300A8259C /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E375C36B23B0A3E700EA25FD /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F83021223AE9F4600F1F799 /* FoodieController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
