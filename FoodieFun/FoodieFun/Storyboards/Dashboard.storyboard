@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gqI-zH-ETU">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="52a-qn-uoS">
+            <objects>
+                <viewController title="Settings" id="Nf2-S4-grg" customClass="SettingsViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VHU-gp-Ow8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zlA-oC-cSL"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="hhw-uf-UNC" userLabel="Settings"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tg-D7-XSc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="616"/>
+        </scene>
+        <!--Add a New Restaurant-->
+        <scene sceneID="CwQ-uO-J9x">
+            <objects>
+                <viewController title="Add a New Restaurant" id="nHP-1i-yaB" customClass="AddRestaurantViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Np5-pY-Y65">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="kLn-2p-EQd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add" id="Cao-oa-caK" userLabel="Add"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y44-Tf-yLQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="-218"/>
+        </scene>
+        <!--FoodieFun-->
+        <scene sceneID="bZ2-WD-QDX">
+            <objects>
+                <viewController title="FoodieFun" id="nV8-Zv-Ojk" customClass="DashboardCollectionViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9f8-Ix-qbr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="5ki-ee-Dgf"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="Hcu-Z3-inV" userLabel="Home"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w9c-Uk-bPM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="-866"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hp2-ag-8RB">
+            <objects>
+                <tabBarController id="gqI-zH-ETU" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uyt-k3-Nee">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="nV8-Zv-Ojk" kind="relationship" relationship="viewControllers" id="GZ0-Fn-DIk"/>
+                        <segue destination="nHP-1i-yaB" kind="relationship" relationship="viewControllers" id="Bxq-M7-7cx"/>
+                        <segue destination="Nf2-S4-grg" kind="relationship" relationship="viewControllers" id="ESZ-yz-yOQ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wUD-mc-cwD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-225" y="-542"/>
+        </scene>
+    </scenes>
+</document>
