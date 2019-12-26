@@ -41,7 +41,7 @@
                                                 <rect key="frame" x="0.0" y="108" width="374" height="30"/>
                                                 <state key="normal" title="LOG IN"/>
                                                 <connections>
-                                                    <segue destination="T9h-dh-9rZ" kind="show" id="IOZ-n3-eZJ"/>
+                                                    <segue destination="T9h-dh-9rZ" kind="presentation" modalPresentationStyle="fullScreen" id="IOZ-n3-eZJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -65,7 +65,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Sign Up"/>
                                                 <connections>
-                                                    <segue destination="4IG-jR-h02" kind="show" id="uew-Rr-GJY"/>
+                                                    <segue destination="4IG-jR-h02" kind="presentation" modalPresentationStyle="fullScreen" id="uew-Rr-GJY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -97,7 +97,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPS-QD-5o1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="509"/>
+            <point key="canvasLocation" x="1081" y="704"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="gmj-DJ-8Nk">
@@ -107,7 +107,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cdv-Ed-i3G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="720"/>
+            <point key="canvasLocation" x="1065" y="736"/>
         </scene>
     </scenes>
 </document>

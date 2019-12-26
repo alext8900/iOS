@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="rwU-6y-fv0">
             <objects>
-                <viewController id="mSi-wn-acM" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="mSi-wn-acM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KvB-W2-pAS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +74,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Log In"/>
                                                 <connections>
-                                                    <segue destination="WXk-pX-vrg" kind="show" id="niP-5s-eQ0"/>
+                                                    <segue destination="WXk-pX-vrg" kind="presentation" modalPresentationStyle="fullScreen" id="niP-5s-eQ0"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -106,7 +106,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yO1-Co-qao" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="714" y="-25"/>
+            <point key="canvasLocation" x="739" y="11"/>
         </scene>
     </scenes>
 </document>
