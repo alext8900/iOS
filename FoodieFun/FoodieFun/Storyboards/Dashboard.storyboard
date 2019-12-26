@@ -125,7 +125,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ev8-3z-RJ8">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ev8-3z-RJ8">
                                 <rect key="frame" x="20" y="160" width="374" height="590"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i1w-mq-ymP">
@@ -134,7 +134,7 @@
                                             <constraint firstAttribute="width" secondItem="i1w-mq-ymP" secondAttribute="height" multiplier="16:9" id="yVW-Lz-RTj"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NK1-cQ-b1b" userLabel="Text Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NK1-cQ-b1b" userLabel="Text Stack View">
                                         <rect key="frame" x="0.0" y="175" width="374" height="415"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="adW-rD-gII">
@@ -208,7 +208,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="RC5-H9-Cwg" secondAttribute="trailing" constant="49" id="la6-u8-bJy"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vpR-co-zq2">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vpR-co-zq2">
                                                 <rect key="frame" x="0.0" y="262" width="374" height="153"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REVIEWS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2R-wx-9el">
@@ -217,7 +217,7 @@
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="I like the fried chicken but I don't think the service here is good." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Agu-hw-sIi">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I like the fried chicken but I don't think the service here is good." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Agu-hw-sIi">
                                                         <rect key="frame" x="0.0" y="25" width="374" height="128"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -244,6 +244,12 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ev8-3z-RJ8" firstAttribute="top" secondItem="HbN-wF-DS6" secondAttribute="top" constant="20" id="67z-W7-q85"/>
+                            <constraint firstItem="HbN-wF-DS6" firstAttribute="bottom" secondItem="ev8-3z-RJ8" secondAttribute="bottom" constant="63" id="AHy-4v-FV9"/>
+                            <constraint firstItem="ev8-3z-RJ8" firstAttribute="leading" secondItem="xPC-SM-KkZ" secondAttribute="leadingMargin" id="ZHr-qv-Scd"/>
+                            <constraint firstItem="ev8-3z-RJ8" firstAttribute="trailing" secondItem="xPC-SM-KkZ" secondAttribute="trailingMargin" id="sQC-26-py3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HbN-wF-DS6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Restaurant Name" id="bTa-Xs-WDg">
