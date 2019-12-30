@@ -15,7 +15,36 @@
                     <view key="view" contentMode="scaleToFill" id="VHU-gp-Ow8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="LTY-P7-Zgk">
+                                <rect key="frame" x="20" y="403" width="374" height="90.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to log out?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT4-WM-TIq">
+                                        <rect key="frame" x="59.666666666666671" y="0.0" width="254.66666666666663" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQe-Xe-wIo">
+                                        <rect key="frame" x="20" y="60.333333333333314" width="334" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="w9K-1E-c9E"/>
+                                        </constraints>
+                                        <state key="normal" title="LOG OUT"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="xQe-Xe-wIo" firstAttribute="leading" secondItem="LTY-P7-Zgk" secondAttribute="leading" constant="20" id="myd-8c-XNU"/>
+                                    <constraint firstAttribute="trailing" secondItem="xQe-Xe-wIo" secondAttribute="trailing" constant="20" id="oOR-BI-CpN"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LTY-P7-Zgk" firstAttribute="centerY" secondItem="VHU-gp-Ow8" secondAttribute="centerY" id="BcF-RS-2uB"/>
+                            <constraint firstItem="LTY-P7-Zgk" firstAttribute="leading" secondItem="zlA-oC-cSL" secondAttribute="leading" constant="20" id="XOZ-Rm-eAv"/>
+                            <constraint firstItem="zlA-oC-cSL" firstAttribute="trailing" secondItem="LTY-P7-Zgk" secondAttribute="trailing" constant="20" id="ksq-Di-WeL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zlA-oC-cSL"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="hhw-uf-UNC" userLabel="Settings"/>
