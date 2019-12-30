@@ -1,5 +1,5 @@
 //
-//  SignUpRequest.swift
+//  Request.swift
 //  FoodieFun
 //
 //  Created by Vici Shaweddy on 12/23/19.
@@ -13,4 +13,9 @@ struct SignUpRequest: Equatable, Codable {
     let password: String
     let location: String
     let email: String
+}
+
+struct LoginRequest: Equatable, Codable {
+    let username: String
+    let password: String
 }

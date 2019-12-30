@@ -16,17 +16,17 @@ class LoginController {
     private let baseURL = URL(string: "https://bw-foodiefun.herokuapp.com/api")!
     var token: String?
     
-    func login(withUsername username: String, withPassword password: String, completion: @escaping CompletionHandler = { _ in}) {
+    func login(with loginData: LoginRequest, completion: @escaping CompletionHandler = { _ in}) {
         let requestURL = baseURL.appendingPathComponent("/users/login")
         
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        let jsonEncoder = JSONEncoder()
         do {
-            let userParams = ["username": username, "password": password] as [String: Any]
-            let json = try JSONSerialization.data(withJSONObject: userParams, options: .prettyPrinted)
-            request.httpBody = json
+            let jsonData = try jsonEncoder.encode(loginData)
+            request.httpBody = jsonData
         } catch {
             print("Error encoding user object: \(error)")
         }
