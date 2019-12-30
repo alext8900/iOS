@@ -226,12 +226,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YQb-NO-mA2"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add a New Restaurant" id="ApD-GS-U6j"/>
+                    <navigationItem key="navigationItem" title="Add a New Restaurant" id="ApD-GS-U6j">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5gr-0R-dL3">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ZUB-e5-AYe"/>
+                    </navigationItem>
                     <size key="freeformSize" width="414" height="1004"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9k-0v-rXJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2052" y="-226"/>
+            <point key="canvasLocation" x="1710" y="-226"/>
         </scene>
         <!--FoodieFun-->
         <scene sceneID="G6i-ZB-GTX">
