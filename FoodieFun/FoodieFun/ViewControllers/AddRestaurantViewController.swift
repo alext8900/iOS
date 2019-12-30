@@ -9,9 +9,19 @@
 import UIKit
 
 class AddRestaurantViewController: UIViewController {
+    
+    @IBOutlet weak var textView: UITextView!
+    
+    func giveTextViewaBorder() {
+        textView.layer.cornerCurve = .continuous
+        textView.layer.cornerRadius = 12
+        textView.layer.borderColor = UIColor.black.cgColor
+        textView.layer.borderWidth = 0.5
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        giveTextViewaBorder()
 
         // Do any additional setup after loading the view.
     }
