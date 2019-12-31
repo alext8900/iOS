@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
                 NSLog("Error occured during login: \(error)")
             } else {
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "DashboardSegue", sender: nil)
                 }
             }
         }

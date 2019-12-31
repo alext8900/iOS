@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tW6-T1-pj3">
             <objects>
-                <viewController id="jfY-ww-63u" customClass="LoginViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="jfY-ww-63u" customClass="LoginViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6gW-G9-6Xf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,6 @@
                                                 <state key="normal" title="LOG IN"/>
                                                 <connections>
                                                     <action selector="login:" destination="jfY-ww-63u" eventType="touchUpInside" id="lD5-rS-szh"/>
-                                                    <segue destination="T9h-dh-9rZ" kind="presentation" modalPresentationStyle="fullScreen" id="IOZ-n3-eZJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -88,6 +87,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="CPq-5l-pQV" id="6fL-Oq-Nop"/>
                         <outlet property="usernameTextField" destination="zpJ-L1-vny" id="xkt-kg-FhB"/>
+                        <segue destination="T9h-dh-9rZ" kind="presentation" identifier="DashboardSegue" modalPresentationStyle="fullScreen" id="71o-cq-tjN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Oo-m2-eU1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
