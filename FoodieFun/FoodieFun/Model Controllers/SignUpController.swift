@@ -43,17 +43,7 @@ class SignUpController {
                 return
             }
 
-            guard let data = data else {
-                completion(error)
-                return
-            }
-
-            let decoder = JSONDecoder()
-            do {
-                let user = try decoder.decode(User.self, from: data)
-                LoginController.shared.token = user.token
-            } catch {
-                print("Error decoding token: \(error)")
+            guard let _ = data else {
                 completion(error)
                 return
             }
