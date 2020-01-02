@@ -483,16 +483,19 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HzE-Wq-0PI" userLabel="Photo Stack View">
                                                 <rect key="frame" x="20" y="914.00000000000011" width="374" height="248.33333333333337"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5C-YY-N2O">
-                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
-                                                        <state key="normal" title="Upload a Photo"/>
-                                                    </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="OOD-8e-XfP">
-                                                        <rect key="frame" x="0.0" y="38.000000000000014" width="374" height="210.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="210.33333333333334"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="OOD-8e-XfP" secondAttribute="height" multiplier="16:9" id="aYn-Ed-dWU"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5C-YY-N2O">
+                                                        <rect key="frame" x="0.0" y="218.33333333333326" width="354" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Upload a Photo">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="g5C-YY-N2O" secondAttribute="trailing" constant="20" symbolic="YES" id="Gbt-Cq-Lo5"/>
