@@ -482,6 +482,7 @@
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="addButton" destination="tAS-DB-a3o" id="sN1-AQ-OXi"/>
+                        <outlet property="cuisineTF" destination="COF-hZ-5Ud" id="toN-9A-g8x"/>
                         <outlet property="locationTF" destination="AMf-Kc-H1W" id="3Pt-6w-Wyf"/>
                         <outlet property="nameTF" destination="NdL-nU-kQL" id="Ely-bf-Wft"/>
                         <outlet property="review" destination="RdO-Ug-tEX" id="TmF-EJ-V1S"/>
