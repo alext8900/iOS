@@ -10,29 +10,50 @@ import UIKit
 
 class AddRestaurantViewController: UIViewController {
     
-    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var locationTF: UITextField!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var review: UITextView!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var cuisineTF: UITextField!
     
-    func giveTextViewaBorder() {
-        textView.layer.cornerCurve = .continuous
-        textView.layer.cornerRadius = 12
-        textView.layer.borderColor = UIColor.black.cgColor
-        textView.layer.borderWidth = 0.5
+    @IBAction func addButtonPressed() {
+        hideKeyBoard()
     }
     
-    func addObserver() {
+    func addButtonViewDidLoad() {
+        addButton.layer.cornerCurve = .continuous
+        addButton.layer.cornerRadius = 8
+        addButton.layer.borderColor = UIColor.black.cgColor
+        addButton.layer.borderWidth = 1
+    }
+    
+    func giveTextViewaBorder() {
+        review.layer.cornerCurve = .continuous
+        review.layer.cornerRadius = 12
+        review.layer.borderColor = UIColor.black.cgColor
+        review.layer.borderWidth = 0.5
+    }
+    
+    func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        NotificationCenter.default.addObserver(<#T##observer: Any##Any#>, selector: <#T##Selector#>, name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func textFieldDelegates() {
+        locationTF.delegate = self
+        nameTF.delegate = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         giveTextViewaBorder()
-
+        addObservers()
+        textFieldDelegates()
+        addButtonViewDidLoad()
         // Do any additional setup after loading the view.
     }
     
@@ -57,6 +78,7 @@ class AddRestaurantViewController: UIViewController {
         locationTF.resignFirstResponder()
         nameTF.resignFirstResponder()
         review.resignFirstResponder()
+        cuisineTF.resignFirstResponder()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
