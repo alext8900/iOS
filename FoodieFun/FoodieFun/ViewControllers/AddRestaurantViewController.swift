@@ -76,10 +76,10 @@ class AddRestaurantViewController: UIViewController {
     }
     
     func hideKeyBoard() {
-        locationTF.resignFirstResponder()
-        nameTF.resignFirstResponder()
-        review.resignFirstResponder()
-        cuisineTF.resignFirstResponder()
+//        locationTF.resignFirstResponder()
+//        nameTF.resignFirstResponder()
+//        review.resignFirstResponder()
+//        cuisineTF.resignFirstResponder()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {

@@ -337,11 +337,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Zq9-ad-IUv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="917"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Zq9-ad-IUv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyM-Bc-rFE">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="720"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uyM-Bc-rFE" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="-140" width="414" height="917"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="698-HO-Qd3">
                                                 <rect key="frame" x="0.0" y="443" width="0.0" height="41"/>
@@ -359,7 +359,7 @@
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Los Angelas, CA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AMf-Kc-H1W">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Los Angeles, CA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AMf-Kc-H1W">
                                                 <rect key="frame" x="173" y="95" width="196" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -426,17 +426,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAS-DB-a3o">
-                                                <rect key="frame" x="154" y="665" width="111" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Add">
-                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addButtonPressed" destination="o5o-P7-XDR" eventType="touchUpInside" id="ueL-Up-BKf"/>
-                                                </connections>
-                                            </button>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mexican Food:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="COF-hZ-5Ud">
                                                 <rect key="frame" x="225" y="38" width="144" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -444,26 +433,22 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TYPE OF CUISINE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDI-Ra-hPo">
-                                                <rect key="frame" x="8" y="41" width="203" height="29"/>
+                                                <rect key="frame" x="8" y="41" width="119" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="720" id="FPY-Xa-mtb"/>
-                                            <constraint firstItem="698-HO-Qd3" firstAttribute="leading" secondItem="uyM-Bc-rFE" secondAttribute="leading" id="OEL-a8-XDe"/>
-                                        </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.1764705882" green="0.56862745100000001" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="uyM-Bc-rFE" firstAttribute="leading" secondItem="Tx2-LJ-SLg" secondAttribute="leading" id="KDj-kN-REn"/>
-                                    <constraint firstAttribute="bottom" secondItem="uyM-Bc-rFE" secondAttribute="bottom" id="MsZ-c1-kdN"/>
-                                    <constraint firstItem="uyM-Bc-rFE" firstAttribute="top" secondItem="Zq9-ad-IUv" secondAttribute="top" id="e2L-Sa-o4p"/>
-                                    <constraint firstAttribute="trailing" secondItem="uyM-Bc-rFE" secondAttribute="trailing" id="jbe-br-gmh"/>
-                                    <constraint firstItem="uyM-Bc-rFE" firstAttribute="trailing" secondItem="Tx2-LJ-SLg" secondAttribute="trailing" id="m1G-tb-bf3"/>
+                                    <constraint firstItem="uyM-Bc-rFE" firstAttribute="leading" secondItem="Zq9-ad-IUv" secondAttribute="leading" id="2R4-L9-AUK"/>
+                                    <constraint firstAttribute="trailing" secondItem="uyM-Bc-rFE" secondAttribute="trailing" id="2Rh-T8-lSh"/>
+                                    <constraint firstItem="uyM-Bc-rFE" firstAttribute="top" secondItem="Zq9-ad-IUv" secondAttribute="top" id="KUU-Be-LI9"/>
+                                    <constraint firstAttribute="bottom" secondItem="uyM-Bc-rFE" secondAttribute="bottom" id="fPS-x2-Y40"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="j0w-ak-Xjt"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Tx2-LJ-SLg"/>
@@ -471,17 +456,19 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Zq9-ad-IUv" firstAttribute="trailing" secondItem="Loa-kd-6C6" secondAttribute="trailing" id="7eD-S7-EWY"/>
-                            <constraint firstItem="Zq9-ad-IUv" firstAttribute="top" secondItem="qvw-VP-a8h" secondAttribute="top" id="9RV-8S-ENU"/>
-                            <constraint firstItem="Zq9-ad-IUv" firstAttribute="bottom" secondItem="Loa-kd-6C6" secondAttribute="bottom" id="V0i-Zl-IYB"/>
-                            <constraint firstItem="Zq9-ad-IUv" firstAttribute="leading" secondItem="Loa-kd-6C6" secondAttribute="leading" id="emr-kk-8OQ"/>
+                            <constraint firstItem="Loa-kd-6C6" firstAttribute="trailing" secondItem="Zq9-ad-IUv" secondAttribute="trailing" id="gfw-Yc-bY9"/>
+                            <constraint firstItem="Loa-kd-6C6" firstAttribute="bottom" secondItem="Zq9-ad-IUv" secondAttribute="bottom" id="nTz-yg-YGE"/>
+                            <constraint firstItem="Zq9-ad-IUv" firstAttribute="leading" secondItem="Loa-kd-6C6" secondAttribute="leading" id="nmZ-og-d6d"/>
+                            <constraint firstItem="Loa-kd-6C6" firstAttribute="top" secondItem="Zq9-ad-IUv" secondAttribute="top" id="sXs-ms-HwU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Loa-kd-6C6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add a Restaurant" id="y3I-kY-flT"/>
+                    <navigationItem key="navigationItem" title="Add a Restaurant" id="y3I-kY-flT">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RYx-IQ-EjT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="guA-Ku-fap"/>
+                    </navigationItem>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
-                        <outlet property="addButton" destination="tAS-DB-a3o" id="sN1-AQ-OXi"/>
                         <outlet property="cuisineTF" destination="COF-hZ-5Ud" id="toN-9A-g8x"/>
                         <outlet property="locationTF" destination="AMf-Kc-H1W" id="3Pt-6w-Wyf"/>
                         <outlet property="nameTF" destination="NdL-nU-kQL" id="Ely-bf-Wft"/>
