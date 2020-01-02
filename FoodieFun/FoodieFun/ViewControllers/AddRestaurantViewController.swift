@@ -21,12 +21,12 @@ class AddRestaurantViewController: UIViewController {
         hideKeyBoard()
     }
     
-    func addButtonViewDidLoad() {
-        addButton.layer.cornerCurve = .continuous
-        addButton.layer.cornerRadius = 8
-        addButton.layer.borderColor = UIColor.black.cgColor
-        addButton.layer.borderWidth = 1
-    }
+//    func addButtonViewDidLoad() {
+//        addButton.layer.cornerCurve = .continuous
+//        addButton.layer.cornerRadius = 8
+//        addButton.layer.borderColor = UIColor.black.cgColor
+//        addButton.layer.borderWidth = 1
+//    }
     
     func giveTextViewaBorder() {
         review.layer.cornerCurve = .continuous
@@ -54,7 +54,7 @@ class AddRestaurantViewController: UIViewController {
         giveTextViewaBorder()
         addObservers()
         textFieldDelegates()
-        addButtonViewDidLoad()
+//        addButtonViewDidLoad()
         // Do any additional setup after loading the view.
     }
     
@@ -63,14 +63,10 @@ class AddRestaurantViewController: UIViewController {
             return
         }
         
-        let keyboardRectInScrollView = view.convert(keyboardRect, from: nil)
-        
-        let screenIntersection = view.bounds.height - keyboardRectInScrollView.origin.y
-        
+        let navbarHeight = (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) + ( self.navigationController?.navigationBar.frame.height ?? 0.0)
         var scrollViewInsets = scrollView.contentInset
-        
-        scrollViewInsets.bottom = screenIntersection
-        
+        scrollViewInsets.bottom = keyboardRect.height - navbarHeight
+
         scrollView.contentInset = scrollViewInsets
         scrollView.scrollIndicatorInsets = scrollViewInsets
     }
@@ -94,7 +90,9 @@ class AddRestaurantViewController: UIViewController {
         
         return true
         }
-    }
+}
+
+
 extension AddRestaurantViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
