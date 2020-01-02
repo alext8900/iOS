@@ -44,6 +44,7 @@ class AddRestaurantViewController: UIViewController {
     }
     
     func textFieldDelegates() {
+        cuisineTF.delegate = self
         locationTF.delegate = self
         nameTF.delegate = self
     }
