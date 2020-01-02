@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F4DF3C423ABFA9C00F48534 /* InitialLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4DF3C323ABFA9C00F48534 /* InitialLoginViewController.swift */; };
 		1F83020B23AE8FE000F1F799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020A23AE8FE000F1F799 /* User.swift */; };
 		1F83020D23AE90AB00F1F799 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020C23AE90AB00F1F799 /* Bearer.swift */; };
 		1F83020F23AE90F400F1F799 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020E23AE90F400F1F799 /* Restaurant.swift */; };
@@ -32,7 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F4DF3C323ABFA9C00F48534 /* InitialLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLoginViewController.swift; sourceTree = "<group>"; };
 		1F83020A23AE8FE000F1F799 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1F83020C23AE90AB00F1F799 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		1F83020E23AE90F400F1F799 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 		1F83021623AEA10400F1F799 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1F4DF3C323ABFA9C00F48534 /* InitialLoginViewController.swift */,
 				1F83021423AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift */,
 				E375C37A23B3F0DD00EA25FD /* DashboardCollectionViewController.swift */,
 				E375C37C23B3F0FA00EA25FD /* AddRestaurantViewController.swift */,
@@ -236,7 +233,6 @@
 				E34D3CAB23BA96C600467442 /* LoginViewController.swift in Sources */,
 				E375C36F23B0A64300EA25FD /* Request.swift in Sources */,
 				1F848DC823AB2DF300A8259C /* SceneDelegate.swift in Sources */,
-				1F4DF3C423ABFA9C00F48534 /* InitialLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
