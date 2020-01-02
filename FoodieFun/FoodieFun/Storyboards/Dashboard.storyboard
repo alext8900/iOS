@@ -487,7 +487,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
                                                         <state key="normal" title="Upload a Photo"/>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fried chicken" translatesAutoresizingMaskIntoConstraints="NO" id="OOD-8e-XfP">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="OOD-8e-XfP">
                                                         <rect key="frame" x="0.0" y="38.000000000000014" width="374" height="210.33333333333337"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="OOD-8e-XfP" secondAttribute="height" multiplier="16:9" id="aYn-Ed-dWU"/>
@@ -500,7 +500,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Ql7-pX-XNz" firstAttribute="top" secondItem="Wmk-13-oKL" secondAttribute="bottom" constant="20" id="0jN-0C-fzr"/>
                                             <constraint firstAttribute="trailing" secondItem="LbW-0v-zML" secondAttribute="trailing" constant="20" id="1fM-rG-b05"/>
@@ -527,7 +527,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.1764705882" green="0.56862745100000001" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="uyM-Bc-rFE" firstAttribute="leading" secondItem="Zq9-ad-IUv" secondAttribute="leading" id="K2j-oL-uTL"/>
                                     <constraint firstItem="uyM-Bc-rFE" firstAttribute="height" secondItem="Zq9-ad-IUv" secondAttribute="height" priority="250" id="Pk6-6S-5Nd"/>
@@ -576,6 +576,7 @@
         <image name="gear" catalog="system" width="64" height="58"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
+        <image name="placeholder" width="800" height="600"/>
         <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>

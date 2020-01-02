@@ -17,6 +17,15 @@ class AddRestaurantViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var cuisineTF: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        giveTextViewaBorder()
+        addObservers()
+        textFieldDelegates()
+//        addButtonViewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    
     @IBAction func addButtonPressed() {
         hideKeyBoard()
     }
@@ -30,8 +39,8 @@ class AddRestaurantViewController: UIViewController {
     
     func giveTextViewaBorder() {
         review.layer.cornerCurve = .continuous
-        review.layer.cornerRadius = 12
-        review.layer.borderColor = UIColor.black.cgColor
+        review.layer.cornerRadius = 8
+        review.layer.borderColor = UIColor.gray.cgColor
         review.layer.borderWidth = 0.5
     }
     
@@ -48,22 +57,13 @@ class AddRestaurantViewController: UIViewController {
         locationTF.delegate = self
         nameTF.delegate = self
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        giveTextViewaBorder()
-        addObservers()
-        textFieldDelegates()
-//        addButtonViewDidLoad()
-        // Do any additional setup after loading the view.
-    }
     
     @objc func keyboardWillChange(notification: Notification) {
-        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-            return
-        }
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
+        // calculate the height of the status bar and the navigation bar
         let navbarHeight = (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) + ( self.navigationController?.navigationBar.frame.height ?? 0.0)
+        
         var scrollViewInsets = scrollView.contentInset
         scrollViewInsets.bottom = keyboardRect.height - navbarHeight
 
@@ -72,10 +72,10 @@ class AddRestaurantViewController: UIViewController {
     }
     
     func hideKeyBoard() {
-//        locationTF.resignFirstResponder()
-//        nameTF.resignFirstResponder()
-//        review.resignFirstResponder()
-//        cuisineTF.resignFirstResponder()
+        locationTF.resignFirstResponder()
+        nameTF.resignFirstResponder()
+        review.resignFirstResponder()
+        cuisineTF.resignFirstResponder()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
@@ -89,9 +89,18 @@ class AddRestaurantViewController: UIViewController {
         guard var locationString = locationTF.text else { return false }
         
         return true
-        }
-}
+    }
+    
+    /*
+    // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+}
 
 extension AddRestaurantViewController: UITextFieldDelegate {
     
@@ -106,16 +115,5 @@ extension AddRestaurantViewController: UITextFieldDelegate {
         scrollView.scrollRectToVisible(textFieldFrame, animated: true)
     }
 }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 
