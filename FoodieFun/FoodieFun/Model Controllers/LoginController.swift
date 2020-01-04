@@ -14,7 +14,7 @@ class LoginController {
     typealias CompletionHandler = (Error?) -> Void
     
     private let baseURL = URL(string: "https://bw-foodiefun.herokuapp.com/api")!
-    var token: String?
+    var token: Token?
     
     func login(with loginData: LoginRequest, completion: @escaping CompletionHandler = { _ in}) {
         let requestURL = baseURL.appendingPathComponent("/users/login")
@@ -45,7 +45,7 @@ class LoginController {
             
             do {
                 let user = try decoder.decode(User.self, from: data)
-                self.token = user.token
+                self.token = Token(id: Int(user.id), token: user.token ?? "")
             } catch {
                 print("Error decoding token: \(error)")
                 completion(error)

@@ -30,13 +30,6 @@ class AddRestaurantViewController: UIViewController {
         hideKeyBoard()
     }
     
-//    func addButtonViewDidLoad() {
-//        addButton.layer.cornerCurve = .continuous
-//        addButton.layer.cornerRadius = 8
-//        addButton.layer.borderColor = UIColor.black.cgColor
-//        addButton.layer.borderWidth = 1
-//    }
-    
     
     func giveTextViewaBorder() {
         review.layer.cornerCurve = .continuous

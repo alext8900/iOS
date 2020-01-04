@@ -1,5 +1,5 @@
 //
-//  Bearer.swift
+//  Token.swift
 //  FoodieFun
 //
 //  Created by Alex Thompson on 12/21/19.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-struct Bearer: Codable {
+struct Token: Codable {
+    let id: Int
     let token: String
 }
