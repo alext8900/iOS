@@ -17,6 +17,7 @@
 		1F848DCD23AB2DF300A8259C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F848DCB23AB2DF300A8259C /* Main.storyboard */; };
 		1F848DCF23AB2DF500A8259C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F848DCE23AB2DF500A8259C /* Assets.xcassets */; };
 		1F848DD223AB2DF500A8259C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F848DD023AB2DF500A8259C /* LaunchScreen.storyboard */; };
+		E309DE7F23C11EC00025AFF9 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE7E23C11EC00025AFF9 /* Review.swift */; };
 		E34D3CAB23BA96C600467442 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D3CAA23BA96C600467442 /* LoginViewController.swift */; };
 		E34D3CAD23BA9C4D00467442 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D3CAC23BA9C4D00467442 /* SignUpViewController.swift */; };
 		E375C36D23B0A53B00EA25FD /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375C36C23B0A53B00EA25FD /* SignUpController.swift */; };
@@ -43,6 +44,7 @@
 		1F848DCE23AB2DF500A8259C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F848DD123AB2DF500A8259C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F848DD323AB2DF500A8259C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E309DE7E23C11EC00025AFF9 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		E34D3CAA23BA96C600467442 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E34D3CAC23BA9C4D00467442 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E375C36C23B0A53B00EA25FD /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				1F83020E23AE90F400F1F799 /* Restaurant.swift */,
+				E309DE7E23C11EC00025AFF9 /* Review.swift */,
 				1F83020A23AE8FE000F1F799 /* User.swift */,
 				1F83020C23AE90AB00F1F799 /* Bearer.swift */,
 				E375C36E23B0A64300EA25FD /* Request.swift */,
@@ -228,6 +231,7 @@
 				E375C37123B0A71B00EA25FD /* APIClient.swift in Sources */,
 				E375C37F23B3F10800EA25FD /* SettingsViewController.swift in Sources */,
 				E375C37B23B3F0DD00EA25FD /* DashboardCollectionViewController.swift in Sources */,
+				E309DE7F23C11EC00025AFF9 /* Review.swift in Sources */,
 				1F83020F23AE90F400F1F799 /* Restaurant.swift in Sources */,
 				1F848DC623AB2DF300A8259C /* AppDelegate.swift in Sources */,
 				E34D3CAB23BA96C600467442 /* LoginViewController.swift in Sources */,
