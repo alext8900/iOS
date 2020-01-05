@@ -454,7 +454,7 @@
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLF-oQ-VdY">
+                                                    <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLF-oQ-VdY">
                                                         <rect key="frame" x="0.0" y="25" width="374" height="216"/>
                                                     </pickerView>
                                                 </subviews>

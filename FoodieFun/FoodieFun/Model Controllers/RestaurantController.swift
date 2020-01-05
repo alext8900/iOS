@@ -21,8 +21,8 @@ class RestaurantController {
                        at location: String,
                        from openTime: Int,
                        to closeTime: Int,
-                       for days: String = "7 days",
-                       withURL url: String,
+                       numberOfDays days: String = "7 days",
+                       withURL url: String = "www.lambdaschool.com",
                        completion: @escaping (Result<Restaurant, NetworkError>) -> Void)
     {
         let requestURL = baseURL.appendingPathComponent("/restaurants/")

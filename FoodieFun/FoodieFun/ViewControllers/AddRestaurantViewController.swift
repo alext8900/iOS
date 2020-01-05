@@ -21,7 +21,9 @@ class AddRestaurantViewController: UIViewController {
     @IBOutlet weak var ratingPV: UIPickerView!
     @IBOutlet weak var photoView: UIImageView!
     
+    private let restaurantController = RestaurantController()
     private var pickerData: [String] = [String]()
+    private var pickedRating: String = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +38,30 @@ class AddRestaurantViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed() {
-//        guard let name = self.nameTF.text, !name.isEmpty,
-//              let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
-//              let location = self.locationTF.text, !location.isEmpty,
-//            let openHour = self.openDP.date,
-//            let closeHour = self.closeDP.date,
-//            let
-//            else { return }
+        guard let name = self.nameTF.text, !name.isEmpty,
+              let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
+              let location = self.locationTF.text, !location.isEmpty else { return }
             
+        let openHour = self.openDP.date
+        let closeHour = self.closeDP.date
+        
+        let calendar = Calendar.current
+        let compOpen = calendar.dateComponents([.hour, .minute], from: openHour)
+        guard let openHourDP = compOpen.hour else { return }
+        guard let openMinuteDP = compOpen.minute else { return }
+        guard let from = Int(String(openHourDP) + String(openMinuteDP)) else { return }
+        
+        let compClose = calendar.dateComponents([.hour, .minute], from: closeHour)
+        guard let closeHourDP = compClose.hour else { return }
+        guard let closeMinuteDP = compClose.minute else { return }
+        guard let to = Int(String(closeHourDP) + String(closeMinuteDP)) else { return }
+        
+//        self.restaurantController.addRestaurant(withName: name,
+//                                                type: cuisine,
+//                                                at: location,
+//                                                from: from, to: to) { (data, error) in
+//                                                    <#code#>
+//        }
         
         hideKeyBoard()
         
@@ -156,7 +174,8 @@ extension AddRestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSou
     
     // Capture the picker view selection
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(row)
+        self.pickedRating = String(row + 1)
+        print(pickedRating)
     }
     
 }
