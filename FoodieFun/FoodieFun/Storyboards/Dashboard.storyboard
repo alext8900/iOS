@@ -53,6 +53,25 @@
             </objects>
             <point key="canvasLocation" x="709" y="616"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="KVN-Ir-za3">
+            <objects>
+                <viewController id="C0Z-uM-oJg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kNz-BC-nIw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="RkR-Hh-e55"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ofr-ZN-7V1"/>
+                    <connections>
+                        <segue destination="9fd-j4-47l" kind="show" id="rKA-Mc-vFG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="agL-5A-e6P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1468" y="-940"/>
+        </scene>
         <!--FoodieFun-->
         <scene sceneID="G6i-ZB-GTX">
             <objects>
@@ -78,10 +97,6 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fried chicken" translatesAutoresizingMaskIntoConstraints="NO" id="lwq-aE-zWJ" userLabel="Food">
                                             <rect key="frame" x="0.0" y="0.0" width="161" height="200"/>
                                         </imageView>
-                                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZF-bY-SSK" userLabel="Dark Overlay">
-                                            <rect key="frame" x="0.0" y="0.0" width="161" height="200"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bOh-zb-oQQ" userLabel="Labels">
                                             <rect key="frame" x="16" y="80" width="129" height="38.333333333333336"/>
                                             <subviews>
@@ -99,6 +114,10 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZF-bY-SSK" userLabel="Dark Overlay">
+                                            <rect key="frame" x="0.0" y="0.0" width="161" height="200"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="fZF-bY-SSK" secondAttribute="bottom" id="F8C-bf-Vhb"/>
@@ -128,7 +147,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKN-fI-kQf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1618.840579710145" y="-939.50892857142856"/>
+            <point key="canvasLocation" x="2226" y="-940"/>
         </scene>
         <!--Restaurant Name-->
         <scene sceneID="bEd-ns-Mjs">
@@ -271,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bij-da-tNa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2393" y="-940"/>
+            <point key="canvasLocation" x="2984" y="-940"/>
         </scene>
         <!--Add-->
         <scene sceneID="Axa-XW-hWQ">
@@ -288,7 +307,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGU-iE-ddH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="-272"/>
+            <point key="canvasLocation" x="709" y="-269"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hp2-ag-8RB">
@@ -322,7 +341,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9fd-j4-47l" kind="relationship" relationship="rootViewController" id="IP7-o1-EA0"/>
+                        <segue destination="C0Z-uM-oJg" kind="relationship" relationship="rootViewController" id="X9a-AZ-Ks9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eV-dg-AqR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
