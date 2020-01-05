@@ -417,6 +417,9 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="160" id="KXv-zQ-Xim"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="openHourChanged:" destination="o5o-P7-XDR" eventType="valueChanged" id="LYG-Mt-eNY"/>
+                                                                </connections>
                                                             </datePicker>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRX-c5-a4B">
                                                                 <rect key="frame" x="175.66666666666666" y="98" width="23" height="20.333333333333329"/>
@@ -429,6 +432,9 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="160" id="4iS-PG-aj6"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="closeHourChanged:" destination="o5o-P7-XDR" eventType="valueChanged" id="vvI-37-Z95"/>
+                                                                </connections>
                                                             </datePicker>
                                                         </subviews>
                                                     </stackView>
@@ -556,15 +562,19 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RYx-IQ-EjT"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="guA-Ku-fap">
                             <connections>
-                                <action selector="addButtonPressed" destination="o5o-P7-XDR" id="wfr-Fo-BQZ"/>
+                                <action selector="saveButtonPressed" destination="o5o-P7-XDR" id="32O-s2-2sR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1421"/>
                     <connections>
+                        <outlet property="closeDP" destination="CLH-fn-oVL" id="rOd-tY-rqs"/>
                         <outlet property="cuisineTF" destination="COF-hZ-5Ud" id="toN-9A-g8x"/>
                         <outlet property="locationTF" destination="vXF-tq-Xlb" id="5yi-wl-4o7"/>
                         <outlet property="nameTF" destination="COF-hZ-5Ud" id="iiM-Ow-uDf"/>
+                        <outlet property="openDP" destination="2qj-hg-tdM" id="VmN-Ax-5DD"/>
+                        <outlet property="photoView" destination="OOD-8e-XfP" id="pjw-mu-yyv"/>
+                        <outlet property="ratingPV" destination="tLF-oQ-VdY" id="BY4-uv-ULg"/>
                         <outlet property="review" destination="RdO-Ug-tEX" id="TmF-EJ-V1S"/>
                         <outlet property="scrollView" destination="Zq9-ad-IUv" id="X6K-Cb-c41"/>
                     </connections>

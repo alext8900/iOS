@@ -10,28 +10,56 @@ import UIKit
 
 class AddRestaurantViewController: UIViewController {
     
+    // MARK: - Outlets and Properties
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var locationTF: UITextField!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var review: UITextView!
-    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var cuisineTF: UITextField!
+    @IBOutlet weak var openDP: UIDatePicker!
+    @IBOutlet weak var closeDP: UIDatePicker!
+    @IBOutlet weak var ratingPV: UIPickerView!
+    @IBOutlet weak var photoView: UIImageView!
+    
+    private var pickerData: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         giveTextViewaBorder()
         addObservers()
         textFieldDelegates()
-//        addButtonViewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        self.ratingPV.delegate = self
+        self.ratingPV.dataSource = self
+        
+        pickerData = ["⭐️", "⭐️⭐️", "⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️⭐️"]
     }
     
-    @IBAction func addButtonPressed() {
+    @IBAction func saveButtonPressed() {
+//        guard let name = self.nameTF.text, !name.isEmpty,
+//              let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
+//              let location = self.locationTF.text, !location.isEmpty,
+//            let openHour = self.openDP.date,
+//            let closeHour = self.closeDP.date,
+//            let
+//            else { return }
+            
+        
         hideKeyBoard()
+        
+        
     }
     
+    @IBAction func openHourChanged(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.timeStyle = DateFormatter.Style.short
+    }
     
-    func giveTextViewaBorder() {
+    @IBAction func closeHourChanged(_ sender: Any) {
+    }
+    
+    private func giveTextViewaBorder() {
         review.layer.cornerCurve = .continuous
         review.layer.cornerRadius = 8
         review.layer.borderColor = UIColor.gray.cgColor
@@ -78,9 +106,9 @@ class AddRestaurantViewController: UIViewController {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        guard var reviewString = review.text else { return false }
-        guard var nameString = nameTF.text else { return false }
-        guard var locationString = locationTF.text else { return false }
+        guard let reviewString = review.text else { return false }
+        guard let nameString = nameTF.text else { return false }
+        guard let locationString = locationTF.text else { return false }
         
         return true
     }
@@ -110,4 +138,25 @@ extension AddRestaurantViewController: UITextFieldDelegate {
     }
 }
 
-
+extension AddRestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    // Number of columns of data
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    // Capture the picker view selection
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(row)
+    }
+    
+}
