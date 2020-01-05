@@ -14,25 +14,26 @@ class RestaurantController {
     
     private let baseURL = URL(string: "https://bw-foodiefun.herokuapp.com/api")!
     var restaurants: [Restaurant] = []
+    var reviews: [Review] = []
     var loginController = LoginController.shared
     
-    func addRestaurant(withName name: String,
-                       type cuisine: String,
-                       at location: String,
-                       from openTime: Int,
-                       to closeTime: Int,
-                       numberOfDays days: String = "7 days",
-                       withURL url: String = "www.lambdaschool.com",
+    func addRestaurant(name: String,
+                       cuisine: String,
+                       location: String,
+                       openTime: Int,
+                       closeTime: Int,
+                       days: String = "7 days",
+                       url: String = "www.lambdaschool.com",
                        completion: @escaping (Result<Restaurant, NetworkError>) -> Void)
     {
         let requestURL = baseURL.appendingPathComponent("/restaurants/")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(LoginController.shared.token?.token, forHTTPHeaderField: "Authorization")
+        request.setValue(loginController.token?.token, forHTTPHeaderField: "Authorization")
         
         // create a new restaurant internally
-        guard let userId = LoginController.shared.token?.id else { return }
+        guard let userId = loginController.token?.id else { return }
         let newRestaurantRequest = RestaurantRequest(name: name,
                                                      cuisine: cuisine,
                                                      location: location,
@@ -59,22 +60,20 @@ class RestaurantController {
             }
             
             if let _ = error {
-                completion(.failure(.otherError));
+                completion(.failure(.otherError))
                 return
             }
             
             guard let data = data else {
-                completion(.failure(.badData));
+                completion(.failure(.badData))
                 return
             }
             
             let decoder = JSONDecoder()
-            
             do {
                 let restaurant = try decoder.decode(Restaurant.self, from: data)
                 self.restaurants.append(restaurant)
                 completion(.success(restaurant))
-                
             } catch {
                 print("Error decoding restaurant after creating: \(error)")
                 completion(.failure(.noDecode))
@@ -83,5 +82,69 @@ class RestaurantController {
         }.resume()
     }
     
-    
+    func addReview(restaurantId: Int,
+                   cuisine: String,
+                   name: String,
+                   url: String = "www.lambdaschool.com",
+                   rating: Int,
+                   review: String,
+        completion: @escaping (Result<Review, NetworkError>) -> Void)
+    {
+        let requestURL = baseURL.appendingPathComponent("/items/")
+        var request = URLRequest(url: requestURL)
+        
+        guard let userId = loginController.token?.id else { return }
+        let stringUserId = String(userId)
+        
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(loginController.token?.token, forHTTPHeaderField: "Authorization")
+        request.setValue(stringUserId, forHTTPHeaderField: "user_id")
+        
+        // create a new review internally
+        let newReviewRequest = ReviewRequest(restaurant_id: restaurantId,
+                                      cuisine: cuisine,
+                                      name: name,
+                                      photo_url: url,
+                                      rating: rating,
+                                      review: review,
+                                      user_id: userId)
+        
+        let jsonEncoder = JSONEncoder()
+        do {
+            let jsonData = try jsonEncoder.encode(newReviewRequest)
+            request.httpBody = jsonData
+        } catch {
+            print("Error encoding review object: \(error.localizedDescription)")
+            completion(.failure(.otherError))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 201 {
+                completion(.failure(.badAuth))
+            }
+            
+            if let _ = error {
+                completion(.failure(.otherError))
+            }
+            
+            guard let data = data else {
+                completion(.failure(.badData))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let review = try decoder.decode(Review.self, from: data)
+                self.reviews.append(review)
+                completion(.success(review))
+            } catch {
+                print("Error decoding review after creating: \(error)")
+                completion(.failure(.noDecode))
+                return
+            }
+        }.resume()
+    }
 }

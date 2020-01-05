@@ -40,34 +40,57 @@ class AddRestaurantViewController: UIViewController {
     @IBAction func saveButtonPressed() {
         guard let name = self.nameTF.text, !name.isEmpty,
               let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
-              let location = self.locationTF.text, !location.isEmpty else { return }
-            
-        let openHour = self.openDP.date
-        let closeHour = self.closeDP.date
+              let location = self.locationTF.text, !location.isEmpty,
+              let review = self.review.text, !review.isEmpty,
+              let openHour = self.getTime(hour: self.openDP.date),
+              let closeHour = self.getTime(hour: self.closeDP.date) else { return }
         
-        let calendar = Calendar.current
-        let compOpen = calendar.dateComponents([.hour, .minute], from: openHour)
-        guard let openHourDP = compOpen.hour else { return }
-        guard let openMinuteDP = compOpen.minute else { return }
-        guard let from = Int(String(openHourDP) + String(openMinuteDP)) else { return }
-        
-        let compClose = calendar.dateComponents([.hour, .minute], from: closeHour)
-        guard let closeHourDP = compClose.hour else { return }
-        guard let closeMinuteDP = compClose.minute else { return }
-        guard let to = Int(String(closeHourDP) + String(closeMinuteDP)) else { return }
-        
-//        self.restaurantController.addRestaurant(withName: name,
-//                                                type: cuisine,
-//                                                at: location,
-//                                                from: from, to: to) { (data, error) in
-//                                                    <#code#>
-//        }
-        
+        self.restaurantController.addRestaurant(name: name,
+                                                cuisine: cuisine,
+                                                location: location,
+                                                openTime: openHour,
+                                                closeTime: closeHour) { (result) in
+                                                    switch result {
+                                                    case .failure(let error):
+                                                        print(error)
+                                                    case .success(let restaurant):
+                                                        self.createReview(restaurant: restaurant, review: review)
+                                                    }
+        }
         hideKeyBoard()
-        
-        
     }
     
+    private func getTime(hour: Date) -> Int? {
+        let calendar = Calendar.current
+        let component = calendar.dateComponents([.hour, .minute], from: hour)
+        guard let timeHourInt = component.hour else { return nil }
+        guard let timeMinuteInt = component.minute else { return nil }
+        
+        // change to String first in order to combine hour and minute as one unit of Int for the backend purpose
+        guard let militaryTime = Int(String(timeHourInt) + String(timeMinuteInt)) else { return nil }
+        return militaryTime
+    }
+    
+    // getting second request for review after creating a new restaurant
+    private func createReview(restaurant: Restaurant, review: String) {
+        if let restaurantIdInt = Int(restaurant.id) {
+            guard let pickedRatingInt = Int(self.pickedRating) else { return }
+            // create a review
+            self.restaurantController.addReview(restaurantId: restaurantIdInt,
+                                                cuisine: restaurant.cuisine,
+                                                name: restaurant.name,
+                                                rating: pickedRatingInt,
+                                                review: review) { (result) in
+                                                    switch result {
+                                                    case .failure(let error):
+                                                        print(error)
+                                                    case .success(let review):
+                                                        print(review)
+                                                    }
+            }
+        }
+    }
+
     @IBAction func openHourChanged(_ sender: Any) {
         let dateFormatter = DateFormatter()
         
