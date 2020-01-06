@@ -43,7 +43,12 @@ class AddRestaurantViewController: UIViewController {
               let location = self.locationTF.text, !location.isEmpty,
               let review = self.review.text, !review.isEmpty,
               let openHour = self.getTime(hour: self.openDP.date),
-              let closeHour = self.getTime(hour: self.closeDP.date) else { return }
+              let closeHour = self.getTime(hour: self.closeDP.date) else {
+                let alert = UIAlertController(title: "Missing some fields", message: "Check your information and try again.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+        }
         
         self.restaurantController.addRestaurant(name: name,
                                                 cuisine: cuisine,
@@ -73,22 +78,21 @@ class AddRestaurantViewController: UIViewController {
     
     // getting second request for review after creating a new restaurant
     private func createReview(restaurant: Restaurant, review: String) {
-        if let restaurantIdInt = Int(restaurant.id) {
-            guard let pickedRatingInt = Int(self.pickedRating) else { return }
-            // create a review
-            self.restaurantController.addReview(restaurantId: restaurantIdInt,
-                                                cuisine: restaurant.cuisine,
-                                                name: restaurant.name,
-                                                rating: pickedRatingInt,
-                                                review: review) { (result) in
-                                                    switch result {
-                                                    case .failure(let error):
-                                                        print(error)
-                                                    case .success(let review):
-                                                        print(review)
-                                                    }
-            }
+        guard let pickedRatingInt = Int(self.pickedRating) else { return }
+        // create a review
+        self.restaurantController.addReview(restaurantId: restaurant.id,
+                                            cuisine: restaurant.cuisine,
+                                            name: restaurant.name,
+                                            rating: pickedRatingInt,
+                                            review: review) { (result) in
+                                                switch result {
+                                                case .failure(let error):
+                                                    print(error)
+                                                case .success(let review):
+                                                    print(review)
+                                                }
         }
+        
     }
 
     @IBAction func openHourChanged(_ sender: Any) {
@@ -109,9 +113,7 @@ class AddRestaurantViewController: UIViewController {
     
     func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     

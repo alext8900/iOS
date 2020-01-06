@@ -28,12 +28,16 @@ class RestaurantController {
     {
         let requestURL = baseURL.appendingPathComponent("/restaurants/")
         var request = URLRequest(url: requestURL)
+        
+        guard let userId = loginController.token?.id else { return }
+        let stringUserId = String(userId)
+        
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(loginController.token?.token, forHTTPHeaderField: "Authorization")
+        request.setValue(stringUserId, forHTTPHeaderField: "user_id")
         
         // create a new restaurant internally
-        guard let userId = loginController.token?.id else { return }
         let newRestaurantRequest = RestaurantRequest(name: name,
                                                      cuisine: cuisine,
                                                      location: location,
@@ -71,7 +75,7 @@ class RestaurantController {
             
             let decoder = JSONDecoder()
             do {
-                let restaurant = try decoder.decode(Restaurant.self, from: data)
+                guard let restaurant = try decoder.decode([Restaurant].self, from: data).first else { return }
                 self.restaurants.append(restaurant)
                 completion(.success(restaurant))
             } catch {
