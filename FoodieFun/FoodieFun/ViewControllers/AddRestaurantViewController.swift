@@ -135,6 +135,24 @@ class AddRestaurantViewController: UIViewController {
         scrollView.scrollIndicatorInsets = scrollViewInsets
     }
     
+    func hideKeyBoard() {
+        locationTF.resignFirstResponder()
+        nameTF.resignFirstResponder()
+        review.resignFirstResponder()
+        cuisineTF.resignFirstResponder()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard var reviewString = review.text else { return false }
+        guard var nameString = nameTF.text else { return false }
+        guard var locationString = locationTF.text else { return false }
+        
+        return true
+    }
     /*
     // MARK: - Navigation
 
