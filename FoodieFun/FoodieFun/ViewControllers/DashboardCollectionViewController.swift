@@ -18,13 +18,7 @@ class DashboardCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData), name: .restaurantDidSaveNotification, object: nil)
         
     }
     
@@ -41,6 +35,20 @@ class DashboardCollectionViewController: UICollectionViewController {
             }
         }
     }
+    
+    @objc func onDidReceiveData(_ notification: Notification) {
+       if loginController.token?.token != nil {
+           restaurantController.fetchAllRestaurants { (result) in
+               if let createdRestaurants = try? result.get() {
+                   DispatchQueue.main.async {
+                       self.restaurantController.restaurants = createdRestaurants
+                       self.collectionView.reloadData()
+                   }
+               }
+           }
+       }
+    }
+    
 
     // MARK: - Navigation
 
@@ -113,3 +121,6 @@ extension DashboardCollectionViewController: UICollectionViewDelegateFlowLayout 
         return CGSize(width: width, height: 1.2 * width)
     }
 }
+
+
+

@@ -58,9 +58,10 @@ class AddRestaurantViewController: UIViewController {
                                                         print(error)
                                                     case .success(let restaurant):
                                                         self.createReview(restaurant: restaurant, review: review)
+                                                        NotificationCenter.default.post(name: .restaurantDidSaveNotification, object: self)
                                                         DispatchQueue.main.async {
                                                             self.dismiss(animated: true, completion: nil)
-                                                        }  
+                                                        }
                                                     }
         }
     }
@@ -190,3 +191,5 @@ extension AddRestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
 }
+
+
