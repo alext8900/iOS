@@ -14,6 +14,8 @@ class DashboardCollectionViewController: UICollectionViewController {
     
     let loginController = LoginController.shared
     let restaurantController = RestaurantController()
+    
+    // Telling search controller for using the same view to display the results by using nil value
 
     override func viewDidLoad() {
         super.viewDidLoad()
