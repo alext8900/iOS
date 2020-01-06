@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F83020B23AE8FE000F1F799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020A23AE8FE000F1F799 /* User.swift */; };
-		1F83020D23AE90AB00F1F799 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020C23AE90AB00F1F799 /* Bearer.swift */; };
+		1F83020D23AE90AB00F1F799 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020C23AE90AB00F1F799 /* Token.swift */; };
 		1F83020F23AE90F400F1F799 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020E23AE90F400F1F799 /* Restaurant.swift */; };
 		1F83021323AE9F4600F1F799 /* FoodieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83021223AE9F4600F1F799 /* FoodieController.swift */; };
 		1F83021523AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83021423AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift */; };
@@ -18,6 +18,7 @@
 		1F848DCF23AB2DF500A8259C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F848DCE23AB2DF500A8259C /* Assets.xcassets */; };
 		1F848DD223AB2DF500A8259C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F848DD023AB2DF500A8259C /* LaunchScreen.storyboard */; };
 		E309DE7F23C11EC00025AFF9 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE7E23C11EC00025AFF9 /* Review.swift */; };
+		E309DE8123C125E70025AFF9 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE8023C125E70025AFF9 /* RestaurantController.swift */; };
 		E34D3CAB23BA96C600467442 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D3CAA23BA96C600467442 /* LoginViewController.swift */; };
 		E34D3CAD23BA9C4D00467442 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D3CAC23BA9C4D00467442 /* SignUpViewController.swift */; };
 		E375C36D23B0A53B00EA25FD /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375C36C23B0A53B00EA25FD /* SignUpController.swift */; };
@@ -33,7 +34,7 @@
 
 /* Begin PBXFileReference section */
 		1F83020A23AE8FE000F1F799 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		1F83020C23AE90AB00F1F799 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		1F83020C23AE90AB00F1F799 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		1F83020E23AE90F400F1F799 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		1F83021223AE9F4600F1F799 /* FoodieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieController.swift; sourceTree = "<group>"; };
 		1F83021423AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateNearbyRestaurauntsViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		1F848DD123AB2DF500A8259C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F848DD323AB2DF500A8259C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E309DE7E23C11EC00025AFF9 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		E309DE8023C125E70025AFF9 /* RestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
 		E34D3CAA23BA96C600467442 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E34D3CAC23BA9C4D00467442 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E375C36C23B0A53B00EA25FD /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -75,7 +77,7 @@
 				1F83020E23AE90F400F1F799 /* Restaurant.swift */,
 				E309DE7E23C11EC00025AFF9 /* Review.swift */,
 				1F83020A23AE8FE000F1F799 /* User.swift */,
-				1F83020C23AE90AB00F1F799 /* Bearer.swift */,
+				1F83020C23AE90AB00F1F799 /* Token.swift */,
 				E375C36E23B0A64300EA25FD /* Request.swift */,
 			);
 			path = Models;
@@ -141,6 +143,7 @@
 			children = (
 				1F83021223AE9F4600F1F799 /* FoodieController.swift */,
 				E375C36C23B0A53B00EA25FD /* SignUpController.swift */,
+				E309DE8023C125E70025AFF9 /* RestaurantController.swift */,
 				E375C37023B0A71B00EA25FD /* APIClient.swift */,
 				E375C37223B0AB9800EA25FD /* LoginController.swift */,
 			);
@@ -220,7 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F83020D23AE90AB00F1F799 /* Bearer.swift in Sources */,
+				1F83020D23AE90AB00F1F799 /* Token.swift in Sources */,
 				E375C37323B0AB9800EA25FD /* LoginController.swift in Sources */,
 				1F83020B23AE8FE000F1F799 /* User.swift in Sources */,
 				E375C36D23B0A53B00EA25FD /* SignUpController.swift in Sources */,
@@ -228,6 +231,7 @@
 				E34D3CAD23BA9C4D00467442 /* SignUpViewController.swift in Sources */,
 				E375C37D23B3F0FA00EA25FD /* AddRestaurantViewController.swift in Sources */,
 				1F83021323AE9F4600F1F799 /* FoodieController.swift in Sources */,
+				E309DE8123C125E70025AFF9 /* RestaurantController.swift in Sources */,
 				E375C37123B0A71B00EA25FD /* APIClient.swift in Sources */,
 				E375C37F23B3F10800EA25FD /* SettingsViewController.swift in Sources */,
 				E375C37B23B3F0DD00EA25FD /* DashboardCollectionViewController.swift in Sources */,

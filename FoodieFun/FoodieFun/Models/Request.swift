@@ -38,5 +38,5 @@ struct ReviewRequest: Equatable, Codable {
     let photo_url: String
     let rating: Int
     let review: String
-    let user_id: String
+    let user_id: Int
 }
