@@ -155,10 +155,10 @@
 		E375C36A23B0A3B800EA25FD /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				E375C37823B3EF4500EA25FD /* Dashboard.storyboard */,
 				1F848DD023AB2DF500A8259C /* LaunchScreen.storyboard */,
 				1F848DCB23AB2DF300A8259C /* Main.storyboard */,
 				E375C37423B3826700EA25FD /* SignUp.storyboard */,
-				E375C37823B3EF4500EA25FD /* Dashboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
