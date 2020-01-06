@@ -139,12 +139,11 @@ class AddRestaurantViewController: UIViewController {
         scrollView.contentInset = scrollViewInsets
         scrollView.scrollIndicatorInsets = scrollViewInsets
     }
-    
+
     @objc func keyboardWillHide(notification: Notification) {
         scrollView.contentInset = .zero
         scrollView.scrollIndicatorInsets = .zero
     }
-    
     
     /*
     // MARK: - Navigation

@@ -16,6 +16,9 @@ class DashboardCollectionViewController: UICollectionViewController {
     let restaurantController = RestaurantController()
     
     // Telling search controller for using the same view to display the results by using nil value
+    @IBOutlet weak var searchFooter: SearchFooter!
+    @IBOutlet weak var searchFooterBottomConstraint: NSLayoutConstraint!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
