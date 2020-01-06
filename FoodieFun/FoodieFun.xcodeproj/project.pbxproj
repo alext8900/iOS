@@ -21,6 +21,9 @@
 		1F848DD223AB2DF500A8259C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F848DD023AB2DF500A8259C /* LaunchScreen.storyboard */; };
 		E309DE7F23C11EC00025AFF9 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE7E23C11EC00025AFF9 /* Review.swift */; };
 		E309DE8123C125E70025AFF9 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE8023C125E70025AFF9 /* RestaurantController.swift */; };
+		E309DE8623C300E70025AFF9 /* RestaurantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE8523C300E70025AFF9 /* RestaurantCollectionViewCell.swift */; };
+		E309DE8823C31D080025AFF9 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE8723C31D080025AFF9 /* CustomTabBarViewController.swift */; };
+		E309DE8B23C3C4710025AFF9 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE8A23C3C4700025AFF9 /* Notifications.swift */; };
 		E34D3CAB23BA96C600467442 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D3CAA23BA96C600467442 /* LoginViewController.swift */; };
 		E34D3CAD23BA9C4D00467442 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D3CAC23BA9C4D00467442 /* SignUpViewController.swift */; };
 		E375C36D23B0A53B00EA25FD /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375C36C23B0A53B00EA25FD /* SignUpController.swift */; };
@@ -51,6 +54,9 @@
 		1F848DD323AB2DF500A8259C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E309DE7E23C11EC00025AFF9 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		E309DE8023C125E70025AFF9 /* RestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
+		E309DE8523C300E70025AFF9 /* RestaurantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCollectionViewCell.swift; sourceTree = "<group>"; };
+		E309DE8723C31D080025AFF9 /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
+		E309DE8A23C3C4700025AFF9 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		E34D3CAA23BA96C600467442 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E34D3CAC23BA9C4D00467442 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E375C36C23B0A53B00EA25FD /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 				E375C37E23B3F10800EA25FD /* SettingsViewController.swift */,
 				E34D3CAA23BA96C600467442 /* LoginViewController.swift */,
 				E34D3CAC23BA9C4D00467442 /* SignUpViewController.swift */,
+				E309DE8723C31D080025AFF9 /* CustomTabBarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -123,8 +130,10 @@
 			children = (
 				1F83021123AE986200F1F799 /* Models */,
 				E375C36B23B0A3E700EA25FD /* Model Controllers */,
-				E375C36A23B0A3B800EA25FD /* Storyboards */,
 				1F83021623AEA10400F1F799 /* ViewControllers */,
+				E309DE8423C300C40025AFF9 /* Views */,
+				E375C36A23B0A3B800EA25FD /* Storyboards */,
+				E309DE8923C3C4580025AFF9 /* Extensions */,
 				1F848DC523AB2DF300A8259C /* AppDelegate.swift */,
 				1F848DC723AB2DF300A8259C /* SceneDelegate.swift */,
 				1F848DCE23AB2DF500A8259C /* Assets.xcassets */,
@@ -133,13 +142,29 @@
 			path = FoodieFun;
 			sourceTree = "<group>";
 		};
+		E309DE8423C300C40025AFF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E309DE8523C300E70025AFF9 /* RestaurantCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E309DE8923C3C4580025AFF9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E309DE8A23C3C4700025AFF9 /* Notifications.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E375C36A23B0A3B800EA25FD /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				E375C37823B3EF4500EA25FD /* Dashboard.storyboard */,
 				1F848DD023AB2DF500A8259C /* LaunchScreen.storyboard */,
 				1F848DCB23AB2DF300A8259C /* Main.storyboard */,
 				E375C37423B3826700EA25FD /* SignUp.storyboard */,
-				E375C37823B3EF4500EA25FD /* Dashboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -237,6 +262,7 @@
 				E375C36D23B0A53B00EA25FD /* SignUpController.swift in Sources */,
 				1F83021523AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift in Sources */,
 				E34D3CAD23BA9C4D00467442 /* SignUpViewController.swift in Sources */,
+				E309DE8823C31D080025AFF9 /* CustomTabBarViewController.swift in Sources */,
 				E375C37D23B3F0FA00EA25FD /* AddRestaurantViewController.swift in Sources */,
 				1F83021323AE9F4600F1F799 /* FoodieController.swift in Sources */,
 				E309DE8123C125E70025AFF9 /* RestaurantController.swift in Sources */,
@@ -244,6 +270,8 @@
 				E375C37F23B3F10800EA25FD /* SettingsViewController.swift in Sources */,
 				E375C37B23B3F0DD00EA25FD /* DashboardCollectionViewController.swift in Sources */,
 				E309DE7F23C11EC00025AFF9 /* Review.swift in Sources */,
+				E309DE8623C300E70025AFF9 /* RestaurantCollectionViewCell.swift in Sources */,
+				E309DE8B23C3C4710025AFF9 /* Notifications.swift in Sources */,
 				1F83020F23AE90F400F1F799 /* Restaurant.swift in Sources */,
 				1F848DC623AB2DF300A8259C /* AppDelegate.swift in Sources */,
 				E34D3CAB23BA96C600467442 /* LoginViewController.swift in Sources */,

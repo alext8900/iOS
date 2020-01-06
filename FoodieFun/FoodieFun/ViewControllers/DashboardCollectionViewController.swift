@@ -8,10 +8,14 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "RestaurantCell"
 
 class DashboardCollectionViewController: UICollectionViewController {
     
+    let loginController = LoginController.shared
+    let restaurantController = RestaurantController()
+    
+    // Telling search controller for using the same view to display the results by using nil value
     @IBOutlet weak var searchFooter: SearchFooter!
     @IBOutlet weak var searchFooterBottomConstraint: NSLayoutConstraint!
     
@@ -19,16 +23,38 @@ class DashboardCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData), name: .restaurantDidSaveNotification, object: nil)
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if loginController.token?.token != nil {
+            restaurantController.fetchAllRestaurants { (result) in
+                if let createdRestaurants = try? result.get() {
+                    DispatchQueue.main.async {
+                        self.restaurantController.restaurants = createdRestaurants
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc func onDidReceiveData(_ notification: Notification) {
+       if loginController.token?.token != nil {
+           restaurantController.fetchAllRestaurants { (result) in
+               if let createdRestaurants = try? result.get() {
+                   DispatchQueue.main.async {
+                       self.restaurantController.restaurants = createdRestaurants
+                       self.collectionView.reloadData()
+                   }
+               }
+           }
+       }
+    }
+    
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -36,25 +62,27 @@ class DashboardCollectionViewController: UICollectionViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return restaurantController.restaurants.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? RestaurantCollectionViewCell else { return UICollectionViewCell() }
     
-        // Configure the cell
+        let restaurant: Restaurant
+        restaurant = restaurantController.restaurants[indexPath.item]
+        cell.imageView.image = UIImage(named: "fried chicken") ?? UIImage(named: "placeholder")
+        cell.nameLabel.text = restaurant.name
+        cell.locationLabel.text = restaurant.location
     
         return cell
     }
@@ -91,3 +119,13 @@ class DashboardCollectionViewController: UICollectionViewController {
     */
 
 }
+
+extension DashboardCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.frame.size.width - 3 * 20) / 2
+        return CGSize(width: width, height: 1.2 * width)
+    }
+}
+
+
+

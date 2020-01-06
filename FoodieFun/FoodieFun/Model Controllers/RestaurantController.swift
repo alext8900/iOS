@@ -17,6 +17,45 @@ class RestaurantController {
     var reviews: [Review] = []
     var loginController = LoginController.shared
     
+    func fetchAllRestaurants(completion: @escaping (Result<[Restaurant], NetworkError>) -> Void) {
+        let requestURL = baseURL.appendingPathComponent("/restaurants/")
+        var request = URLRequest(url: requestURL)
+        
+        guard let userId = loginController.token?.id else { return }
+        let stringUserId = String(userId)
+        
+        request.httpMethod = HTTPMethod.get.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(loginController.token?.token, forHTTPHeaderField: "Authorization")
+        request.setValue(stringUserId, forHTTPHeaderField: "user_id")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(.failure(.badAuth))
+            }
+            
+            if let _ = error {
+                completion(.failure(.otherError))
+            }
+            
+            guard let data = data else {
+                completion(.failure(.badData))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let restaurants = try decoder.decode([Restaurant].self, from: data)
+                completion(.success(restaurants))
+            } catch {
+                print("Error decoding restaurants: \(error)")
+                completion(.failure(.noDecode))
+                return
+            }
+        }.resume()
+    }
+    
     func addRestaurant(name: String,
                        cuisine: String,
                        location: String,
