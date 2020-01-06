@@ -11,6 +11,9 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class DashboardCollectionViewController: UICollectionViewController {
+    
+    @IBOutlet weak var searchFooter: SearchFooter!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
