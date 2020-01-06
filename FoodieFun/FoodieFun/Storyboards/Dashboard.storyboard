@@ -61,7 +61,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XpE-OU-EV9">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XpE-OU-EV9">
                             <size key="itemSize" width="161" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -71,23 +71,19 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RestaurantCell" id="Sbg-ji-cZZ" customClass="RestaurantCollectionViewCell" customModule="FoodieFun" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="161" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RNr-44-wsa">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HTe-i1-oq2">
                                     <rect key="frame" x="0.0" y="0.0" width="161" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lwq-aE-zWJ" userLabel="Food">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t9y-07-PJA">
                                             <rect key="frame" x="0.0" y="0.0" width="161" height="200"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="200" id="5rH-km-N1E"/>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="QCo-za-GUI"/>
-                                            </constraints>
                                         </imageView>
                                         <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZF-bY-SSK" userLabel="Dark Overlay">
                                             <rect key="frame" x="0.0" y="0.0" width="161" height="200"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </view>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bOh-zb-oQQ" userLabel="Labels">
-                                            <rect key="frame" x="16" y="81" width="129" height="38.333333333333343"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bOh-zb-oQQ" userLabel="Labels">
+                                            <rect key="frame" x="16" y="80" width="129" height="40.333333333333343"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtH-Ii-H4Y">
                                                     <rect key="frame" x="0.0" y="0.0" width="129" height="20.333333333333332"/>
@@ -96,7 +92,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHF-En-HMv">
-                                                    <rect key="frame" x="0.0" y="20.333333333333329" width="129" height="18"/>
+                                                    <rect key="frame" x="0.0" y="22.333333333333329" width="129" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.98823529409999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -105,21 +101,21 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="lwq-aE-zWJ" firstAttribute="top" secondItem="RNr-44-wsa" secondAttribute="top" id="EpR-aV-Hlc"/>
+                                        <constraint firstItem="bOh-zb-oQQ" firstAttribute="centerX" secondItem="HTe-i1-oq2" secondAttribute="centerX" id="D5I-WU-Bgh"/>
                                         <constraint firstAttribute="bottom" secondItem="fZF-bY-SSK" secondAttribute="bottom" id="F8C-bf-Vhb"/>
-                                        <constraint firstAttribute="trailing" secondItem="lwq-aE-zWJ" secondAttribute="trailing" id="KIK-Zh-ivD"/>
-                                        <constraint firstItem="fZF-bY-SSK" firstAttribute="top" secondItem="RNr-44-wsa" secondAttribute="top" id="OwE-Tc-Uhl"/>
-                                        <constraint firstItem="bOh-zb-oQQ" firstAttribute="centerX" secondItem="RNr-44-wsa" secondAttribute="centerX" id="VcR-jU-xau"/>
-                                        <constraint firstItem="fZF-bY-SSK" firstAttribute="leading" secondItem="RNr-44-wsa" secondAttribute="leading" id="dDr-6R-4bl"/>
-                                        <constraint firstAttribute="bottom" secondItem="lwq-aE-zWJ" secondAttribute="bottom" id="hCh-HM-fwn"/>
-                                        <constraint firstItem="bOh-zb-oQQ" firstAttribute="centerY" secondItem="RNr-44-wsa" secondAttribute="centerY" id="iKf-UP-meq"/>
+                                        <constraint firstItem="t9y-07-PJA" firstAttribute="leading" secondItem="HTe-i1-oq2" secondAttribute="leading" id="FYB-13-lMr"/>
+                                        <constraint firstAttribute="bottom" secondItem="t9y-07-PJA" secondAttribute="bottom" id="Hsq-r4-m8e"/>
+                                        <constraint firstItem="t9y-07-PJA" firstAttribute="top" secondItem="HTe-i1-oq2" secondAttribute="top" id="MEU-F0-h1q"/>
+                                        <constraint firstItem="fZF-bY-SSK" firstAttribute="top" secondItem="HTe-i1-oq2" secondAttribute="top" id="OwE-Tc-Uhl"/>
+                                        <constraint firstItem="bOh-zb-oQQ" firstAttribute="centerY" secondItem="HTe-i1-oq2" secondAttribute="centerY" id="Zhf-js-LH2"/>
+                                        <constraint firstItem="fZF-bY-SSK" firstAttribute="leading" secondItem="HTe-i1-oq2" secondAttribute="leading" id="dDr-6R-4bl"/>
+                                        <constraint firstAttribute="trailing" secondItem="t9y-07-PJA" secondAttribute="trailing" id="lFZ-SQ-8dW"/>
                                         <constraint firstAttribute="trailing" secondItem="fZF-bY-SSK" secondAttribute="trailing" id="pXe-kq-Lne"/>
-                                        <constraint firstItem="lwq-aE-zWJ" firstAttribute="leading" secondItem="RNr-44-wsa" secondAttribute="leading" id="uoW-S7-XdC"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="161" height="200"/>
                                 <connections>
-                                    <outlet property="imageView" destination="lwq-aE-zWJ" id="2i4-u0-Ggq"/>
+                                    <outlet property="imageView" destination="t9y-07-PJA" id="y3H-Qk-Vnn"/>
                                     <outlet property="locationLabel" destination="gHF-En-HMv" id="Mqw-EM-4aS"/>
                                     <outlet property="nameLabel" destination="XtH-Ii-H4Y" id="VGv-Sf-GXK"/>
                                     <segue destination="o1J-fp-ewQ" kind="show" identifier="DetailSegue" id="EIN-Sf-Z5f"/>
@@ -299,10 +295,10 @@
             </objects>
             <point key="canvasLocation" x="665" y="-272"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar View Controller-->
         <scene sceneID="hp2-ag-8RB">
             <objects>
-                <tabBarController id="gqI-zH-ETU" sceneMemberID="viewController">
+                <tabBarController id="gqI-zH-ETU" customClass="CustomTabBarViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uyt-k3-Nee">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -341,7 +337,7 @@
         <!--Add a Restaurant-->
         <scene sceneID="3lw-0r-bN9">
             <objects>
-                <viewController id="o5o-P7-XDR" customClass="AddRestaurantViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRestaurant" id="o5o-P7-XDR" customClass="AddRestaurantViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qvw-VP-a8h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1421"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -568,7 +564,11 @@
                         <viewLayoutGuide key="safeArea" id="Loa-kd-6C6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Restaurant" id="y3I-kY-flT">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RYx-IQ-EjT"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RYx-IQ-EjT">
+                            <connections>
+                                <action selector="cancelPressed:" destination="o5o-P7-XDR" id="0g6-so-rai"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="guA-Ku-fap">
                             <connections>
                                 <action selector="saveButtonPressed" destination="o5o-P7-XDR" id="32O-s2-2sR"/>

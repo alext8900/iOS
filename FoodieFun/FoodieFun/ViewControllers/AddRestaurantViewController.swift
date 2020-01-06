@@ -58,8 +58,15 @@ class AddRestaurantViewController: UIViewController {
                                                         print(error)
                                                     case .success(let restaurant):
                                                         self.createReview(restaurant: restaurant, review: review)
+                                                        DispatchQueue.main.async {
+                                                            self.dismiss(animated: true, completion: nil)
+                                                        }  
                                                     }
         }
+    }
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func getTime(hour: Date) -> Int? {
@@ -113,7 +120,7 @@ class AddRestaurantViewController: UIViewController {
     func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func textFieldDelegates() {
@@ -125,15 +132,18 @@ class AddRestaurantViewController: UIViewController {
     @objc func keyboardWillChange(notification: Notification) {
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
-        // calculate the height of the status bar and the navigation bar
-        let navbarHeight = (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) + ( self.navigationController?.navigationBar.frame.height ?? 0.0)
-        
         var scrollViewInsets = scrollView.contentInset
-        scrollViewInsets.bottom = keyboardRect.height - navbarHeight
+        scrollViewInsets.bottom = keyboardRect.height
 
         scrollView.contentInset = scrollViewInsets
         scrollView.scrollIndicatorInsets = scrollViewInsets
     }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
+    }
+    
     
     /*
     // MARK: - Navigation
