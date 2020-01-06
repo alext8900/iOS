@@ -7,16 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard-->
-        <scene sceneID="meU-8g-KMh">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" id="iiY-nf-BZO" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ter-xq-n4t"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jdW-DA-wfQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1035" y="348"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="tW6-T1-pj3">
             <objects>
@@ -85,14 +75,6 @@
                                     <constraint firstItem="Kv8-Vr-b13" firstAttribute="leading" secondItem="Ttq-1j-c8n" secondAttribute="leading" id="hlJ-ja-PMZ"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sn-gm-kPr">
-                                <rect key="frame" x="111" y="108" width="193" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Temporary Delete This After"/>
-                                <connections>
-                                    <segue destination="iiY-nf-BZO" kind="presentation" modalPresentationStyle="fullScreen" id="0lL-jA-k1j"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>

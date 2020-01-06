@@ -34,6 +34,8 @@
 		E375C37B23B3F0DD00EA25FD /* DashboardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375C37A23B3F0DD00EA25FD /* DashboardCollectionViewController.swift */; };
 		E375C37D23B3F0FA00EA25FD /* AddRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375C37C23B3F0FA00EA25FD /* AddRestaurantViewController.swift */; };
 		E375C37F23B3F10800EA25FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375C37E23B3F10800EA25FD /* SettingsViewController.swift */; };
+		E382DEA923C3E00F00612DA3 /* EditRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382DEA823C3E00F00612DA3 /* EditRestaurantViewController.swift */; };
+		E382DEAB23C3E04100612DA3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382DEAA23C3E04100612DA3 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		E375C37A23B3F0DD00EA25FD /* DashboardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewController.swift; sourceTree = "<group>"; };
 		E375C37C23B3F0FA00EA25FD /* AddRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantViewController.swift; sourceTree = "<group>"; };
 		E375C37E23B3F10800EA25FD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E382DEA823C3E00F00612DA3 /* EditRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRestaurantViewController.swift; sourceTree = "<group>"; };
+		E382DEAA23C3E04100612DA3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +101,9 @@
 			children = (
 				1F83021423AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift */,
 				E375C37A23B3F0DD00EA25FD /* DashboardCollectionViewController.swift */,
+				E382DEAA23C3E04100612DA3 /* DetailViewController.swift */,
 				E375C37C23B3F0FA00EA25FD /* AddRestaurantViewController.swift */,
+				E382DEA823C3E00F00612DA3 /* EditRestaurantViewController.swift */,
 				E375C37E23B3F10800EA25FD /* SettingsViewController.swift */,
 				E34D3CAA23BA96C600467442 /* LoginViewController.swift */,
 				E34D3CAC23BA9C4D00467442 /* SignUpViewController.swift */,
@@ -264,7 +270,9 @@
 				E309DE8123C125E70025AFF9 /* RestaurantController.swift in Sources */,
 				E375C37123B0A71B00EA25FD /* APIClient.swift in Sources */,
 				E375C37F23B3F10800EA25FD /* SettingsViewController.swift in Sources */,
+				E382DEA923C3E00F00612DA3 /* EditRestaurantViewController.swift in Sources */,
 				E375C37B23B3F0DD00EA25FD /* DashboardCollectionViewController.swift in Sources */,
+				E382DEAB23C3E04100612DA3 /* DetailViewController.swift in Sources */,
 				E309DE7F23C11EC00025AFF9 /* Review.swift in Sources */,
 				E309DE8623C300E70025AFF9 /* RestaurantCollectionViewCell.swift in Sources */,
 				E309DE8B23C3C4710025AFF9 /* Notifications.swift in Sources */,
