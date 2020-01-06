@@ -16,8 +16,13 @@ class DashboardCollectionViewController: UICollectionViewController {
     let restaurantController = RestaurantController()
     
     // Telling search controller for using the same view to display the results by using nil value
-    @IBOutlet weak var searchFooter: SearchFooter!
-    @IBOutlet weak var searchFooterBottomConstraint: NSLayoutConstraint!
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    // Hold the restaurants that the user is searching for
+    var filteredRestaurant = [Restaurant]()
+    
+//    @IBOutlet weak var searchFooter: SearchFooter!
+//    @IBOutlet weak var searchFooterBottomConstraint: NSLayoutConstraint!
     
 
     override func viewDidLoad() {
@@ -25,6 +30,15 @@ class DashboardCollectionViewController: UICollectionViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData), name: .restaurantDidSaveNotification, object: nil)
         
+        // Set up the search controller
+        // Allows the class to be informed as text changes within the UISearchBar
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Restaurant"
+        navigationItem.searchController = searchController
+        
+        // Ensure the serach bar does not remain on the screen if the user navigates to another view controller
+        definesPresentationContext = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,6 +55,8 @@ class DashboardCollectionViewController: UICollectionViewController {
         }
     }
     
+    // MARK: - Private Functions
+    // For reloading data after a new restaurant is created from the Add VC
     @objc func onDidReceiveData(_ notification: Notification) {
        if loginController.token?.token != nil {
            restaurantController.fetchAllRestaurants { (result) in
@@ -54,6 +70,33 @@ class DashboardCollectionViewController: UICollectionViewController {
        }
     }
     
+    // for Search Functionality
+    func aRestaurant(_ keyword: String) -> [Restaurant] {
+        let restaurants = self.restaurantController.restaurants
+        
+        return restaurants.filter { (restaurant) -> Bool in
+            restaurant.name == keyword || restaurant.location == keyword || restaurant.cuisine == keyword
+        }
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        filteredRestaurant = restaurantController.restaurants.filter({ (restaurant: Restaurant) -> Bool in
+            return restaurant.name.lowercased().contains(searchText.lowercased()) ||
+                restaurant.location.lowercased().contains(searchText.lowercased()) ||
+                restaurant.cuisine.lowercased().contains(searchText.lowercased()) == true
+        })
+        collectionView.reloadData()
+    }
+    
+    // Filtering results or not
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
 
     // MARK: - Navigation
 
@@ -71,7 +114,10 @@ class DashboardCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+        if isFiltering() {
+            return filteredRestaurant.count
+        }
+        
         return restaurantController.restaurants.count
     }
 
@@ -79,7 +125,13 @@ class DashboardCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? RestaurantCollectionViewCell else { return UICollectionViewCell() }
     
         let restaurant: Restaurant
-        restaurant = restaurantController.restaurants[indexPath.item]
+        if isFiltering() {
+            restaurant = filteredRestaurant[indexPath.item] // search view
+        } else {
+            restaurant = restaurantController.restaurants[indexPath.item] // default
+        }
+        
+        // updating UIs
         cell.imageView.image = UIImage(named: "fried chicken") ?? UIImage(named: "placeholder")
         cell.nameLabel.text = restaurant.name
         cell.locationLabel.text = restaurant.location
@@ -124,6 +176,12 @@ extension DashboardCollectionViewController: UICollectionViewDelegateFlowLayout 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.size.width - 3 * 20) / 2
         return CGSize(width: width, height: 1.2 * width)
+    }
+}
+
+extension DashboardCollectionViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
 }
 
