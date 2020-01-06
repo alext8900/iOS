@@ -13,6 +13,7 @@ private let reuseIdentifier = "Cell"
 class DashboardCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var searchFooter: SearchFooter!
+    @IBOutlet weak var searchFooterBottomConstraint: NSLayoutConstraint!
     
 
     override func viewDidLoad() {
