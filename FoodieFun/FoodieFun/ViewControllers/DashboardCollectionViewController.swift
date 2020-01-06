@@ -21,24 +21,14 @@ class DashboardCollectionViewController: UICollectionViewController {
     // Hold the restaurants that the user is searching for
     var filteredRestaurant = [Restaurant]()
     
-//    @IBOutlet weak var searchFooter: SearchFooter!
-//    @IBOutlet weak var searchFooterBottomConstraint: NSLayoutConstraint!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Communication between Add tab and Home tab
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData), name: .restaurantDidSaveNotification, object: nil)
         
-        // Set up the search controller
-        // Allows the class to be informed as text changes within the UISearchBar
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Restaurant"
-        navigationItem.searchController = searchController
-        
-        // Ensure the serach bar does not remain on the screen if the user navigates to another view controller
-        definesPresentationContext = true
+        self.search()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,6 +61,19 @@ class DashboardCollectionViewController: UICollectionViewController {
     }
     
     // for Search Functionality
+    
+    func search() {
+        // Set up the search controller
+        // Allows the class to be informed as text changes within the UISearchBar
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Restaurant"
+        navigationItem.searchController = searchController
+        
+        // Ensure the serach bar does not remain on the screen if the user navigates to another view controller
+        definesPresentationContext = true
+    }
+    
     func aRestaurant(_ keyword: String) -> [Restaurant] {
         let restaurants = self.restaurantController.restaurants
         

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1F6CD8FF23C118DB004CAF43 /* Foodie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6CD8FE23C118DB004CAF43 /* Foodie.swift */; };
-		1F71DD1D23C2E63C008DB9DC /* SearchFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F71DD1C23C2E63C008DB9DC /* SearchFooter.swift */; };
 		1F83020B23AE8FE000F1F799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020A23AE8FE000F1F799 /* User.swift */; };
 		1F83020D23AE90AB00F1F799 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020C23AE90AB00F1F799 /* Token.swift */; };
 		1F83020F23AE90F400F1F799 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020E23AE90F400F1F799 /* Restaurant.swift */; };
@@ -39,7 +38,6 @@
 
 /* Begin PBXFileReference section */
 		1F6CD8FE23C118DB004CAF43 /* Foodie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foodie.swift; sourceTree = "<group>"; };
-		1F71DD1C23C2E63C008DB9DC /* SearchFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFooter.swift; sourceTree = "<group>"; };
 		1F83020A23AE8FE000F1F799 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1F83020C23AE90AB00F1F799 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		1F83020E23AE90F400F1F799 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				1F83020C23AE90AB00F1F799 /* Token.swift */,
 				E375C36E23B0A64300EA25FD /* Request.swift */,
 				1F6CD8FE23C118DB004CAF43 /* Foodie.swift */,
-				1F71DD1C23C2E63C008DB9DC /* SearchFooter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,7 +255,6 @@
 				E375C37323B0AB9800EA25FD /* LoginController.swift in Sources */,
 				1F6CD8FF23C118DB004CAF43 /* Foodie.swift in Sources */,
 				1F83020B23AE8FE000F1F799 /* User.swift in Sources */,
-				1F71DD1D23C2E63C008DB9DC /* SearchFooter.swift in Sources */,
 				E375C36D23B0A53B00EA25FD /* SignUpController.swift in Sources */,
 				1F83021523AEA0E000F1F799 /* LocateNearbyRestaurauntsViewController.swift in Sources */,
 				E34D3CAD23BA9C4D00467442 /* SignUpViewController.swift in Sources */,
