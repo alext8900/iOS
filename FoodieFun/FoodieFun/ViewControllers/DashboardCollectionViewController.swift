@@ -8,10 +8,11 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "RestaurantCell"
 
 class DashboardCollectionViewController: UICollectionViewController {
     
+    let loginController = LoginController.shared
     let restaurantController = RestaurantController()
 
     override func viewDidLoad() {
@@ -21,9 +22,24 @@ class DashboardCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if loginController.token?.token != nil {
+            restaurantController.fetchAllRestaurants { (result) in
+                if let createdRestaurants = try? result.get() {
+                    DispatchQueue.main.async {
+                        self.restaurantController.restaurants = createdRestaurants
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+        }
     }
 
     // MARK: - Navigation
@@ -38,19 +54,22 @@ class DashboardCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return restaurantController.restaurants.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? RestaurantCollectionViewCell else { return UICollectionViewCell() }
     
-        // Configure the cell
+        let restaurant: Restaurant
+        restaurant = restaurantController.restaurants[indexPath.item]
+        cell.imageView.image = UIImage(named: "fried chicken") ?? UIImage(named: "placeholder")
+        cell.nameLabel.text = restaurant.name
+        cell.locationLabel.text = restaurant.location
     
         return cell
     }
@@ -86,4 +105,10 @@ class DashboardCollectionViewController: UICollectionViewController {
     }
     */
 
+}
+
+extension DashboardCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 161, height: 200)
+    }
 }

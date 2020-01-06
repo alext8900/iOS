@@ -56,13 +56,13 @@
         <!--FoodieFun-->
         <scene sceneID="G6i-ZB-GTX">
             <objects>
-                <collectionViewController id="9fd-j4-47l" sceneMemberID="viewController">
+                <collectionViewController id="9fd-j4-47l" customClass="DashboardCollectionViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GNk-tP-2N2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XpE-OU-EV9">
-                            <size key="itemSize" width="113" height="163"/>
+                            <size key="itemSize" width="161" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
@@ -71,19 +71,23 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RestaurantCell" id="Sbg-ji-cZZ" customClass="RestaurantCollectionViewCell" customModule="FoodieFun" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="161" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="di4-iq-cgp" userLabel="Item View">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RNr-44-wsa">
                                     <rect key="frame" x="0.0" y="0.0" width="161" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fried chicken" translatesAutoresizingMaskIntoConstraints="NO" id="lwq-aE-zWJ" userLabel="Food">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lwq-aE-zWJ" userLabel="Food">
                                             <rect key="frame" x="0.0" y="0.0" width="161" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="5rH-km-N1E"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="QCo-za-GUI"/>
+                                            </constraints>
                                         </imageView>
                                         <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZF-bY-SSK" userLabel="Dark Overlay">
                                             <rect key="frame" x="0.0" y="0.0" width="161" height="200"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </view>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bOh-zb-oQQ" userLabel="Labels">
-                                            <rect key="frame" x="16" y="80" width="129" height="38.333333333333336"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bOh-zb-oQQ" userLabel="Labels">
+                                            <rect key="frame" x="16" y="81" width="129" height="38.333333333333343"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtH-Ii-H4Y">
                                                     <rect key="frame" x="0.0" y="0.0" width="129" height="20.333333333333332"/>
@@ -92,7 +96,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHF-En-HMv">
-                                                    <rect key="frame" x="0.0" y="20.333333333333332" width="129" height="17.999999999999996"/>
+                                                    <rect key="frame" x="0.0" y="20.333333333333329" width="129" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.98823529409999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -101,14 +105,16 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="lwq-aE-zWJ" firstAttribute="top" secondItem="RNr-44-wsa" secondAttribute="top" id="EpR-aV-Hlc"/>
                                         <constraint firstAttribute="bottom" secondItem="fZF-bY-SSK" secondAttribute="bottom" id="F8C-bf-Vhb"/>
-                                        <constraint firstItem="fZF-bY-SSK" firstAttribute="top" secondItem="di4-iq-cgp" secondAttribute="top" id="OwE-Tc-Uhl"/>
-                                        <constraint firstItem="lwq-aE-zWJ" firstAttribute="leading" secondItem="di4-iq-cgp" secondAttribute="leading" id="a9V-vK-Dnb"/>
-                                        <constraint firstItem="lwq-aE-zWJ" firstAttribute="top" secondItem="di4-iq-cgp" secondAttribute="top" id="aZL-Gg-Pr6"/>
-                                        <constraint firstItem="fZF-bY-SSK" firstAttribute="leading" secondItem="di4-iq-cgp" secondAttribute="leading" id="dDr-6R-4bl"/>
-                                        <constraint firstAttribute="trailing" secondItem="lwq-aE-zWJ" secondAttribute="trailing" id="lY6-NS-ywA"/>
+                                        <constraint firstAttribute="trailing" secondItem="lwq-aE-zWJ" secondAttribute="trailing" id="KIK-Zh-ivD"/>
+                                        <constraint firstItem="fZF-bY-SSK" firstAttribute="top" secondItem="RNr-44-wsa" secondAttribute="top" id="OwE-Tc-Uhl"/>
+                                        <constraint firstItem="bOh-zb-oQQ" firstAttribute="centerX" secondItem="RNr-44-wsa" secondAttribute="centerX" id="VcR-jU-xau"/>
+                                        <constraint firstItem="fZF-bY-SSK" firstAttribute="leading" secondItem="RNr-44-wsa" secondAttribute="leading" id="dDr-6R-4bl"/>
+                                        <constraint firstAttribute="bottom" secondItem="lwq-aE-zWJ" secondAttribute="bottom" id="hCh-HM-fwn"/>
+                                        <constraint firstItem="bOh-zb-oQQ" firstAttribute="centerY" secondItem="RNr-44-wsa" secondAttribute="centerY" id="iKf-UP-meq"/>
                                         <constraint firstAttribute="trailing" secondItem="fZF-bY-SSK" secondAttribute="trailing" id="pXe-kq-Lne"/>
-                                        <constraint firstAttribute="bottom" secondItem="lwq-aE-zWJ" secondAttribute="bottom" id="qHH-we-41x"/>
+                                        <constraint firstItem="lwq-aE-zWJ" firstAttribute="leading" secondItem="RNr-44-wsa" secondAttribute="leading" id="uoW-S7-XdC"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="161" height="200"/>
@@ -588,7 +594,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fried chicken" width="1200" height="800"/>
         <image name="gear" catalog="system" width="64" height="58"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
