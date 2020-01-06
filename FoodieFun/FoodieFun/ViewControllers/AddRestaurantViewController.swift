@@ -22,7 +22,7 @@ class AddRestaurantViewController: UIViewController {
     @IBOutlet weak var photoView: UIImageView!
     
     private let restaurantController = RestaurantController()
-    private var pickerData: [String] = [String]()
+    private var pickerData: [String] = ["⭐️", "⭐️⭐️", "⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️⭐️"]
     private var pickedRating: String = "1"
     
     override func viewDidLoad() {
@@ -33,8 +33,6 @@ class AddRestaurantViewController: UIViewController {
         
         self.ratingPV.delegate = self
         self.ratingPV.dataSource = self
-        
-        pickerData = ["⭐️", "⭐️⭐️", "⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️⭐️"]
     }
     
     @IBAction func saveButtonPressed() {
@@ -62,7 +60,6 @@ class AddRestaurantViewController: UIViewController {
                                                         self.createReview(restaurant: restaurant, review: review)
                                                     }
         }
-        hideKeyBoard()
     }
     
     private func getTime(hour: Date) -> Int? {
@@ -70,9 +67,15 @@ class AddRestaurantViewController: UIViewController {
         let component = calendar.dateComponents([.hour, .minute], from: hour)
         guard let timeHourInt = component.hour else { return nil }
         guard let timeMinuteInt = component.minute else { return nil }
+        var timeMinuteIntToString: String = ""
+        if timeMinuteInt == 0 {
+            timeMinuteIntToString = String(timeMinuteInt) + "0"
+        } else {
+            timeMinuteIntToString = String(timeMinuteInt)
+        }
         
         // change to String first in order to combine hour and minute as one unit of Int for the backend purpose
-        guard let militaryTime = Int(String(timeHourInt) + String(timeMinuteInt)) else { return nil }
+        guard let militaryTime = Int(String(timeHourInt) + timeMinuteIntToString) else { return nil }
         return militaryTime
     }
     
@@ -92,13 +95,9 @@ class AddRestaurantViewController: UIViewController {
                                                     print(review)
                                                 }
         }
-        
     }
 
     @IBAction func openHourChanged(_ sender: Any) {
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.timeStyle = DateFormatter.Style.short
     }
     
     @IBAction func closeHourChanged(_ sender: Any) {
@@ -136,26 +135,6 @@ class AddRestaurantViewController: UIViewController {
         scrollView.scrollIndicatorInsets = scrollViewInsets
     }
     
-    func hideKeyBoard() {
-        locationTF.resignFirstResponder()
-        nameTF.resignFirstResponder()
-        review.resignFirstResponder()
-        cuisineTF.resignFirstResponder()
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        print(textField.text)
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        guard let reviewString = review.text else { return false }
-        guard let nameString = nameTF.text else { return false }
-        guard let locationString = locationTF.text else { return false }
-        
-        return true
-    }
-    
     /*
     // MARK: - Navigation
 
@@ -168,16 +147,13 @@ class AddRestaurantViewController: UIViewController {
 }
 
 extension AddRestaurantViewController: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        hideKeyBoard()
-        return false
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        let textFieldFrame = scrollView.convert(textField.bounds, from: textField)
-        
-        scrollView.scrollRectToVisible(textFieldFrame, animated: true)
+        if let nextTextField = self.view.viewWithTag(textField.tag + 1) {
+            nextTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }
 
