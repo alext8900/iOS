@@ -147,7 +147,7 @@
                                 <rect key="frame" x="20" y="160" width="374" height="590"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NK1-cQ-b1b" userLabel="Text Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="415"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="345"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="adW-rD-gII">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="45.333333333333336"/>
@@ -238,7 +238,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vpR-co-zq2">
-                                                <rect key="frame" x="0.0" y="261.33333333333331" width="374" height="153.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="261.33333333333331" width="374" height="83.666666666666686"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REVIEWS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2R-wx-9el">
                                                         <rect key="frame" x="0.0" y="0.0" width="63" height="17"/>
@@ -247,7 +247,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I like the fried chicken but I don't think the service here is good." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Agu-hw-sIi">
-                                                        <rect key="frame" x="0.0" y="25" width="374" height="128.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="24.999999999999996" width="374" height="58.666666666666657"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -266,6 +266,13 @@
                                             <constraint firstAttribute="trailing" secondItem="adW-rD-gII" secondAttribute="trailing" id="b09-3w-taG"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtM-UB-Tmi">
+                                        <rect key="frame" x="0.0" y="385" width="45" height="30"/>
+                                        <state key="normal" title="Delete"/>
+                                        <connections>
+                                            <action selector="deleteButtonTapped:" destination="o1J-fp-ewQ" eventType="touchUpInside" id="b1K-9n-Qhr"/>
+                                        </connections>
+                                    </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i1w-mq-ymP">
                                         <rect key="frame" x="0.0" y="455" width="240" height="135"/>
                                         <constraints>
@@ -287,10 +294,21 @@
                     <navigationItem key="navigationItem" title="Restaurant Name" id="bTa-Xs-WDg">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="h02-Ae-S84">
                             <connections>
+                                <action selector="edit:" destination="o1J-fp-ewQ" id="EWY-sY-dL8"/>
                                 <segue destination="qaV-fn-S7w" kind="show" id="8sk-Y7-5wy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="deleteButton" destination="VtM-UB-Tmi" id="9ax-fp-VMP"/>
+                        <outlet property="hoursOpenAM" destination="wpX-Eo-16Q" id="WDR-tJ-zPi"/>
+                        <outlet property="hoursOpenPM" destination="XRz-7e-F5f" id="Skc-tW-bej"/>
+                        <outlet property="location" destination="I7t-cs-7fx" id="D4O-if-Hhd"/>
+                        <outlet property="overallRating" destination="RC5-H9-Cwg" id="S4e-5t-3Se"/>
+                        <outlet property="photo" destination="i1w-mq-ymP" id="0C8-bD-Gr5"/>
+                        <outlet property="review" destination="Agu-hw-sIi" id="JuA-Ui-fX1"/>
+                        <outlet property="typeOfCuisine" destination="FQA-6g-K5L" id="Ykh-NC-qfU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bij-da-tNa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -834,10 +852,26 @@
                         <viewLayoutGuide key="safeArea" id="xVi-AH-pa7"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit a Restaurant" id="h06-ZH-yhB">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="st0-FI-frw"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="EbH-cy-30z"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="st0-FI-frw">
+                            <connections>
+                                <action selector="canceButtonTapped:" destination="qaV-fn-S7w" id="I54-CI-Spv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="EbH-cy-30z">
+                            <connections>
+                                <action selector="saveButton:" destination="qaV-fn-S7w" id="3tX-yw-zu3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1421"/>
+                    <connections>
+                        <outlet property="closeDP" destination="ykt-tb-tDf" id="C0S-a7-2ly"/>
+                        <outlet property="cuisineTF" destination="FBj-4b-bDV" id="VrI-IS-AVy"/>
+                        <outlet property="locationTF" destination="rey-7L-Gpg" id="efg-xA-XM9"/>
+                        <outlet property="nameTF" destination="Eyk-Cg-6OC" id="goP-Nl-dff"/>
+                        <outlet property="openDP" destination="QVo-7i-xDe" id="8Xu-zA-ZfC"/>
+                        <outlet property="review" destination="qYW-mj-Jhq" id="NLb-3N-IwS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hv8-hA-twX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

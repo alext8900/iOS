@@ -190,4 +190,10 @@ class RestaurantController {
             }
         }.resume()
     }
+    //Created a delete restaurants method :)
+    func deleteRestaurant(restaraunt: Restaurant) {
+        guard let index = restaurants.firstIndex(of: restaraunt)
+            else { return }
+        restaurants.remove(at: index)
+    }
 }

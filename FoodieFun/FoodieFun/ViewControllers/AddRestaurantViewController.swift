@@ -21,7 +21,9 @@ class AddRestaurantViewController: UIViewController {
     @IBOutlet weak var ratingPV: UIPickerView!
     @IBOutlet weak var photoView: UIImageView!
     
-    private let restaurantController = RestaurantController()
+    var restaurant: Restaurant?
+    
+    var restaurantController = RestaurantController()
     private var pickerData: [String] = ["⭐️", "⭐️⭐️", "⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️⭐️"]
     private var pickedRating: String = "1"
     
@@ -33,6 +35,7 @@ class AddRestaurantViewController: UIViewController {
         
         self.ratingPV.delegate = self
         self.ratingPV.dataSource = self
+        
     }
     
     @IBAction func saveButtonPressed() {
@@ -47,6 +50,7 @@ class AddRestaurantViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 return
         }
+        
         
         self.restaurantController.addRestaurant(name: name,
                                                 cuisine: cuisine,
@@ -70,7 +74,7 @@ class AddRestaurantViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    private func getTime(hour: Date) -> Int? {
+    func getTime(hour: Date) -> Int? {
         let calendar = Calendar.current
         let component = calendar.dateComponents([.hour, .minute], from: hour)
         guard let timeHourInt = component.hour else { return nil }
