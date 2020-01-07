@@ -114,7 +114,7 @@ class RestaurantController {
             
             let decoder = JSONDecoder()
             do {
-                guard let restaurant = try decoder.decode([Restaurant].self, from: data).first else { return }
+                let restaurant = try decoder.decode(Restaurant.self, from: data)
                 self.restaurants.append(restaurant)
                 completion(.success(restaurant))
             } catch {
