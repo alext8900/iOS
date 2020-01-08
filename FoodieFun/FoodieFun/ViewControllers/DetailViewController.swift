@@ -87,9 +87,13 @@ extension DetailViewController {
     func stringConverter(number: Int) -> String {
         var stringMilitaryTimeRaw: String
         
-        if number < 1000 {
-            stringMilitaryTimeRaw = String(number)
-            stringMilitaryTimeRaw = "0" + stringMilitaryTimeRaw
+        // will refactor but this is for midnight to 1AM
+        if number < 100 {
+        stringMilitaryTimeRaw = String(number)
+        stringMilitaryTimeRaw = "00" + stringMilitaryTimeRaw
+        } else if number < 1000 { // will refactor but this is for one digit hour
+        stringMilitaryTimeRaw = String(number)
+        stringMilitaryTimeRaw = "0" + stringMilitaryTimeRaw
         } else {
             stringMilitaryTimeRaw = String(number)
         }
