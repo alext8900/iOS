@@ -192,8 +192,7 @@ class RestaurantController {
     }
     
     func fetchReviews(with id: Int, completion: @escaping (Result<[Review], NetworkError>) -> Void) {
-        
-        // still need to fix this after Benjamin fixes the backend
+ 
         let requestURL = baseURL.appendingPathComponent("/restaurants/\(id)/items")
         var request = URLRequest(url: requestURL)
         

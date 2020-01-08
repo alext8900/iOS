@@ -32,13 +32,10 @@ class DetailViewController: UIViewController {
         }
     }
     
-//    enum Ratings: String {
-//        case 1 = "⭐️"
-//        case 2 = "⭐️⭐️"
-//        case 3 = "⭐️⭐️⭐️"
-//        case 4 = "⭐️⭐️⭐️⭐️"
-//        case 5 = "⭐️⭐️⭐️⭐️⭐️"
-//    }
+    enum Rating: Int {
+        case one = 1
+        case two, three, four, five
+    }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
         guard let restaurant = restaurant else { return }
@@ -54,11 +51,7 @@ class DetailViewController: UIViewController {
         self.location.text = restaurant.location
         self.hourOpen.text = "\(self.calculateAmPm(militaryTime: restaurant.hour_open))"
         self.hourClosed.text = "\(self.calculateAmPm(militaryTime: restaurant.hour_closed))"
-        
-        
-        
     }
-
     
     @IBAction func edit(_ sender: UIBarButtonItem!) {
         
@@ -110,4 +103,21 @@ extension DetailViewController {
     }
 }
 
+
+extension DetailViewController.Rating {
+    var display: String {
+        switch self {
+        case .one:
+            return "⭐️"
+        case .two:
+            return "⭐️⭐️"
+        case .three:
+            return "⭐️⭐️⭐️"
+        case .four:
+            return "⭐️⭐️⭐️⭐️"
+        case .five:
+            return "⭐️⭐️⭐️⭐️⭐️"
+        }
+    }
+}
 

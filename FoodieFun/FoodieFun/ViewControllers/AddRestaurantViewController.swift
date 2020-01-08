@@ -24,7 +24,7 @@ class AddRestaurantViewController: UIViewController {
     var restaurant: Restaurant?
     
     var restaurantController = RestaurantController()
-    private var pickerData: [String] = ["⭐️", "⭐️⭐️", "⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️", "⭐️⭐️⭐️⭐️⭐️"]
+    private var pickerData: [String] = ["1", "2", "3", "4", "5"]
     private var pickedRating: String = "1"
     
     override func viewDidLoad() {
