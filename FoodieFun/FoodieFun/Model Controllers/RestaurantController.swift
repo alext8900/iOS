@@ -85,7 +85,7 @@ class RestaurantController {
                                                      days_open: days,
                                                      user_id: userId,
                                                      photo_url: url)
-        
+        print(newRestaurantRequest)
         let jsonEncoder = JSONEncoder()
         do {
             let jsonData = try jsonEncoder.encode(newRestaurantRequest)
@@ -189,5 +189,119 @@ class RestaurantController {
                 return
             }
         }.resume()
+    }
+    
+    func updateRestaurant(name: String,
+                          cuisine: String,
+                          location: String,
+                          openTime: Int,
+                          closeTime: Int,
+                          days: String = "7 days",
+                          url: String = "www.lambdaschool.com",
+                          completion: @escaping (Result<Restaurant, NetworkError>) -> Void)
+    {
+        let requestURL = baseURL.appendingPathComponent("/restaurants/:id")
+        var request = URLRequest(url: requestURL)
+        
+        guard let userId = loginController.token?.id else { return }
+        let stringUserId = String(userId)
+        request.httpMethod = HTTPMethod.put.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(loginController.token?.token, forHTTPHeaderField: "Authorization")
+        request.setValue(stringUserId, forHTTPHeaderField: "user_id")
+        
+        let updateRestaurantRequest = RestaurantRequest(name: name,
+                                                        cuisine: cuisine,
+                                                        location: location,
+                                                        hour_open: openTime,
+                                                        hour_closed:      closeTime,
+                                                        days_open: days,
+                                                        user_id: userId,
+                                                        photo_url: url)
+        let jsonEncoder = JSONEncoder()
+        
+        do {
+            let jsonData = try jsonEncoder.encode(updateRestaurantRequest)
+            request.httpBody = jsonData
+        } catch {
+            print("Error encoding updateObject: \(error.localizedDescription)")
+            completion(.failure(.otherError))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 201 {
+                completion(.failure(.badAuth))
+            }
+            
+            if let _ = error {
+                completion(.failure(.otherError))
+            }
+            
+            guard let data = data else {
+                completion(.failure(.badData))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let restaurant = try decoder.decode(Restaurant.self, from: data)
+                self.restaurants.append(restaurant)
+                completion(.success(restaurant))
+            } catch {
+                print("Error decoding restaurant after updating: \(error)")
+                
+                completion(.failure(.noDecode))
+                return
+            }
+        }.resume()
+    }
+    
+
+    func fetchReviews(with id: Int, completion: @escaping (Result<[Review], NetworkError>) -> Void) {
+        let requestURL = baseURL.appendingPathComponent("/restaurants/\(id)/items")
+        var request = URLRequest(url: requestURL)
+        
+        guard let userId = loginController.token?.id else { return }
+        let stringUserId = String(userId)
+
+        request.httpMethod = HTTPMethod.get.rawValue
+        request.setValue("application", forHTTPHeaderField: "Content-Type")
+        request.setValue(loginController.token?.token, forHTTPHeaderField: "Authorization")
+        request.setValue(stringUserId, forHTTPHeaderField: "user_id")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 201 {
+                completion(.failure(.badAuth))
+            }
+            
+            if let _ = error {
+                completion(.failure(.otherError))
+            }
+            
+            guard let data = data else {
+                completion(.failure(.badData))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let reviews = try decoder.decode([Review].self, from: data)
+                completion(.success(reviews))
+            } catch {
+                print("Error decoding all reviews: \(error)")
+                completion(.failure(.noDecode))
+                return
+            }
+        }.resume()
+    }
+    
+    //Created a delete restaurants method :)
+    func deleteRestaurant(restaraunt: Restaurant) {
+        guard let index = restaurants.firstIndex(of: restaraunt)
+            else { return }
+        restaurants.remove(at: index)
     }
 }
