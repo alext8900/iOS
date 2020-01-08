@@ -118,7 +118,7 @@
                                     <outlet property="imageView" destination="t9y-07-PJA" id="y3H-Qk-Vnn"/>
                                     <outlet property="locationLabel" destination="gHF-En-HMv" id="Mqw-EM-4aS"/>
                                     <outlet property="nameLabel" destination="XtH-Ii-H4Y" id="VGv-Sf-GXK"/>
-                                    <segue destination="o1J-fp-ewQ" kind="show" identifier="DetailSegue" id="EIN-Sf-Z5f"/>
+                                    <segue destination="o1J-fp-ewQ" kind="show" identifier="DetailSegue" id="F9y-tN-YYd"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -301,12 +301,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="deleteButton" destination="VtM-UB-Tmi" id="9ax-fp-VMP"/>
-                        <outlet property="hoursOpenAM" destination="wpX-Eo-16Q" id="WDR-tJ-zPi"/>
-                        <outlet property="hoursOpenPM" destination="XRz-7e-F5f" id="Skc-tW-bej"/>
+                        <outlet property="hourClosed" destination="XRz-7e-F5f" id="am0-0Q-3Va"/>
+                        <outlet property="hourOpen" destination="wpX-Eo-16Q" id="fzZ-un-DTE"/>
                         <outlet property="location" destination="I7t-cs-7fx" id="D4O-if-Hhd"/>
                         <outlet property="overallRating" destination="RC5-H9-Cwg" id="S4e-5t-3Se"/>
                         <outlet property="photo" destination="i1w-mq-ymP" id="0C8-bD-Gr5"/>
-                        <outlet property="review" destination="Agu-hw-sIi" id="JuA-Ui-fX1"/>
+                        <outlet property="reviewTextView" destination="Agu-hw-sIi" id="DTM-bc-ICg"/>
                         <outlet property="typeOfCuisine" destination="FQA-6g-K5L" id="Ykh-NC-qfU"/>
                     </connections>
                 </viewController>

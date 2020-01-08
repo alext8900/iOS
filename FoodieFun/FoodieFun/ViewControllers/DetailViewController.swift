@@ -8,58 +8,106 @@
 
 import UIKit
 
+
+
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var typeOfCuisine: UILabel!
     @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var hoursOpenAM: UILabel!
-    @IBOutlet weak var hoursOpenPM: UILabel!
+    @IBOutlet weak var hourOpen: UILabel!
+    @IBOutlet weak var hourClosed: UILabel!
     @IBOutlet weak var overallRating: UILabel!
-    @IBOutlet weak var review: UITextView!
+    @IBOutlet weak var reviewTextView: UITextView!
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var deleteButton: UIButton!
     
-//    private let addRestaurant = AddRestaurantViewController()
-    
     var restaurant: Restaurant?
-    
-    
     var restaurantController: RestaurantController?
+    var review: Review? {
+        didSet {
+            DispatchQueue.main.async {
+                self.reviewTextView.text = self.review?.review
+                self.overallRating.text = "\(self.review?.rating ?? 1)"
+            }
+        }
+    }
+    
+//    enum Ratings: String {
+//        case 1 = "⭐️"
+//        case 2 = "⭐️⭐️"
+//        case 3 = "⭐️⭐️⭐️"
+//        case 4 = "⭐️⭐️⭐️⭐️"
+//        case 5 = "⭐️⭐️⭐️⭐️⭐️"
+//    }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
         guard let restaurant = restaurant else { return }
         restaurantController?.deleteRestaurant(restaraunt: restaurant)
-        
-        navigationController?.popViewController(animated: true)
     }
-  
 
     func updateViews() {
         guard isViewLoaded else { return }
-        guard let restaurantObject = restaurant else {
-            title = restaurant?.name
-            print("Labels not updated")
-            return }
+        guard let restaurant = self.restaurant else { return }
+
+        self.title = restaurant.name.capitalized
+        self.typeOfCuisine.text = restaurant.cuisine
+        self.location.text = restaurant.location
+        self.hourOpen.text = "\(self.calculateAmPm(militaryTime: restaurant.hour_open))"
+        self.hourClosed.text = "\(self.calculateAmPm(militaryTime: restaurant.hour_closed))"
         
-        print("\(restaurantObject.name) set in detail view")
-        title = restaurantObject.name.capitalized
-        typeOfCuisine.text = restaurantObject.cuisine
-        location.text = restaurantObject.location
+        
+        
     }
+
+    
     @IBAction func edit(_ sender: UIBarButtonItem!) {
         
     }
-    
-  
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
         
+        guard let restaurant = self.restaurant else { return }
+        restaurantController?.fetchReviews(with: restaurant.id, completion: { (result) in
+            if let reviews = try? result.get() {
+                self.review = reviews.first
+            }
+        })
     }
 }
 
+extension DetailViewController {
+    // for converting the hours from military time to regular time AM PM
+    func calculateAmPm(militaryTime: Int) -> String {
+        let militaryTimeRaw: Int
+        
+        if militaryTime > 1200 {
+            militaryTimeRaw = militaryTime - 1200
+            let stringFullHour = stringConverter(number: militaryTimeRaw)
+            return stringFullHour + " PM"
+        } else {
+            militaryTimeRaw = militaryTime
+            let stringFullHour = stringConverter(number: militaryTimeRaw)
+            return stringFullHour + " AM"
+        }
+    }
 
+    func stringConverter(number: Int) -> String {
+        var stringMilitaryTimeRaw: String
+        
+        if number < 1000 {
+            stringMilitaryTimeRaw = String(number)
+            stringMilitaryTimeRaw = "0" + stringMilitaryTimeRaw
+        } else {
+            stringMilitaryTimeRaw = String(number)
+        }
+        
+        let stringHour = stringMilitaryTimeRaw.prefix(2)
+        let stringMinute = stringMilitaryTimeRaw.suffix(2)
+        let stringFullHour = stringHour + "." + stringMinute
+        return String(stringFullHour)
+    }
+}
 
 

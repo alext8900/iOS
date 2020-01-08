@@ -79,7 +79,16 @@ class AddRestaurantViewController: UIViewController {
         let component = calendar.dateComponents([.hour, .minute], from: hour)
         guard let timeHourInt = component.hour else { return nil }
         guard let timeMinuteInt = component.minute else { return nil }
+        
+        var timeHourIntToString: String = ""
         var timeMinuteIntToString: String = ""
+
+        if timeHourInt == 0 {
+            timeHourIntToString = String(timeHourInt) + "0"
+        } else {
+            timeHourIntToString = String(timeHourInt)
+        }
+        
         if timeMinuteInt == 0 {
             timeMinuteIntToString = String(timeMinuteInt) + "0"
         } else {
@@ -87,7 +96,7 @@ class AddRestaurantViewController: UIViewController {
         }
         
         // change to String first in order to combine hour and minute as one unit of Int for the backend purpose
-        guard let militaryTime = Int(String(timeHourInt) + timeMinuteIntToString) else { return nil }
+        guard let militaryTime = Int(String(timeHourIntToString) + timeMinuteIntToString) else { return nil }
         return militaryTime
     }
     

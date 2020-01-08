@@ -107,12 +107,13 @@ class DashboardCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailSegue" {
             guard let restaurantVC = segue.destination as?
-            AddRestaurantViewController,
+            DetailViewController,
                 let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
             restaurantVC.restaurantController = restaurantController
             restaurantVC.restaurant = restaurantController.restaurants[indexPath.item]
         }
-        // Pass the selected object to the new view controller.
+        
+//        if segue.identifier == "DetailSegue"
     }
 
     // MARK: UICollectionViewDataSource
