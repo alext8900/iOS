@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var typeOfCuisine: UILabel!
@@ -37,11 +35,18 @@ class DetailViewController: UIViewController {
         case two, three, four, five
     }
     
-    @IBAction func deleteButtonTapped(_ sender: Any) {
-        guard let restaurant = restaurant else { return }
-        restaurantController?.deleteRestaurant(restaraunt: restaurant)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateViews()
+        
+        guard let restaurant = self.restaurant else { return }
+        restaurantController?.fetchReviews(with: restaurant.id, completion: { (result) in
+            if let reviews = try? result.get() {
+                self.review = reviews.first
+            }
+        })
     }
-
+    
     func updateViews() {
         guard isViewLoaded else { return }
         guard let restaurant = self.restaurant else { return }
@@ -53,20 +58,13 @@ class DetailViewController: UIViewController {
         self.hourClosed.text = "\(self.calculateAmPm(militaryTime: restaurant.hour_closed))"
     }
     
-    @IBAction func edit(_ sender: UIBarButtonItem!) {
-        
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        guard let restaurant = restaurant else { return }
+        restaurantController?.deleteRestaurant(restaraunt: restaurant)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateViews()
+    @IBAction func edit(_ sender: UIBarButtonItem!) {
         
-        guard let restaurant = self.restaurant else { return }
-        restaurantController?.fetchReviews(with: restaurant.id, completion: { (result) in
-            if let reviews = try? result.get() {
-                self.review = reviews.first
-            }
-        })
     }
 }
 
@@ -103,7 +101,7 @@ extension DetailViewController {
     }
 }
 
-
+// will set this up later
 extension DetailViewController.Rating {
     var display: String {
         switch self {

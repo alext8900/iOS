@@ -21,9 +21,7 @@ class AddRestaurantViewController: UIViewController {
     @IBOutlet weak var ratingPV: UIPickerView!
     @IBOutlet weak var photoView: UIImageView!
     
-    
     var restaurant: Restaurant?
-    
     var restaurantController = RestaurantController()
     private var pickerData: [String] = ["1", "2", "3", "4", "5"]
     private var pickedRating: String = "1"
@@ -39,7 +37,6 @@ class AddRestaurantViewController: UIViewController {
         
     }
     
-    
     @IBAction func saveButtonPressed() {
         guard let name = self.nameTF.text, !name.isEmpty,
               let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
@@ -52,7 +49,6 @@ class AddRestaurantViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 return
         }
-        
         
         self.restaurantController.addRestaurant(name: name,
                                                 cuisine: cuisine,
