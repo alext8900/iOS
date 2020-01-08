@@ -12,10 +12,13 @@ class EditRestaurantViewController: UIViewController {
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var cuisineTF: UITextField!
     @IBOutlet weak var locationTF: UITextField!
-    @IBOutlet weak var review: UITextView!
+    @IBOutlet weak var reviewTextView: UITextView!
     @IBOutlet weak var openDP: UIDatePicker!
     @IBOutlet weak var closeDP: UIDatePicker!
     
+    var restaurant: Restaurant?
+    var restaurantController: RestaurantController?
+    var review: Review?
     
     @IBAction func canceButtonTapped(_ sender: UIBarButtonItem) {
         //Go back to previous view controller :)
@@ -25,30 +28,25 @@ class EditRestaurantViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.nameTF.text = self.restaurant?.name
+        self.cuisineTF.text = self.restaurant?.cuisine
     }
     
     let addRestaurant = AddRestaurantViewController()
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        guard let name = self.nameTF.text, !name.isEmpty,
-        let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
-        let location = self.locationTF.text, !location.isEmpty,
-        let review = self.review.text, !review.isEmpty,
-        let openHour = addRestaurant.getTime(hour: self.openDP.date),
-        let closeHour = addRestaurant.getTime(hour: self.closeDP.date) else {
-          let alert = UIAlertController(title: "Missing some fields", message: "Check your information and try again.", preferredStyle: .alert)
-          alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-          self.present(alert, animated: true, completion: nil)
-          return
-        }
-        
-       
-
-    
-
-    
-    // MARK: - Navigation
-
+//        guard let name = self.nameTF.text, !name.isEmpty,
+//        let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
+//        let location = self.locationTF.text, !location.isEmpty,
+//        let review = self.review.text, !review.isEmpty,
+//        let openHour = addRestaurant.getTime(hour: self.openDP.date),
+//        let closeHour = addRestaurant.getTime(hour: self.closeDP.date) else {
+//          let alert = UIAlertController(title: "Missing some fields", message: "Check your information and try again.", preferredStyle: .alert)
+//          alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//          self.present(alert, animated: true, completion: nil)
+//          return
+//        }
     }
+
+    // MARK: - Navigation
 }

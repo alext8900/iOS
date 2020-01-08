@@ -62,9 +62,16 @@ class DetailViewController: UIViewController {
         guard let restaurant = restaurant else { return }
         restaurantController?.deleteRestaurant(restaraunt: restaurant)
     }
-
-    @IBAction func edit(_ sender: UIBarButtonItem!) {
-        
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditSegue" {
+            if let nc = segue.destination as? UINavigationController,
+               let editVC = nc.topViewController as? EditRestaurantViewController {
+                    editVC.restaurantController = self.restaurantController
+                    editVC.restaurant = self.restaurant
+                    editVC.review = self.review
+            }
+        }
     }
 }
 
