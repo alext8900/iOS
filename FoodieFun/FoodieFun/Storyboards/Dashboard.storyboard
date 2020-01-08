@@ -269,9 +269,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtM-UB-Tmi">
                                         <rect key="frame" x="0.0" y="385" width="45" height="30"/>
                                         <state key="normal" title="Delete"/>
-                                        <connections>
-                                            <action selector="deleteButtonTapped:" destination="o1J-fp-ewQ" eventType="touchUpInside" id="b1K-9n-Qhr"/>
-                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i1w-mq-ymP">
                                         <rect key="frame" x="0.0" y="455" width="240" height="135"/>

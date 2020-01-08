@@ -16,6 +16,7 @@ class EditRestaurantViewController: UIViewController {
     @IBOutlet weak var openDP: UIDatePicker!
     @IBOutlet weak var closeDP: UIDatePicker!
     
+    
     @IBAction func canceButtonTapped(_ sender: UIBarButtonItem) {
         //Go back to previous view controller :)
         self.navigationController?.popViewController(animated: true)
@@ -40,8 +41,9 @@ class EditRestaurantViewController: UIViewController {
           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
           self.present(alert, animated: true, completion: nil)
           return
-            
         }
+        
+       
 
     
 

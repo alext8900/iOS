@@ -21,6 +21,7 @@ class AddRestaurantViewController: UIViewController {
     @IBOutlet weak var ratingPV: UIPickerView!
     @IBOutlet weak var photoView: UIImageView!
     
+    
     var restaurant: Restaurant?
     
     var restaurantController = RestaurantController()
@@ -37,6 +38,7 @@ class AddRestaurantViewController: UIViewController {
         self.ratingPV.dataSource = self
         
     }
+    
     
     @IBAction func saveButtonPressed() {
         guard let name = self.nameTF.text, !name.isEmpty,
