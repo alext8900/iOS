@@ -11,11 +11,11 @@ import Foundation
 struct Review: Codable, Equatable {
     let id: Int
     let restaurant_id: Int
-    let cuisine: String
-    let name: String
-    let photo_url: String
-    let rating: Int
-    let review: String
+    var cuisine: String
+    var name: String
+    var photo_url: String
+    var rating: Int
+    var review: String
     let user_id: Int
 }
 

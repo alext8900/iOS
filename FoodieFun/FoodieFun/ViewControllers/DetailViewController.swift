@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol DetailViewControllerDelegate: AnyObject {
+    func updateModels(restaurant: Restaurant, review: Review)
+}
+
+
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var typeOfCuisine: UILabel!
@@ -67,9 +72,18 @@ class DetailViewController: UIViewController {
             }
         })
     }
-
-    @IBAction func edit(_ sender: UIBarButtonItem!) {
-        
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditSegue" {
+            if let nc = segue.destination as? UINavigationController,
+                let editVC = nc.topViewController as? EditRestaurantViewController
+            {
+                editVC.restaurantController = self.restaurantController
+                editVC.restaurant = self.restaurant
+                editVC.review = self.review
+                editVC.delegate = self
+            }
+        }
     }
 }
 
@@ -95,7 +109,7 @@ extension DetailViewController {
         // will refactor but this is for midnight to 1AM
         if number < 100 {
         stringMilitaryTimeRaw = String(number)
-        stringMilitaryTimeRaw = "00" + stringMilitaryTimeRaw
+        stringMilitaryTimeRaw = "12" + stringMilitaryTimeRaw
         } else if number < 1000 { // will refactor but this is for one digit hour
         stringMilitaryTimeRaw = String(number)
         stringMilitaryTimeRaw = "0" + stringMilitaryTimeRaw
@@ -111,20 +125,30 @@ extension DetailViewController {
 }
 
 // will set this up later
-extension DetailViewController.Rating {
-    var display: String {
-        switch self {
-        case .one:
-            return "⭐️"
-        case .two:
-            return "⭐️⭐️"
-        case .three:
-            return "⭐️⭐️⭐️"
-        case .four:
-            return "⭐️⭐️⭐️⭐️"
-        case .five:
-            return "⭐️⭐️⭐️⭐️⭐️"
+//extension DetailViewController.Rating {
+//    var display: String {
+//        switch self {
+//        case .one:
+//            return "⭐️"
+//        case .two:
+//            return "⭐️⭐️"
+//        case .three:
+//            return "⭐️⭐️⭐️"
+//        case .four:
+//            return "⭐️⭐️⭐️⭐️"
+//        case .five:
+//            return "⭐️⭐️⭐️⭐️⭐️"
+//        }
+//    }
+//}
+
+
+extension DetailViewController: DetailViewControllerDelegate {
+    func updateModels(restaurant: Restaurant, review: Review) {
+        DispatchQueue.main.async {
+            self.restaurant = restaurant
+            self.review = review
+            self.updateViews()
         }
     }
 }
-
