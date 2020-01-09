@@ -97,7 +97,7 @@ extension DetailViewController {
         // will refactor but this is for midnight to 1AM
         if number < 100 {
         stringMilitaryTimeRaw = String(number)
-        stringMilitaryTimeRaw = "00" + stringMilitaryTimeRaw
+        stringMilitaryTimeRaw = "12" + stringMilitaryTimeRaw
         } else if number < 1000 { // will refactor but this is for one digit hour
         stringMilitaryTimeRaw = String(number)
         stringMilitaryTimeRaw = "0" + stringMilitaryTimeRaw

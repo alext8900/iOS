@@ -74,9 +74,9 @@ class AddRestaurantViewController: UIViewController {
     
     func getTime(hour: Date) -> Int? {
         let calendar = Calendar.current
-        let component = calendar.dateComponents([.hour, .minute], from: hour)
-        guard let timeHourInt = component.hour else { return nil }
-        guard let timeMinuteInt = component.minute else { return nil }
+        let components = calendar.dateComponents([.hour, .minute], from: hour)
+        guard let timeHourInt = components.hour else { return nil }
+        guard let timeMinuteInt = components.minute else { return nil }
         
         var timeHourIntToString: String = ""
         var timeMinuteIntToString: String = ""

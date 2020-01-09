@@ -82,8 +82,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="161" height="200"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </view>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bOh-zb-oQQ" userLabel="Labels">
-                                            <rect key="frame" x="16" y="80" width="129" height="40.333333333333343"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bOh-zb-oQQ" userLabel="Labels">
+                                            <rect key="frame" x="16" y="79" width="129" height="42.333333333333343"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtH-Ii-H4Y">
                                                     <rect key="frame" x="0.0" y="0.0" width="129" height="20.333333333333332"/>
@@ -92,12 +92,18 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHF-En-HMv">
-                                                    <rect key="frame" x="0.0" y="22.333333333333329" width="129" height="18"/>
+                                                    <rect key="frame" x="0.0" y="24.333333333333329" width="129" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="uNQ-Qs-a8T"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <color key="textColor" red="0.96862745100000003" green="0.98823529409999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XtH-Ii-H4Y" firstAttribute="top" secondItem="bOh-zb-oQQ" secondAttribute="top" id="shH-4R-o1O"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -867,6 +873,7 @@
                         <outlet property="locationTF" destination="rey-7L-Gpg" id="efg-xA-XM9"/>
                         <outlet property="nameTF" destination="Eyk-Cg-6OC" id="goP-Nl-dff"/>
                         <outlet property="openDP" destination="QVo-7i-xDe" id="8Xu-zA-ZfC"/>
+                        <outlet property="ratingPV" destination="OYY-Bl-ie6" id="Vcb-Ky-QB9"/>
                         <outlet property="reviewTextView" destination="qYW-mj-Jhq" id="rTp-ax-1b2"/>
                     </connections>
                 </viewController>
