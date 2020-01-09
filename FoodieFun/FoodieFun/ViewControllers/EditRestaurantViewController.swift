@@ -21,7 +21,7 @@ class EditRestaurantViewController: UIViewController {
     var restaurantController: RestaurantController?
     var review: Review?
     private var pickerData: [String] = ["1", "2", "3", "4", "5"]
-    private var pickedRating: String = "3"
+    private var pickedRating: String?
     
     @IBAction func canceButtonTapped(_ sender: UIBarButtonItem) {
         //Go back to previous view controller :)
@@ -62,18 +62,37 @@ class EditRestaurantViewController: UIViewController {
         self.reviewTextView.text = reviewText
     }
     
-    @IBAction func saveButton(_ sender: UIBarButtonItem) {
-//        guard let name = self.nameTF.text, !name.isEmpty,
-//        let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
-//        let location = self.locationTF.text, !location.isEmpty,
-//        let review = self.review.text, !review.isEmpty,
-//        let openHour = addRestaurant.getTime(hour: self.openDP.date),
-//        let closeHour = addRestaurant.getTime(hour: self.closeDP.date) else {
-//          let alert = UIAlertController(title: "Missing some fields", message: "Check your information and try again.", preferredStyle: .alert)
-//          alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//          self.present(alert, animated: true, completion: nil)
-//          return
-//        }
+    @IBAction func saveButtonPressed() {
+        guard let restaurant = self.restaurant,
+            let name = self.nameTF.text,
+            let cuisine = self.cuisineTF.text,
+            let location = self.locationTF.text,
+            let newReview = self.reviewTextView.text,
+            let openHour = self.getTime(hour: self.openDP.date),
+            let closeHour = self.getTime(hour: self.closeDP.date) else { return }
+        
+        self.restaurantController?.updateRestaurant(id: restaurant.id, name: name, cuisine: cuisine, location: location, openTime: openHour, closeTime: closeHour, completion: { (result) in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let restaurant):
+                guard let pickedRating = self.pickedRating,
+                    let pickedRatingInt = Int(pickedRating),
+                    let reviewId = self.review?.id else { return }
+                
+                self.restaurantController?.updateReview(id: reviewId, restaurantId: restaurant.id, name: restaurant.name, url: restaurant.photo_url, rating: pickedRatingInt, review: newReview, completion: { (result) in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success( let review):
+                        print(review)
+                    }
+                })
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        })
     }
     
     func setTime(number: Int) -> String {
@@ -91,6 +110,32 @@ class EditRestaurantViewController: UIViewController {
         }
         
         return stringMilitaryTimeRaw
+    }
+    
+    func getTime(hour: Date) -> Int? {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute], from: hour)
+        guard let timeHourInt = components.hour else { return nil }
+        guard let timeMinuteInt = components.minute else { return nil }
+        
+        var timeHourIntToString: String = ""
+        var timeMinuteIntToString: String = ""
+
+        if timeHourInt == 0 {
+            timeHourIntToString = String(timeHourInt) + "0"
+        } else {
+            timeHourIntToString = String(timeHourInt)
+        }
+        
+        if timeMinuteInt == 0 {
+            timeMinuteIntToString = String(timeMinuteInt) + "0"
+        } else {
+            timeMinuteIntToString = String(timeMinuteInt)
+        }
+        
+        // change to String first in order to combine hour and minute as one unit of Int for the backend purpose
+        guard let militaryTime = Int(String(timeHourIntToString) + timeMinuteIntToString) else { return nil }
+        return militaryTime
     }
 
     // MARK: - Navigation
@@ -116,6 +161,5 @@ extension EditRestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSo
     // Capture the picker view selection
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.pickedRating = String(row)
-        print(pickedRating)
     }
 }

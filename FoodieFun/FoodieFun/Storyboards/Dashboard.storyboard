@@ -862,7 +862,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="EbH-cy-30z">
                             <connections>
-                                <action selector="saveButton:" destination="qaV-fn-S7w" id="3tX-yw-zu3"/>
+                                <action selector="saveButtonPressed" destination="qaV-fn-S7w" id="LWF-yV-UCk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
