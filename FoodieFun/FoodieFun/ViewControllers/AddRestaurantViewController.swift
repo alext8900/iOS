@@ -28,15 +28,13 @@ class AddRestaurantViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        giveTextViewaBorder()
-        addObservers()
-        textFieldDelegates()
-        
+        self.giveTextViewaBorder()
+        self.addObservers()
+        self.textFieldDelegates()
+
         self.ratingPV.delegate = self
         self.ratingPV.dataSource = self
-        
     }
-    
     
     @IBAction func saveButtonPressed() {
         guard let name = self.nameTF.text, !name.isEmpty,

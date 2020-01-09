@@ -32,6 +32,8 @@ class EditRestaurantViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        self.giveTextViewaBorder()
+        
         super.viewDidLoad()
         guard let restaurant = restaurant else { return }
         
@@ -64,6 +66,8 @@ class EditRestaurantViewController: UIViewController {
         // setting current reviews
         guard let reviewText = self.review?.review else { return }
         self.reviewTextView.text = reviewText
+        
+        
     }
     
     @IBAction func saveButtonPressed() {
@@ -100,7 +104,14 @@ class EditRestaurantViewController: UIViewController {
         })
     }
     
-    func setTime(number: Int) -> String {
+    private func giveTextViewaBorder() {
+        reviewTextView.layer.cornerCurve = .continuous
+        reviewTextView.layer.cornerRadius = 8
+        reviewTextView.layer.borderColor = UIColor.gray.cgColor
+        reviewTextView.layer.borderWidth = 0.5
+    }
+    
+    private func setTime(number: Int) -> String {
         var stringMilitaryTimeRaw: String
         
         // will refactor but this is for midnight to 1AM
@@ -117,7 +128,7 @@ class EditRestaurantViewController: UIViewController {
         return stringMilitaryTimeRaw
     }
     
-    func getTime(hour: Date) -> Int? {
+    private func getTime(hour: Date) -> Int? {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.hour, .minute], from: hour)
         guard let timeHourInt = components.hour else { return nil }
