@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol DetailViewControllerDelegate: AnyObject {
+    func updateModels(restaurant: Restaurant, review: Review)
+}
+
+
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var typeOfCuisine: UILabel!
@@ -66,10 +71,12 @@ class DetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditSegue" {
             if let nc = segue.destination as? UINavigationController,
-               let editVC = nc.topViewController as? EditRestaurantViewController {
-                    editVC.restaurantController = self.restaurantController
-                    editVC.restaurant = self.restaurant
-                    editVC.review = self.review
+                let editVC = nc.topViewController as? EditRestaurantViewController
+            {
+                editVC.restaurantController = self.restaurantController
+                editVC.restaurant = self.restaurant
+                editVC.review = self.review
+                editVC.delegate = self
             }
         }
     }
@@ -130,3 +137,13 @@ extension DetailViewController.Rating {
     }
 }
 
+
+extension DetailViewController: DetailViewControllerDelegate {
+    func updateModels(restaurant: Restaurant, review: Review) {
+        DispatchQueue.main.async {
+            self.restaurant = restaurant
+            self.review = review
+            self.updateViews()
+        }
+    }
+}

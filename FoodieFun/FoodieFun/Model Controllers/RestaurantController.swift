@@ -267,23 +267,13 @@ class RestaurantController {
     
     func updateReview(id: Int,
                       restaurantId: Int,
+                      cuisine: String,
                       name: String,
                       url: String,
                       rating: Int,
                       review: String,
                       completion: @escaping (Result<Review, NetworkError>) -> Void)
     {
-        guard let index = self.reviews.firstIndex(where: { review in review.id == id }) else { return }
-        
-        var updatedReview = self.reviews[index]
-        updatedReview.name = name
-        updatedReview.photo_url = url
-        updatedReview.rating = rating
-        updatedReview.review = review
-        
-        // set the review back
-        self.reviews[index] = updatedReview
-        
         let requestURL = baseURL.appendingPathComponent("/items/\(id)")
         var request = URLRequest(url: requestURL)
         
@@ -294,6 +284,8 @@ class RestaurantController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(loginController.token?.token, forHTTPHeaderField: "Authorization")
         request.setValue(stringUserId, forHTTPHeaderField: "user_id")
+        
+        let updatedReview = Review(id: id, restaurant_id: restaurantId, cuisine: cuisine, name: name, photo_url: url, rating: rating, review: review, user_id: userId)
         
         let jsonEncoder = JSONEncoder()
         

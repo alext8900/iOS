@@ -21,6 +21,7 @@ class CustomTabBarViewController: UITabBarController, UITabBarControllerDelegate
         if (viewController as? UINavigationController)?.topViewController?.isKind(of: AddRestaurantViewController.self) == true {
             let vc = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "AddRestaurant")
             let nc = UINavigationController(rootViewController: vc)
+            nc.navigationBar.prefersLargeTitles = true
             nc.modalPresentationStyle = .overFullScreen
             self.present(nc, animated: true, completion: nil)
             return false

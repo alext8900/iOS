@@ -22,6 +22,7 @@ class EditRestaurantViewController: UIViewController {
     var review: Review?
     private var pickerData: [String] = ["1", "2", "3", "4", "5"]
     private var pickedRating: String?
+    weak var delegate: DetailViewControllerDelegate?
     
     @IBAction func canceButtonTapped(_ sender: UIBarButtonItem) {
         //Go back to previous view controller :)
@@ -41,6 +42,7 @@ class EditRestaurantViewController: UIViewController {
  
         // getting current rating
         guard let defaultRating = self.review?.rating else { return }
+        self.pickedRating = String(defaultRating - 1)
         self.ratingPV.selectRow(defaultRating - 1, inComponent: 0, animated: false)
         
         // getting the time
@@ -80,12 +82,13 @@ class EditRestaurantViewController: UIViewController {
                     let pickedRatingInt = Int(pickedRating),
                     let reviewId = self.review?.id else { return }
                 
-                self.restaurantController?.updateReview(id: reviewId, restaurantId: restaurant.id, name: restaurant.name, url: restaurant.photo_url, rating: pickedRatingInt, review: newReview, completion: { (result) in
+                self.restaurantController?.updateReview(id: reviewId, restaurantId: restaurant.id, cuisine: restaurant.cuisine, name: restaurant.name, url: restaurant.photo_url, rating: pickedRatingInt, review: newReview, completion: { (result) in
                     switch result {
                     case .failure(let error):
                         print(error)
                     case .success( let review):
                         print(review)
+                        self.delegate?.updateModels(restaurant: restaurant, review: review)
                     }
                 })
                 DispatchQueue.main.async {
@@ -163,3 +166,4 @@ extension EditRestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSo
         self.pickedRating = String(row)
     }
 }
+
