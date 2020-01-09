@@ -15,6 +15,7 @@ protocol DetailViewControllerDelegate: AnyObject {
 
 class DetailViewController: UIViewController {
     
+    // MARK: - Outlets and Properties
     @IBOutlet weak var typeOfCuisine: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var hourOpen: UILabel!
@@ -106,7 +107,7 @@ extension DetailViewController {
     func stringConverter(number: Int) -> String {
         var stringMilitaryTimeRaw: String
         
-        // will refactor but this is for midnight to 1AM
+        // this is for midnight to 1AM
         if number < 100 {
         stringMilitaryTimeRaw = String(number)
         stringMilitaryTimeRaw = "12" + stringMilitaryTimeRaw
@@ -124,7 +125,6 @@ extension DetailViewController {
     }
 }
 
-// will set this up later
 //extension DetailViewController.Rating {
 //    var display: String {
 //        switch self {
@@ -141,7 +141,6 @@ extension DetailViewController {
 //        }
 //    }
 //}
-
 
 extension DetailViewController: DetailViewControllerDelegate {
     func updateModels(restaurant: Restaurant, review: Review) {

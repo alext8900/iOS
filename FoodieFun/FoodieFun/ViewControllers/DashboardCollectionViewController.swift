@@ -61,7 +61,6 @@ class DashboardCollectionViewController: UICollectionViewController {
     }
     
     // for Search Functionality
-    
     func search() {
         // Set up the search controller
         // Allows the class to be informed as text changes within the UISearchBar

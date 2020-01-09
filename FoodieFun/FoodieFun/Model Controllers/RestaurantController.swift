@@ -17,7 +17,8 @@ class RestaurantController {
     var reviews: [Review] = []
     var loginController = LoginController.shared
     
-    func fetchAllRestaurants(completion: @escaping (Result<[Restaurant], NetworkError>) -> Void) {
+    func fetchAllRestaurants(completion: @escaping (Result<[Restaurant], NetworkError>) -> Void)
+    {
         let requestURL = baseURL.appendingPathComponent("/restaurants/")
         var request = URLRequest(url: requestURL)
         
@@ -327,7 +328,8 @@ class RestaurantController {
         }.resume()
     }
 
-    func fetchReviews(with id: Int, completion: @escaping (Result<[Review], NetworkError>) -> Void) {
+    func fetchReviews(with id: Int, completion: @escaping (Result<[Review], NetworkError>) -> Void)
+    {
         let requestURL = baseURL.appendingPathComponent("/restaurants/\(id)/items")
         var request = URLRequest(url: requestURL)
         
@@ -366,7 +368,8 @@ class RestaurantController {
         }.resume()
     }
     
-    func deleteRestaurant(with id: Int, completion: @escaping (Result<Restaurant, NetworkError>) -> Void) {
+    func deleteRestaurant(with id: Int, completion: @escaping (Result<Restaurant, NetworkError>) -> Void)
+    {
         
         let requestURL = baseURL.appendingPathComponent("/restaurants/\(id)")
         
@@ -382,7 +385,7 @@ class RestaurantController {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse,
-                response.statusCode != 201 {
+                response.statusCode != 204 {
                 completion(.failure(.badAuth))
             }
             
@@ -396,10 +399,9 @@ class RestaurantController {
             }
             
             let decoder = JSONDecoder()
-            
+
             do {
                 let restaurant = try decoder.decode(Restaurant.self, from: data)
-                self.restaurants.removeAll()
                 completion(.success(restaurant))
             } catch {
                 print("Error decoding restaurant after deleting: \(error)")
