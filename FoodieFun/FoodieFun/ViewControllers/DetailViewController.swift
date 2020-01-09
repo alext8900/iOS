@@ -120,22 +120,22 @@ extension DetailViewController {
 }
 
 // will set this up later
-extension DetailViewController.Rating {
-    var display: String {
-        switch self {
-        case .one:
-            return "⭐️"
-        case .two:
-            return "⭐️⭐️"
-        case .three:
-            return "⭐️⭐️⭐️"
-        case .four:
-            return "⭐️⭐️⭐️⭐️"
-        case .five:
-            return "⭐️⭐️⭐️⭐️⭐️"
-        }
-    }
-}
+//extension DetailViewController.Rating {
+//    var display: String {
+//        switch self {
+//        case .one:
+//            return "⭐️"
+//        case .two:
+//            return "⭐️⭐️"
+//        case .three:
+//            return "⭐️⭐️⭐️"
+//        case .four:
+//            return "⭐️⭐️⭐️⭐️"
+//        case .five:
+//            return "⭐️⭐️⭐️⭐️⭐️"
+//        }
+//    }
+//}
 
 
 extension DetailViewController: DetailViewControllerDelegate {

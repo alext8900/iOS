@@ -42,7 +42,7 @@ class EditRestaurantViewController: UIViewController {
  
         // getting current rating
         guard let defaultRating = self.review?.rating else { return }
-        self.pickedRating = String(defaultRating - 1)
+        self.pickedRating = String(defaultRating)
         self.ratingPV.selectRow(defaultRating - 1, inComponent: 0, animated: false)
         
         // getting the time
@@ -163,7 +163,7 @@ extension EditRestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     // Capture the picker view selection
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.pickedRating = String(row)
+        self.pickedRating = String(row + 1)
     }
 }
 
