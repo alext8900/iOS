@@ -37,6 +37,7 @@ class AddRestaurantViewController: UIViewController {
         
     }
     
+    
     @IBAction func saveButtonPressed() {
         guard let name = self.nameTF.text, !name.isEmpty,
               let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
@@ -49,7 +50,6 @@ class AddRestaurantViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 return
         }
-        
         self.restaurantController.addRestaurant(name: name,
                                                 cuisine: cuisine,
                                                 location: location,
