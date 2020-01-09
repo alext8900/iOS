@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.reviewTextView.text = self.review?.review
+            
                 self.overallRating.text = "\(self.review?.rating ?? 1)"
             }
         }
@@ -60,7 +61,11 @@ class DetailViewController: UIViewController {
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
         guard let restaurant = restaurant else { return }
-        restaurantController?.deleteRestaurant(restaraunt: restaurant)
+        restaurantController?.deleteRestaurant(with: restaurant.id, completion: { (restaurant) in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
 
     @IBAction func edit(_ sender: UIBarButtonItem!) {

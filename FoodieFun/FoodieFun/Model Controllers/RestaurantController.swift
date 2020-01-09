@@ -298,10 +298,45 @@ class RestaurantController {
         }.resume()
     }
     
-    //Created a delete restaurants method :)
-    func deleteRestaurant(restaraunt: Restaurant) {
-        guard let index = restaurants.firstIndex(of: restaraunt)
-            else { return }
-        restaurants.remove(at: index)
+    func deleteRestaurant(with id: Int, completion: @escaping (Result<Restaurant, NetworkError>) -> Void) {
+        
+        let requestURL = baseURL.appendingPathComponent("/restaurants/\(id)")
+        
+        var request = URLRequest(url: requestURL)
+        
+        guard let userId = loginController.token?.id else { return }
+        let stringUserId = String(userId)
+        
+        request.httpMethod = HTTPMethod.delete.rawValue
+        request.setValue("application", forHTTPHeaderField: "Content-Type")
+        request.setValue(loginController.token?.token, forHTTPHeaderField: "Authorization")
+        request.setValue(stringUserId, forHTTPHeaderField: "user_id")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 201 {
+                completion(.failure(.badAuth))
+            }
+            
+            if let _ = error {
+                completion(.failure(.otherError))
+            }
+            
+            guard let data = data else {
+                completion(.failure(.badData))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let restaurant = try decoder.decode(Restaurant.self, from: data)
+                self.restaurants.removeAll()
+                completion(.success(restaurant))
+            } catch {
+                print("Error decoding restaurant after deleting: \(error)")
+                completion(.failure(.noDecode))
+            }
+        }.resume()
     }
 }
