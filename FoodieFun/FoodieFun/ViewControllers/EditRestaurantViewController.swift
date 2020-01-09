@@ -9,6 +9,8 @@
 import UIKit
 
 class EditRestaurantViewController: UIViewController {
+    
+    // MARK: - Outlets and Properties
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var cuisineTF: UITextField!
     @IBOutlet weak var locationTF: UITextField!
