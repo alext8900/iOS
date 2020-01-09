@@ -10,12 +10,12 @@ import Foundation
 
 struct Restaurant: Codable, Equatable {
     let id: Int
-    let name: String
-    let cuisine: String
-    let location: String
-    let hour_open: Int
-    let hour_closed: Int
-    let days_open: String
+    var name: String
+    var cuisine: String
+    var location: String
+    var hour_open: Int
+    var hour_closed: Int
+    var days_open: String
     let user_id: Int
-    let photo_url: String
+    var photo_url: String
 }

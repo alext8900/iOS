@@ -37,6 +37,7 @@ class AddRestaurantViewController: UIViewController {
         
     }
     
+    
     @IBAction func saveButtonPressed() {
         guard let name = self.nameTF.text, !name.isEmpty,
               let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
@@ -49,7 +50,6 @@ class AddRestaurantViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 return
         }
-        
         self.restaurantController.addRestaurant(name: name,
                                                 cuisine: cuisine,
                                                 location: location,
@@ -74,9 +74,9 @@ class AddRestaurantViewController: UIViewController {
     
     func getTime(hour: Date) -> Int? {
         let calendar = Calendar.current
-        let component = calendar.dateComponents([.hour, .minute], from: hour)
-        guard let timeHourInt = component.hour else { return nil }
-        guard let timeMinuteInt = component.minute else { return nil }
+        let components = calendar.dateComponents([.hour, .minute], from: hour)
+        guard let timeHourInt = components.hour else { return nil }
+        guard let timeMinuteInt = components.minute else { return nil }
         
         var timeHourIntToString: String = ""
         var timeMinuteIntToString: String = ""
@@ -155,16 +155,6 @@ class AddRestaurantViewController: UIViewController {
         scrollView.contentInset = .zero
         scrollView.scrollIndicatorInsets = .zero
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension AddRestaurantViewController: UITextFieldDelegate {

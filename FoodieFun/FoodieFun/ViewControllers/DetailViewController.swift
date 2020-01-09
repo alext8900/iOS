@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol DetailViewControllerDelegate: AnyObject {
+    func updateModels(restaurant: Restaurant, review: Review)
+}
+
+
 class DetailViewController: UIViewController {
     
+    // MARK: - Outlets and Properties
     @IBOutlet weak var typeOfCuisine: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var hourOpen: UILabel!
@@ -25,6 +31,7 @@ class DetailViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.reviewTextView.text = self.review?.review
+            
                 self.overallRating.text = "\(self.review?.rating ?? 1)"
             }
         }
@@ -60,11 +67,24 @@ class DetailViewController: UIViewController {
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
         guard let restaurant = restaurant else { return }
-        restaurantController?.deleteRestaurant(restaraunt: restaurant)
+        restaurantController?.deleteRestaurant(with: restaurant.id, completion: { (restaurant) in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
-
-    @IBAction func edit(_ sender: UIBarButtonItem!) {
-        
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditSegue" {
+            if let nc = segue.destination as? UINavigationController,
+                let editVC = nc.topViewController as? EditRestaurantViewController
+            {
+                editVC.restaurantController = self.restaurantController
+                editVC.restaurant = self.restaurant
+                editVC.review = self.review
+                editVC.delegate = self
+            }
+        }
     }
 }
 
@@ -87,10 +107,10 @@ extension DetailViewController {
     func stringConverter(number: Int) -> String {
         var stringMilitaryTimeRaw: String
         
-        // will refactor but this is for midnight to 1AM
+        // this is for midnight to 1AM
         if number < 100 {
         stringMilitaryTimeRaw = String(number)
-        stringMilitaryTimeRaw = "00" + stringMilitaryTimeRaw
+        stringMilitaryTimeRaw = "12" + stringMilitaryTimeRaw
         } else if number < 1000 { // will refactor but this is for one digit hour
         stringMilitaryTimeRaw = String(number)
         stringMilitaryTimeRaw = "0" + stringMilitaryTimeRaw
@@ -105,21 +125,29 @@ extension DetailViewController {
     }
 }
 
-// will set this up later
-extension DetailViewController.Rating {
-    var display: String {
-        switch self {
-        case .one:
-            return "⭐️"
-        case .two:
-            return "⭐️⭐️"
-        case .three:
-            return "⭐️⭐️⭐️"
-        case .four:
-            return "⭐️⭐️⭐️⭐️"
-        case .five:
-            return "⭐️⭐️⭐️⭐️⭐️"
+//extension DetailViewController.Rating {
+//    var display: String {
+//        switch self {
+//        case .one:
+//            return "⭐️"
+//        case .two:
+//            return "⭐️⭐️"
+//        case .three:
+//            return "⭐️⭐️⭐️"
+//        case .four:
+//            return "⭐️⭐️⭐️⭐️"
+//        case .five:
+//            return "⭐️⭐️⭐️⭐️⭐️"
+//        }
+//    }
+//}
+
+extension DetailViewController: DetailViewControllerDelegate {
+    func updateModels(restaurant: Restaurant, review: Review) {
+        DispatchQueue.main.async {
+            self.restaurant = restaurant
+            self.review = review
+            self.updateViews()
         }
     }
 }
-
