@@ -6,6 +6,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Bold.ttf">
+            <string>Quicksand-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tW6-T1-pj3">
@@ -16,16 +21,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Ttq-1j-c8n">
-                                <rect key="frame" x="20" y="302" width="374" height="292"/>
+                                <rect key="frame" x="20" y="301.5" width="374" height="293.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FoodieFun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTH-np-8N7">
-                                        <rect key="frame" x="110" y="0.0" width="154" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <rect key="frame" x="103" y="0.0" width="168.5" height="42.5"/>
+                                        <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Kv8-Vr-b13">
-                                        <rect key="frame" x="0.0" y="81" width="374" height="138"/>
+                                        <rect key="frame" x="0.0" y="82.5" width="374" height="138"/>
                                         <subviews>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zpJ-L1-vny">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -52,7 +57,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="OYx-dr-8lz">
-                                        <rect key="frame" x="64.5" y="259" width="245.5" height="33"/>
+                                        <rect key="frame" x="64.5" y="260.5" width="245.5" height="33"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mni-nr-pyZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="183.5" height="33"/>
