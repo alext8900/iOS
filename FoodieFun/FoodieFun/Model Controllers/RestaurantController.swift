@@ -382,7 +382,7 @@ class RestaurantController {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse,
-                response.statusCode != 201 {
+                response.statusCode != 204 {
                 completion(.failure(.badAuth))
             }
             
@@ -396,10 +396,9 @@ class RestaurantController {
             }
             
             let decoder = JSONDecoder()
-            
+
             do {
                 let restaurant = try decoder.decode(Restaurant.self, from: data)
-                self.restaurants.removeAll()
                 completion(.success(restaurant))
             } catch {
                 print("Error decoding restaurant after deleting: \(error)")
