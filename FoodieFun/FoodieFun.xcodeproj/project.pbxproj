@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F611AC923C6F0D700951330 /* Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F611AC823C6F0D700951330 /* Delete.swift */; };
 		1F83020B23AE8FE000F1F799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020A23AE8FE000F1F799 /* User.swift */; };
 		1F83020D23AE90AB00F1F799 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020C23AE90AB00F1F799 /* Token.swift */; };
 		1F83020F23AE90F400F1F799 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F83020E23AE90F400F1F799 /* Restaurant.swift */; };
@@ -37,7 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F611AC823C6F0D700951330 /* Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delete.swift; sourceTree = "<group>"; };
 		1F83020A23AE8FE000F1F799 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1F83020C23AE90AB00F1F799 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		1F83020E23AE90F400F1F799 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 				1F83020A23AE8FE000F1F799 /* User.swift */,
 				1F83020C23AE90AB00F1F799 /* Token.swift */,
 				E375C36E23B0A64300EA25FD /* Request.swift */,
-				1F611AC823C6F0D700951330 /* Delete.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,7 +256,6 @@
 				E309DE8823C31D080025AFF9 /* CustomTabBarViewController.swift in Sources */,
 				E375C37D23B3F0FA00EA25FD /* AddRestaurantViewController.swift in Sources */,
 				E309DE8123C125E70025AFF9 /* RestaurantController.swift in Sources */,
-				1F611AC923C6F0D700951330 /* Delete.swift in Sources */,
 				E375C37123B0A71B00EA25FD /* APIClient.swift in Sources */,
 				E375C37F23B3F10800EA25FD /* SettingsViewController.swift in Sources */,
 				E382DEA923C3E00F00612DA3 /* EditRestaurantViewController.swift in Sources */,
