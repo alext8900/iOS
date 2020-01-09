@@ -11,6 +11,7 @@ import UIKit
 class EditRestaurantViewController: UIViewController {
     
     // MARK: - Outlets and Properties
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var cuisineTF: UITextField!
     @IBOutlet weak var locationTF: UITextField!
@@ -33,6 +34,7 @@ class EditRestaurantViewController: UIViewController {
     
     override func viewDidLoad() {
         self.giveTextViewaBorder()
+        self.addObservers()
         
         super.viewDidLoad()
         guard let restaurant = restaurant else { return }
@@ -66,8 +68,6 @@ class EditRestaurantViewController: UIViewController {
         // setting current reviews
         guard let reviewText = self.review?.review else { return }
         self.reviewTextView.text = reviewText
-        
-        
     }
     
     @IBAction func saveButtonPressed() {
@@ -102,6 +102,27 @@ class EditRestaurantViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillChange(notification: Notification) {
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        
+        var scrollViewInsets = scrollView.contentInset
+        scrollViewInsets.bottom = keyboardRect.height
+
+        scrollView.contentInset = scrollViewInsets
+        scrollView.scrollIndicatorInsets = scrollViewInsets
+    }
+
+    @objc func keyboardWillHide(notification: Notification) {
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
     }
     
     private func giveTextViewaBorder() {
@@ -153,8 +174,13 @@ class EditRestaurantViewController: UIViewController {
         guard let militaryTime = Int(String(timeHourIntToString) + timeMinuteIntToString) else { return nil }
         return militaryTime
     }
-
-    // MARK: - Navigation
+    
+    @IBAction func deletePressed(_ sender: Any) {
+        guard let restaurant = restaurant else { return }
+          restaurantController?.deleteRestaurant(with: restaurant.id, completion: { (restaurant) in
+            self.delegate?.didDelete()
+          })
+    }
 }
 
 extension EditRestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSource {

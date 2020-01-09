@@ -155,7 +155,7 @@
                                 <rect key="frame" x="20" y="160" width="374" height="590"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NK1-cQ-b1b" userLabel="Text Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="345"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="590"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="adW-rD-gII">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="45.333333333333336"/>
@@ -246,7 +246,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vpR-co-zq2">
-                                                <rect key="frame" x="0.0" y="261.33333333333331" width="374" height="83.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="261.33333333333326" width="374" height="328.66666666666674"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REVIEWS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2R-wx-9el">
                                                         <rect key="frame" x="0.0" y="0.0" width="63" height="17"/>
@@ -255,7 +255,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I like the fried chicken but I don't think the service here is good." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Agu-hw-sIi">
-                                                        <rect key="frame" x="0.0" y="24.999999999999996" width="374" height="58.666666666666657"/>
+                                                        <rect key="frame" x="0.0" y="25" width="374" height="303.66666666666669"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -274,13 +274,6 @@
                                             <constraint firstAttribute="trailing" secondItem="adW-rD-gII" secondAttribute="trailing" id="b09-3w-taG"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtM-UB-Tmi">
-                                        <rect key="frame" x="0.0" y="385" width="45" height="205"/>
-                                        <state key="normal" title="Delete"/>
-                                        <connections>
-                                            <action selector="deleteButtonTapped:" destination="o1J-fp-ewQ" eventType="touchUpInside" id="9zV-yw-UNN"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -303,7 +296,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="deleteButton" destination="VtM-UB-Tmi" id="9ax-fp-VMP"/>
                         <outlet property="hourClosed" destination="XRz-7e-F5f" id="am0-0Q-3Va"/>
                         <outlet property="hourOpen" destination="wpX-Eo-16Q" id="fzZ-un-DTE"/>
                         <outlet property="location" destination="I7t-cs-7fx" id="D4O-if-Hhd"/>
@@ -763,15 +755,18 @@
                                                 <rect key="frame" x="20" y="1179.3333333333333" width="374" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wez-Av-ZiC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                                         <color key="backgroundColor" red="0.91372549020000005" green="0.14117647059999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="DELETE">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="deletePressed:" destination="qaV-fn-S7w" eventType="touchUpInside" id="CoF-Xy-gdF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="wez-Av-ZiC" secondAttribute="trailing" constant="20" symbolic="YES" id="7T0-N4-2KW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wez-Av-ZiC" secondAttribute="trailing" id="7T0-N4-2KW"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -847,6 +842,7 @@
                         <outlet property="openDP" destination="QVo-7i-xDe" id="8Xu-zA-ZfC"/>
                         <outlet property="ratingPV" destination="OYY-Bl-ie6" id="Vcb-Ky-QB9"/>
                         <outlet property="reviewTextView" destination="qYW-mj-Jhq" id="rTp-ax-1b2"/>
+                        <outlet property="scrollView" destination="R9f-Xn-BQ4" id="oPE-Tz-9v9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hv8-hA-twX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
