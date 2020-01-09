@@ -17,7 +17,8 @@ class RestaurantController {
     var reviews: [Review] = []
     var loginController = LoginController.shared
     
-    func fetchAllRestaurants(completion: @escaping (Result<[Restaurant], NetworkError>) -> Void) {
+    func fetchAllRestaurants(completion: @escaping (Result<[Restaurant], NetworkError>) -> Void)
+    {
         let requestURL = baseURL.appendingPathComponent("/restaurants/")
         var request = URLRequest(url: requestURL)
         
@@ -327,7 +328,8 @@ class RestaurantController {
         }.resume()
     }
 
-    func fetchReviews(with id: Int, completion: @escaping (Result<[Review], NetworkError>) -> Void) {
+    func fetchReviews(with id: Int, completion: @escaping (Result<[Review], NetworkError>) -> Void)
+    {
         let requestURL = baseURL.appendingPathComponent("/restaurants/\(id)/items")
         var request = URLRequest(url: requestURL)
         
@@ -366,7 +368,8 @@ class RestaurantController {
         }.resume()
     }
     
-    func deleteRestaurant(with id: Int, completion: @escaping (Result<Restaurant, NetworkError>) -> Void) {
+    func deleteRestaurant(with id: Int, completion: @escaping (Result<Restaurant, NetworkError>) -> Void)
+    {
         
         let requestURL = baseURL.appendingPathComponent("/restaurants/\(id)")
         
