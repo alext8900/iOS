@@ -133,11 +133,7 @@
                             <outlet property="delegate" destination="9fd-j4-47l" id="TA7-Dc-iVm"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="FoodieFun" id="ho6-MO-HmT">
-                        <barButtonItem key="rightBarButtonItem" title="Filter" id="C80-fh-yWq">
-                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="FoodieFun" id="ho6-MO-HmT"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKN-fI-kQf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
