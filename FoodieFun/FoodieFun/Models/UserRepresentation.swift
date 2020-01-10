@@ -1,5 +1,5 @@
 //
-//  User+Convenience.swift
+//  UserRepresentation.swift
 //  FoodieFun
 //
 //  Created by Alex Thompson on 1/9/20.
@@ -9,5 +9,8 @@
 import Foundation
 import CoreData
 
-
-
+struct UserRepresentation: Codable {
+    var username: String
+    var password: String?
+    var identifier: String?
+}
