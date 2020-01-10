@@ -11,6 +11,6 @@ import CoreData
 
 struct UserRepresentation: Codable {
     var username: String
-    var password: String?
+    var password: String
     var identifier: String?
 }
