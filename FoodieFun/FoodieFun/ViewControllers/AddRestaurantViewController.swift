@@ -41,8 +41,8 @@ class AddRestaurantViewController: UIViewController {
               let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
               let location = self.locationTF.text, !location.isEmpty,
               let review = self.review.text, !review.isEmpty,
-              let openHour = self.getTime(hour: self.openDP.date),
-              let closeHour = self.getTime(hour: self.closeDP.date) else {
+              let openHour = TimeHelpers.getTime(hour: self.openDP.date),
+              let closeHour = TimeHelpers.getTime(hour: self.closeDP.date) else {
                 let alert = UIAlertController(title: "Missing some fields", message: "Check your information and try again.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
@@ -68,32 +68,6 @@ class AddRestaurantViewController: UIViewController {
     
     @IBAction func cancelPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    func getTime(hour: Date) -> Int? {
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour, .minute], from: hour)
-        guard let timeHourInt = components.hour else { return nil }
-        guard let timeMinuteInt = components.minute else { return nil }
-        
-        var timeHourIntToString: String = ""
-        var timeMinuteIntToString: String = ""
-
-        if timeHourInt == 0 {
-            timeHourIntToString = String(timeHourInt) + "0"
-        } else {
-            timeHourIntToString = String(timeHourInt)
-        }
-        
-        if timeMinuteInt == 0 {
-            timeMinuteIntToString = String(timeMinuteInt) + "0"
-        } else {
-            timeMinuteIntToString = String(timeMinuteInt)
-        }
-        
-        // change to String first in order to combine hour and minute as one unit of Int for the backend purpose
-        guard let militaryTime = Int(String(timeHourIntToString) + timeMinuteIntToString) else { return nil }
-        return militaryTime
     }
     
     // getting second request for review after creating a new restaurant

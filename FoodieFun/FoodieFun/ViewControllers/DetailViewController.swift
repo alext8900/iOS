@@ -63,8 +63,8 @@ class DetailViewController: UIViewController {
         self.title = restaurant.name.uppercased()
         self.typeOfCuisine.text = restaurant.cuisine
         self.location.text = restaurant.location
-        self.hourOpen.text = "\(self.calculateAmPm(militaryTime: restaurant.hour_open))"
-        self.hourClosed.text = "\(self.calculateAmPm(militaryTime: restaurant.hour_closed))"
+        self.hourOpen.text = "\(TimeHelpers.calculateAmPm(militaryTime: restaurant.hour_open))"
+        self.hourClosed.text = "\(TimeHelpers.calculateAmPm(militaryTime: restaurant.hour_closed))"
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
@@ -89,60 +89,6 @@ class DetailViewController: UIViewController {
         }
     }
 }
-
-extension DetailViewController {
-    // for converting the hours from military time to regular time AM PM
-    func calculateAmPm(militaryTime: Int) -> String {
-        let militaryTimeRaw: Int
-        
-        if militaryTime > 1200 {
-            militaryTimeRaw = militaryTime - 1200
-            let stringFullHour = stringConverter(number: militaryTimeRaw)
-            return stringFullHour + " PM"
-        } else {
-            militaryTimeRaw = militaryTime
-            let stringFullHour = stringConverter(number: militaryTimeRaw)
-            return stringFullHour + " AM"
-        }
-    }
-
-    func stringConverter(number: Int) -> String {
-        var stringMilitaryTimeRaw: String
-        
-        // this is for midnight to 1AM
-        if number < 100 {
-        stringMilitaryTimeRaw = String(number)
-        stringMilitaryTimeRaw = "12" + stringMilitaryTimeRaw
-        } else if number < 1000 { // will refactor but this is for one digit hour
-        stringMilitaryTimeRaw = String(number)
-        stringMilitaryTimeRaw = "0" + stringMilitaryTimeRaw
-        } else {
-            stringMilitaryTimeRaw = String(number)
-        }
-        
-        let stringHour = stringMilitaryTimeRaw.prefix(2)
-        let stringMinute = stringMilitaryTimeRaw.suffix(2)
-        let stringFullHour = stringHour + "." + stringMinute
-        return String(stringFullHour)
-    }
-}
-
-//extension DetailViewController.Rating {
-//    var display: String {
-//        switch self {
-//        case .one:
-//            return "⭐️"
-//        case .two:
-//            return "⭐️⭐️"
-//        case .three:
-//            return "⭐️⭐️⭐️"
-//        case .four:
-//            return "⭐️⭐️⭐️⭐️"
-//        case .five:
-//            return "⭐️⭐️⭐️⭐️⭐️"
-//        }
-//    }
-//}
 
 extension DetailViewController: DetailViewControllerDelegate {
     func updateModels(restaurant: Restaurant, review: Review) {
