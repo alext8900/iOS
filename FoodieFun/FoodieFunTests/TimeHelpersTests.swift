@@ -19,7 +19,7 @@ class TimeHelpersTests: XCTestCase {
         XCTAssertEqual(TimeHelpers.stringConverter(number: 1030), "10.30")
     }
     
-    func testSetTimeToMidnight() {
+    func testSetTimeString() {
         XCTAssertEqual(TimeHelpers.setTime(number: 30), "0030")
     }
 }
