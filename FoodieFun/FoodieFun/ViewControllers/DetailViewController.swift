@@ -60,7 +60,7 @@ class DetailViewController: UIViewController {
         guard isViewLoaded else { return }
         guard let restaurant = self.restaurant else { return }
 
-        self.title = restaurant.name.capitalized
+        self.title = restaurant.name.uppercased()
         self.typeOfCuisine.text = restaurant.cuisine
         self.location.text = restaurant.location
         self.hourOpen.text = "\(self.calculateAmPm(militaryTime: restaurant.hour_open))"
