@@ -21,9 +21,9 @@ class DashboardCollectionViewController: UICollectionViewController {
     // Hold the restaurants that the user is searching for
     var filteredRestaurant = [Restaurant]()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setFont()
         
         // Communication between Add tab and Home tab
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData), name: .restaurantDidSaveNotification, object: nil)
@@ -46,6 +46,13 @@ class DashboardCollectionViewController: UICollectionViewController {
     }
     
     // MARK: - Private Functions
+    // Custom Large Font
+    func setFont() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(hue: 355, saturation: 82, brightness: 53, alpha: 1),
+                                                                             NSAttributedString.Key.font: UIFont(name: "Quicksand-Bold", size: 42) ?? UIFont.systemFont(ofSize: 42)]
+    }
+    
     // For reloading data after a new restaurant is created from the Add VC
     @objc func onDidReceiveData(_ notification: Notification) {
        if loginController.token?.token != nil {
@@ -142,8 +149,8 @@ class DashboardCollectionViewController: UICollectionViewController {
         
         // updating UIs
         cell.imageView.image = UIImage(named: "fried chicken") ?? UIImage(named: "placeholder")
-        cell.nameLabel.text = restaurant.name
-        cell.locationLabel.text = restaurant.location
+        cell.nameLabel.text = restaurant.name.capitalized
+        cell.locationLabel.text = restaurant.location.uppercased()
     
         return cell
     }
@@ -194,5 +201,9 @@ extension DashboardCollectionViewController: UISearchResultsUpdating {
     }
 }
 
+extension DashboardCollectionViewController {
+
+
+}
 
 

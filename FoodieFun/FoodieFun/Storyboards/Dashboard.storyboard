@@ -56,7 +56,7 @@
         <!--FoodieFun-->
         <scene sceneID="G6i-ZB-GTX">
             <objects>
-                <collectionViewController id="9fd-j4-47l" customClass="DashboardCollectionViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="DashboardRestaurant" id="9fd-j4-47l" customClass="DashboardCollectionViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GNk-tP-2N2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,7 +85,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bOh-zb-oQQ" userLabel="Labels">
                                             <rect key="frame" x="16" y="79" width="129" height="42.333333333333343"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Restaurant Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtH-Ii-H4Y">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtH-Ii-H4Y">
                                                     <rect key="frame" x="0.0" y="0.0" width="129" height="20.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -134,7 +134,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="FoodieFun" id="ho6-MO-HmT">
-                        <barButtonItem key="rightBarButtonItem" title="Filter" id="C80-fh-yWq"/>
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="C80-fh-yWq">
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKN-fI-kQf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -299,6 +301,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Restaurant Name" id="bTa-Xs-WDg">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="h02-Ae-S84">
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="edit:" destination="o1J-fp-ewQ" id="EWY-sY-dL8"/>
                                 <segue destination="e3N-AX-RQA" kind="presentation" identifier="EditSegue" modalPresentationStyle="fullScreen" id="MWr-9X-iLR"/>
@@ -345,6 +348,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.91372549020000005" green="0.14117647059999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.91372549020000005" green="0.14117647059999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="255-uD-8fb" kind="relationship" relationship="viewControllers" id="cFJ-r7-GIu"/>
@@ -607,11 +612,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add a Restaurant" id="y3I-kY-flT">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RYx-IQ-EjT">
+                            <color key="tintColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelPressed:" destination="o5o-P7-XDR" id="0g6-so-rai"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="guA-Ku-fap">
+                            <color key="tintColor" red="0.3294117647" green="0.56078431370000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="saveButtonPressed" destination="o5o-P7-XDR" id="32O-s2-2sR"/>
                             </connections>
@@ -859,11 +866,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit a Restaurant" id="h06-ZH-yhB">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="st0-FI-frw">
+                            <color key="tintColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="canceButtonTapped:" destination="qaV-fn-S7w" id="I54-CI-Spv"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="EbH-cy-30z">
+                            <color key="tintColor" red="0.3294117647" green="0.56078431370000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="saveButtonPressed" destination="qaV-fn-S7w" id="LWF-yV-UCk"/>
                             </connections>

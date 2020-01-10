@@ -33,6 +33,11 @@
 		E375C37F23B3F10800EA25FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375C37E23B3F10800EA25FD /* SettingsViewController.swift */; };
 		E382DEA923C3E00F00612DA3 /* EditRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382DEA823C3E00F00612DA3 /* EditRestaurantViewController.swift */; };
 		E382DEAB23C3E04100612DA3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382DEAA23C3E04100612DA3 /* DetailViewController.swift */; };
+		E3AB220C23C7C3F5009034F0 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3AB220723C7C3F4009034F0 /* Quicksand-Regular.ttf */; };
+		E3AB220D23C7C3F5009034F0 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3AB220823C7C3F4009034F0 /* Quicksand-Light.ttf */; };
+		E3AB220E23C7C3F5009034F0 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3AB220923C7C3F4009034F0 /* Quicksand-Bold.ttf */; };
+		E3AB220F23C7C3F5009034F0 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3AB220A23C7C3F4009034F0 /* Quicksand-SemiBold.ttf */; };
+		E3AB221023C7C3F5009034F0 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3AB220B23C7C3F5009034F0 /* Quicksand-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +69,11 @@
 		E375C37E23B3F10800EA25FD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E382DEA823C3E00F00612DA3 /* EditRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRestaurantViewController.swift; sourceTree = "<group>"; };
 		E382DEAA23C3E04100612DA3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E3AB220723C7C3F4009034F0 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		E3AB220823C7C3F4009034F0 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		E3AB220923C7C3F4009034F0 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		E3AB220A23C7C3F4009034F0 /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
+		E3AB220B23C7C3F5009034F0 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +139,7 @@
 				E309DE8423C300C40025AFF9 /* Views */,
 				E375C36A23B0A3B800EA25FD /* Storyboards */,
 				E309DE8923C3C4580025AFF9 /* Extensions */,
+				E3AB220623C7C3B1009034F0 /* Fonts */,
 				1F848DC523AB2DF300A8259C /* AppDelegate.swift */,
 				1F848DC723AB2DF300A8259C /* SceneDelegate.swift */,
 				1F848DCE23AB2DF500A8259C /* Assets.xcassets */,
@@ -173,6 +184,18 @@
 				E375C37223B0AB9800EA25FD /* LoginController.swift */,
 			);
 			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		E3AB220623C7C3B1009034F0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E3AB220923C7C3F4009034F0 /* Quicksand-Bold.ttf */,
+				E3AB220823C7C3F4009034F0 /* Quicksand-Light.ttf */,
+				E3AB220B23C7C3F5009034F0 /* Quicksand-Medium.ttf */,
+				E3AB220723C7C3F4009034F0 /* Quicksand-Regular.ttf */,
+				E3AB220A23C7C3F4009034F0 /* Quicksand-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,11 +256,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3AB220F23C7C3F5009034F0 /* Quicksand-SemiBold.ttf in Resources */,
 				1F848DD223AB2DF500A8259C /* LaunchScreen.storyboard in Resources */,
+				E3AB220C23C7C3F5009034F0 /* Quicksand-Regular.ttf in Resources */,
 				E375C37923B3EF4500EA25FD /* Dashboard.storyboard in Resources */,
+				E3AB220D23C7C3F5009034F0 /* Quicksand-Light.ttf in Resources */,
 				1F848DCF23AB2DF500A8259C /* Assets.xcassets in Resources */,
 				E375C37523B3826700EA25FD /* SignUp.storyboard in Resources */,
 				1F848DCD23AB2DF300A8259C /* Main.storyboard in Resources */,
+				E3AB220E23C7C3F5009034F0 /* Quicksand-Bold.ttf in Resources */,
+				E3AB221023C7C3F5009034F0 /* Quicksand-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
