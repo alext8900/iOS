@@ -10,6 +10,8 @@ import UIKit
 
 protocol DetailViewControllerDelegate: AnyObject {
     func updateModels(restaurant: Restaurant, review: Review)
+    
+    func didDelete()
 }
 
 
@@ -148,6 +150,14 @@ extension DetailViewController: DetailViewControllerDelegate {
             self.restaurant = restaurant
             self.review = review
             self.updateViews()
+        }
+    }
+    
+    func didDelete() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true) {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 }
