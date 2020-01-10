@@ -21,6 +21,7 @@
 		E309DE8823C31D080025AFF9 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE8723C31D080025AFF9 /* CustomTabBarViewController.swift */; };
 		E309DE8B23C3C4710025AFF9 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E309DE8A23C3C4700025AFF9 /* Notifications.swift */; };
 		E34C4ED823C8269400DE0950 /* TimeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C4ED723C8269400DE0950 /* TimeHelpers.swift */; };
+		E34C4EDB23C8291C00DE0950 /* TimeHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C4EDA23C8291C00DE0950 /* TimeHelpersTests.swift */; };
 		E34D3CAB23BA96C600467442 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D3CAA23BA96C600467442 /* LoginViewController.swift */; };
 		E34D3CAD23BA9C4D00467442 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D3CAC23BA9C4D00467442 /* SignUpViewController.swift */; };
 		E375C36D23B0A53B00EA25FD /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375C36C23B0A53B00EA25FD /* SignUpController.swift */; };
@@ -70,6 +71,8 @@
 		E34C4ECC23C8251F00DE0950 /* FoodieFunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodieFunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34C4ED023C8251F00DE0950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E34C4ED723C8269400DE0950 /* TimeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelpers.swift; sourceTree = "<group>"; };
+		E34C4ED923C8291C00DE0950 /* FoodieFunTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodieFunTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		E34C4EDA23C8291C00DE0950 /* TimeHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelpersTests.swift; sourceTree = "<group>"; };
 		E34D3CAA23BA96C600467442 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E34D3CAC23BA9C4D00467442 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E375C36C23B0A53B00EA25FD /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				E34C4ED023C8251F00DE0950 /* Info.plist */,
+				E34C4EDA23C8291C00DE0950 /* TimeHelpersTests.swift */,
+				E34C4ED923C8291C00DE0950 /* FoodieFunTests-Bridging-Header.h */,
 			);
 			path = FoodieFunTests;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 					};
 					E34C4ECB23C8251F00DE0950 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 						TestTargetID = 1F848DC123AB2DF300A8259C;
 					};
 				};
@@ -375,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34C4EDB23C8291C00DE0950 /* TimeHelpersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +569,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYPH2NW7MY;
 				INFOPLIST_FILE = FoodieFunTests/Info.plist;
@@ -572,6 +580,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vicishaweddy.FoodieFunTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FoodieFunTests/FoodieFunTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodieFun.app/FoodieFun";
@@ -582,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYPH2NW7MY;
 				INFOPLIST_FILE = FoodieFunTests/Info.plist;
@@ -592,6 +603,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vicishaweddy.FoodieFunTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FoodieFunTests/FoodieFunTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodieFun.app/FoodieFun";
