@@ -147,8 +147,11 @@ class DashboardCollectionViewController: UICollectionViewController {
             restaurant = restaurantController.restaurants[indexPath.item] // default
         }
         
+        if let imageName = ["fried chicken", "chinese", "american"].randomElement() {
+            cell.imageView.image = UIImage(named: imageName) ?? UIImage(named: "placeholder")
+        }
+        
         // updating UIs
-        cell.imageView.image = UIImage(named: "fried chicken") ?? UIImage(named: "placeholder")
         cell.nameLabel.text = restaurant.name.capitalized
         cell.locationLabel.text = restaurant.location.uppercased()
     
