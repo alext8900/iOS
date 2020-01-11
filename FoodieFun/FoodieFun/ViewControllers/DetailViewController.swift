@@ -39,6 +39,12 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func giveTextViewaBorderAndRound() {
+        reviewTextView.layer.borderColor = UIColor.black.cgColor
+        reviewTextView.layer.borderWidth = 0.9
+        reviewTextView.layer.cornerRadius = 15
+    }
+    
     enum Rating: Int {
         case one = 1
         case two, three, four, five
@@ -47,6 +53,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        giveTextViewaBorderAndRound()
         
         guard let restaurant = self.restaurant else { return }
         restaurantController?.fetchReviews(with: restaurant.id, completion: { (result) in
@@ -81,6 +88,7 @@ class DetailViewController: UIViewController {
             if let nc = segue.destination as? UINavigationController,
                 let editVC = nc.topViewController as? EditRestaurantViewController
             {
+                editVC.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(hue: 355, saturation: 82, brightness: 53, alpha: 1), NSAttributedString.Key.font: UIFont(name: "Quicksand-Bold", size: 42) ?? UIFont.systemFont(ofSize: 42)]
                 editVC.restaurantController = self.restaurantController
                 editVC.restaurant = self.restaurant
                 editVC.review = self.review

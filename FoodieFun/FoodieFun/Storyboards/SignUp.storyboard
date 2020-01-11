@@ -78,16 +78,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="JfA-cW-gMB">
-                                        <rect key="frame" x="71.5" y="422.5" width="231.5" height="33"/>
+                                        <rect key="frame" x="60.5" y="422.5" width="253" height="33"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLC-t2-Q1o">
-                                                <rect key="frame" x="0.0" y="0.0" width="183.5" height="33"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLC-t2-Q1o">
+                                                <rect key="frame" x="0.0" y="0.0" width="205" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctL-9E-wiP">
-                                                <rect key="frame" x="184.5" y="0.0" width="47" height="33"/>
+                                                <rect key="frame" x="206" y="0.0" width="47" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Log In">
                                                     <color key="titleColor" red="0.3294117647" green="0.56078431370000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>

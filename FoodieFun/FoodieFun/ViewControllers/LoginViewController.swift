@@ -17,13 +17,19 @@ class LoginViewController: UIViewController {
     // MARK: - Outlets and Properties
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signinButton: UIButton!
     
     let loginController = LoginController.shared
+    
+    func roundSignInButton() {
+        signinButton.layer.cornerRadius = 12
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
+        roundSignInButton()
     }
     
     // MARK: - Actions and Methods

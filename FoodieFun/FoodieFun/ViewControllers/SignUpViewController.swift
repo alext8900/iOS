@@ -19,12 +19,16 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
+    
     private let userController = UserController()
     
     private let signUpController = SignUpController()
     
     let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
+    func roundSignupButton() {
+        signUpButton.layer.cornerRadius = 12
+    }
     
     
     weak var delegate: LoginViewControllerDelegate?
@@ -36,6 +40,7 @@ class SignUpViewController: UIViewController {
         self.passwordTextField.delegate = self
         self.confirmPasswordTextField.delegate = self
         self.locationTextField.delegate = self
+        roundSignupButton()
         
     }
     
