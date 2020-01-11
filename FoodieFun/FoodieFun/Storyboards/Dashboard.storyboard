@@ -33,6 +33,10 @@
                                         <state key="normal" title="LOG OUT">
                                             <color key="titleColor" red="0.3294117647" green="0.56078431370000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signOutTapped:" destination="Nf2-S4-grg" eventType="touchUpInside" id="pjZ-VG-2fA"/>
+                                            <segue destination="QcT-CK-gWh" kind="show" id="7DX-EC-3eN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -54,6 +58,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tg-D7-XSc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="616"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="cj5-6S-Dn0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="QcT-CK-gWh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="XE3-Xa-iew"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qh2-Sm-IAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="589"/>
         </scene>
         <!--FoodieFun-->
         <scene sceneID="G6i-ZB-GTX">
