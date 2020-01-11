@@ -24,6 +24,8 @@ class DashboardCollectionViewController: UICollectionViewController {
     // Hold the restaurants that the user is searching for
     var filteredRestaurant = [Restaurant]()
     
+    @IBOutlet weak var cell: UICollectionViewCell!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,8 @@ class DashboardCollectionViewController: UICollectionViewController {
         
         self.search()
     }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -143,6 +147,7 @@ class DashboardCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? RestaurantCollectionViewCell else { return UICollectionViewCell() }
+        
     
         let restaurant: Restaurant
         if isFiltering() {
@@ -158,7 +163,9 @@ class DashboardCollectionViewController: UICollectionViewController {
         // updating UIs
         cell.nameLabel.text = restaurant.name.uppercased()
         cell.locationLabel.text = restaurant.location.uppercased()
-    
+        
+        
+        
         return cell
     }
 

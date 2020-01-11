@@ -19,6 +19,13 @@ class EditRestaurantViewController: UIViewController {
     @IBOutlet weak var openDP: UIDatePicker!
     @IBOutlet weak var closeDP: UIDatePicker!
     @IBOutlet weak var ratingPV: UIPickerView!
+    @IBOutlet weak var delete: UIButton!
+    
+    func roundDeleteButton() {
+        delete.layer.cornerRadius = 15
+    }
+    
+    var dashboard = DashboardCollectionViewController()
     
     var restaurant: Restaurant?
     var restaurantController: RestaurantController?
@@ -35,6 +42,7 @@ class EditRestaurantViewController: UIViewController {
     override func viewDidLoad() {
         self.giveTextViewaBorder()
         self.addObservers()
+        roundDeleteButton()
         
         super.viewDidLoad()
         guard let restaurant = restaurant else { return }

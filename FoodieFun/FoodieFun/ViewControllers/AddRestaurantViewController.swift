@@ -139,7 +139,7 @@ class AddRestaurantViewController: UIViewController {
         review.layer.cornerCurve = .continuous
         review.layer.cornerRadius = 8
         review.layer.borderColor = UIColor.gray.cgColor
-        review.layer.borderWidth = 0.5
+        review.layer.borderWidth = 0.9
     }
     
     func addObservers() {

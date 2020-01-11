@@ -9,6 +9,11 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    @IBAction func signOutTapped(_ sender: Any) {
+//        unwind(for: <#T##UIStoryboardSegue#>, towards: <#T##UIViewController#>)
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

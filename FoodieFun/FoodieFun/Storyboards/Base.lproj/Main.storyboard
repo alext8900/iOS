@@ -96,6 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="CPq-5l-pQV" id="6fL-Oq-Nop"/>
+                        <outlet property="signinButton" destination="ftb-9q-U4R" id="Ffc-Xa-mu8"/>
                         <outlet property="usernameTextField" destination="zpJ-L1-vny" id="xkt-kg-FhB"/>
                         <segue destination="T9h-dh-9rZ" kind="presentation" identifier="DashboardSegue" modalPresentationStyle="fullScreen" id="71o-cq-tjN"/>
                     </connections>
