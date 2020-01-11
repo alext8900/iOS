@@ -13,16 +13,20 @@ import CoreData
 extension User1 {
     var userRepresentation: UserRepresentation? {
         guard let username = username else { return nil }
-        return UserRepresentation(username: username, password: password!, identifier: identifier?.uuidString ?? UUID().uuidString)
+        return UserRepresentation(username: username, password: password!, identifier: identifier?.uuidString ?? UUID().uuidString, restaurant: restaurant!, location: location!)
     }
     convenience init(username: String,
                      password: String,
+                     restaurant: String,
+                     location: String,
                      identifier: UUID = UUID(),
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.username = username
         self.identifier = identifier
         self.password = password
+        self.restaurant = restaurant
+        self.location = location
     }
     
     @discardableResult convenience init?(userRepresentation: UserRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
@@ -31,6 +35,8 @@ extension User1 {
         
         self.init(username: userRepresentation.username,
                   password: userRepresentation.password,
+                  restaurant: userRepresentation.restaurant,
+                  location: userRepresentation.location,
                   identifier: identifier,
                   context: context)
     }

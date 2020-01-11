@@ -13,4 +13,6 @@ struct UserRepresentation: Codable {
     var username: String
     var password: String
     var identifier: String?
+    var restaurant: String
+    var location: String
 }

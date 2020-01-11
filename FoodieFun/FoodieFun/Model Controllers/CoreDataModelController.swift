@@ -10,6 +10,8 @@ import Foundation
 import CoreData
 
 class UserController {
+    static let shared = UserController()
+    
     typealias CompletionHandler = (Error?) -> Void
     
     private let baseURL = URL(string: "https://foodiefun-3fc92.firebaseio.com/")!
@@ -71,6 +73,13 @@ class UserController {
             
             completion()
         }.resume()
+    }
+    
+    @discardableResult func createRestaurant(restaurant: String, location: String) -> User1 {
+        let restaurant = User1(username: "", password: "", restaurant: restaurant, location: location, context: CoreDataStack.shared.mainContext)
+        put(user: restaurant)
+        try! CoreDataStack.shared.save()
+        return restaurant
     }
     
     private func fetchUser(with representations: [UserRepresentation]) throws {
