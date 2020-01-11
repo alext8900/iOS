@@ -54,7 +54,8 @@ class DashboardCollectionViewController: UICollectionViewController {
     }
     
     // MARK: - Private Functions
-    // Custom Large Font :)
+    // Custom Large Font
+    
     func setFont() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(hue: 355, saturation: 82, brightness: 53, alpha: 1),
