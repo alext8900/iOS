@@ -7,9 +7,11 @@
 //
 
 import Foundation
-import UIKit
 
 struct User: Codable, Equatable {
+    let id: UInt
     let username: String
-    let password: String
+    let location: String
+    let email: String
+    let token: String?
 }

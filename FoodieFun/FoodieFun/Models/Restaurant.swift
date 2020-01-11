@@ -9,11 +9,13 @@
 import Foundation
 
 struct Restaurant: Codable, Equatable {
-    let restaurauntId: String
-    let cuisine: String
-    let name: String
-    let photoUrl: String
-    let rating: Int
-    let review: String
-    let userId: String
+    let id: Int
+    var name: String
+    var cuisine: String
+    var location: String
+    var hour_open: Int
+    var hour_closed: Int
+    var days_open: String
+    let user_id: Int
+    var photo_url: String
 }
