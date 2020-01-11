@@ -20,6 +20,7 @@ class DashboardCollectionViewController: UICollectionViewController {
     
     // Hold the restaurants that the user is searching for
     var filteredRestaurant = [Restaurant]()
+    var restaurantToImage: [Int: String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,15 @@ class DashboardCollectionViewController: UICollectionViewController {
                 if let createdRestaurants = try? result.get() {
                     DispatchQueue.main.async {
                         self.restaurantController.restaurants = createdRestaurants
+                        
+                        // generate images from restaurant_id to image
+                        if self.restaurantToImage == nil {
+                            self.restaurantToImage = [Int: String]()
+                            for restaraunt in createdRestaurants {
+                                self.restaurantToImage?[restaraunt.id] = ["fried chicken", "chinese", "american", "italian"].randomElement()
+                            }
+                        }
+                        
                         self.collectionView.reloadData()
                     }
                 }
@@ -118,8 +128,6 @@ class DashboardCollectionViewController: UICollectionViewController {
             restaurantVC.restaurantController = restaurantController
             restaurantVC.restaurant = restaurantController.restaurants[indexPath.item]
         }
-        
-//        if segue.identifier == "DetailSegue"
     }
 
     // MARK: UICollectionViewDataSource
@@ -147,7 +155,7 @@ class DashboardCollectionViewController: UICollectionViewController {
             restaurant = restaurantController.restaurants[indexPath.item] // default
         }
         
-        if let imageName = ["fried chicken", "chinese", "american", "italian"].randomElement() {
+        if let imageName = self.restaurantToImage?[restaurant.id] {
             cell.imageView.image = UIImage(named: imageName) ?? UIImage(named: "placeholder")
         }
         
