@@ -55,7 +55,7 @@ class AddRestaurantViewController: UIViewController {
         
         guard let restaurantString = nameTF.text,
             let locationString = locationTF.text else { return }
-        if let restaurant = restaurant {
+        if restaurant != nil {
             modelController?.createRestaurant(restaurant: restaurantString, location: locationString)
         }
         

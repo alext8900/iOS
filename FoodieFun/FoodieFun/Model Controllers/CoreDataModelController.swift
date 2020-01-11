@@ -31,7 +31,7 @@ class UserController {
             }
             
             do {
-                let userRepresentations = Array(try JSONDecoder().decode([String : UserRepresentation].self, from: data).values)
+                _ = Array(try JSONDecoder().decode([String : UserRepresentation].self, from: data).values)
                 
             } catch {
                 print("Error decoding user representations: \(error)")
