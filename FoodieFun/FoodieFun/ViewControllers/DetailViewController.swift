@@ -39,12 +39,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func giveTextViewaBorderAndRound() {
-        reviewTextView.layer.borderColor = UIColor.black.cgColor
-        reviewTextView.layer.borderWidth = 0.9
-        reviewTextView.layer.cornerRadius = 15
-    }
-    
     enum Rating: Int {
         case one = 1
         case two, three, four, five
@@ -81,6 +75,12 @@ class DetailViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         })
+    }
+    
+    func giveTextViewaBorderAndRound() {
+        reviewTextView.layer.borderColor = UIColor.gray.cgColor
+        reviewTextView.layer.borderWidth = 0.9
+        reviewTextView.layer.cornerRadius = 8
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

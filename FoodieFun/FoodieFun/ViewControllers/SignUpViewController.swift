@@ -30,7 +30,6 @@ class SignUpViewController: UIViewController {
         signUpButton.layer.cornerRadius = 12
     }
     
-    
     weak var delegate: LoginViewControllerDelegate?
     
     override func viewDidLoad() {
