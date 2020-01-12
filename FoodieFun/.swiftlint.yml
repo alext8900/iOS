@@ -6,4 +6,3 @@ disabled_rules: # rule identifiers to exclude from running
   - function_parameter_count
   - line_length
   - type_body_length
-  - unused_optional_binding
