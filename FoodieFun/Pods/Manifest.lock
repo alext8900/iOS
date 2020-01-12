@@ -1,16 +1,20 @@
 PODS:
+  - IBLinter (0.4.20)
   - SwiftLint (0.38.0)
 
 DEPENDENCIES:
+  - IBLinter
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - IBLinter
     - SwiftLint
 
 SPEC CHECKSUMS:
+  IBLinter: 38372029d265b3c1696a79b7bde3dec725b5e247
   SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
 
-PODFILE CHECKSUM: 747e6040fffbc58c4eb143da9230d06d7a0bfd6c
+PODFILE CHECKSUM: a35c521d59bfb2a5dd366536790b31108c9d8cb6
 
 COCOAPODS: 1.8.4

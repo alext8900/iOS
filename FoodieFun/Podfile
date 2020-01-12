@@ -8,6 +8,7 @@ target 'FoodieFun' do
   # Pods for FoodieFun
 
   pod 'SwiftLint'
+  pod 'IBLinter'
 
   target 'FoodieFunTests' do
     inherit! :search_paths
