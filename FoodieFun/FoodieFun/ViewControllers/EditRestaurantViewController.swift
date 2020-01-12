@@ -64,12 +64,12 @@ class EditRestaurantViewController: UIViewController {
         dateFormatter.dateFormat = "HHmm"
         
         // setting the current open time
-        let openTime = setTime(number: restaurant.hour_open)
+        let openTime = TimeHelpers.setTime(number: restaurant.hour_open)
         guard let openTimeDP = dateFormatter.date(from: openTime) else { return }
         self.openDP.date = openTimeDP
         
         // setting the current closed time
-        let closedTime = setTime(number: restaurant.hour_closed)
+        let closedTime = TimeHelpers.setTime(number: restaurant.hour_closed)
         guard let closedTimeDP = dateFormatter.date(from: closedTime) else { return }
         self.closeDP.date = closedTimeDP
         
@@ -84,8 +84,8 @@ class EditRestaurantViewController: UIViewController {
             let cuisine = self.cuisineTF.text,
             let location = self.locationTF.text,
             let newReview = self.reviewTextView.text,
-            let openHour = self.getTime(hour: self.openDP.date),
-            let closeHour = self.getTime(hour: self.closeDP.date) else { return }
+            let openHour = TimeHelpers.getTime(hour: self.openDP.date),
+            let closeHour = TimeHelpers.getTime(hour: self.closeDP.date) else { return }
         
         self.restaurantController?.updateRestaurant(id: restaurant.id, name: name, cuisine: cuisine, location: location, openTime: openHour, closeTime: closeHour, completion: { (result) in
             switch result {
@@ -140,52 +140,9 @@ class EditRestaurantViewController: UIViewController {
         reviewTextView.layer.borderWidth = 0.5
     }
     
-    private func setTime(number: Int) -> String {
-        var stringMilitaryTimeRaw: String
-        
-        // will refactor but this is for midnight to 1AM
-        if number < 100 {
-        stringMilitaryTimeRaw = String(number)
-        stringMilitaryTimeRaw = "00" + stringMilitaryTimeRaw
-        } else if number < 1000 { // will refactor but this is for one digit hour
-        stringMilitaryTimeRaw = String(number)
-        stringMilitaryTimeRaw = "0" + stringMilitaryTimeRaw
-        } else {
-            stringMilitaryTimeRaw = String(number)
-        }
-        
-        return stringMilitaryTimeRaw
-    }
-    
-    private func getTime(hour: Date) -> Int? {
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour, .minute], from: hour)
-        guard let timeHourInt = components.hour else { return nil }
-        guard let timeMinuteInt = components.minute else { return nil }
-        
-        var timeHourIntToString: String = ""
-        var timeMinuteIntToString: String = ""
-
-        if timeHourInt == 0 {
-            timeHourIntToString = String(timeHourInt) + "0"
-        } else {
-            timeHourIntToString = String(timeHourInt)
-        }
-        
-        if timeMinuteInt == 0 {
-            timeMinuteIntToString = String(timeMinuteInt) + "0"
-        } else {
-            timeMinuteIntToString = String(timeMinuteInt)
-        }
-        
-        // change to String first in order to combine hour and minute as one unit of Int for the backend purpose
-        guard let militaryTime = Int(String(timeHourIntToString) + timeMinuteIntToString) else { return nil }
-        return militaryTime
-    }
-    
     @IBAction func deletePressed(_ sender: Any) {
         guard let restaurant = restaurant else { return }
-          restaurantController?.deleteRestaurant(with: restaurant.id, completion: { (restaurant) in
+          restaurantController?.deleteRestaurant(with: restaurant.id, completion: { _ in
             self.delegate?.didDelete()
           })
     }
@@ -213,4 +170,3 @@ extension EditRestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSo
         self.pickedRating = String(row + 1)
     }
 }
-

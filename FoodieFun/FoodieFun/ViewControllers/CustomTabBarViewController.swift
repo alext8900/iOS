@@ -16,7 +16,6 @@ class CustomTabBarViewController: UITabBarController, UITabBarControllerDelegate
         // Do any additional setup after loading the view.
     }
     
-    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if (viewController as? UINavigationController)?.topViewController?.isKind(of: AddRestaurantViewController.self) == true {
             let vc = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "AddRestaurant")

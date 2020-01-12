@@ -27,7 +27,6 @@ class DashboardCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var cell: UICollectionViewCell!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setFont()
@@ -37,8 +36,6 @@ class DashboardCollectionViewController: UICollectionViewController {
         
         self.search()
     }
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -156,8 +153,7 @@ class DashboardCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? RestaurantCollectionViewCell else { return UICollectionViewCell() }
-        
-    
+            
         let restaurant: Restaurant
         if isFiltering() {
             restaurant = filteredRestaurant[indexPath.item] // search view
@@ -172,8 +168,6 @@ class DashboardCollectionViewController: UICollectionViewController {
         // updating UIs
         cell.nameLabel.text = restaurant.name.uppercased()
         cell.locationLabel.text = restaurant.location.uppercased()
-        
-        
         
         return cell
     }
@@ -196,8 +190,4 @@ extension DashboardCollectionViewController: UISearchResultsUpdating {
 }
 
 extension DashboardCollectionViewController {
-
-
 }
-
-
