@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "RestaurantCell"
 
 class DashboardCollectionViewController: UICollectionViewController {
+    
+    let apiController = UserController.shared
     
     let loginController = LoginController.shared
     let restaurantController = RestaurantController()
@@ -20,6 +23,10 @@ class DashboardCollectionViewController: UICollectionViewController {
     
     // Hold the restaurants that the user is searching for
     var filteredRestaurant = [Restaurant]()
+    var restaurantToImage: [Int: String]?
+    
+    @IBOutlet weak var cell: UICollectionViewCell!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +38,8 @@ class DashboardCollectionViewController: UICollectionViewController {
         self.search()
     }
     
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if loginController.token?.token != nil {
@@ -38,6 +47,15 @@ class DashboardCollectionViewController: UICollectionViewController {
                 if let createdRestaurants = try? result.get() {
                     DispatchQueue.main.async {
                         self.restaurantController.restaurants = createdRestaurants
+                        
+                        // generate images from restaurant_id to image
+                        if self.restaurantToImage == nil {
+                            self.restaurantToImage = [Int: String]()
+                            for restaraunt in createdRestaurants {
+                                self.restaurantToImage?[restaraunt.id] = ["fried chicken", "chinese", "american", "italian"].randomElement()
+                            }
+                        }
+                        
                         self.collectionView.reloadData()
                     }
                 }
@@ -47,6 +65,7 @@ class DashboardCollectionViewController: UICollectionViewController {
     
     // MARK: - Private Functions
     // Custom Large Font
+    
     func setFont() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(hue: 355, saturation: 82, brightness: 53, alpha: 1),
@@ -118,8 +137,6 @@ class DashboardCollectionViewController: UICollectionViewController {
             restaurantVC.restaurantController = restaurantController
             restaurantVC.restaurant = restaurantController.restaurants[indexPath.item]
         }
-        
-//        if segue.identifier == "DetailSegue"
     }
 
     // MARK: UICollectionViewDataSource
@@ -139,6 +156,7 @@ class DashboardCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? RestaurantCollectionViewCell else { return UICollectionViewCell() }
+        
     
         let restaurant: Restaurant
         if isFiltering() {
@@ -147,47 +165,20 @@ class DashboardCollectionViewController: UICollectionViewController {
             restaurant = restaurantController.restaurants[indexPath.item] // default
         }
         
-        if let imageName = ["fried chicken", "chinese", "american", "italian"].randomElement() {
+        if let imageName = self.restaurantToImage?[restaurant.id] {
             cell.imageView.image = UIImage(named: imageName) ?? UIImage(named: "placeholder")
         }
         
         // updating UIs
         cell.nameLabel.text = restaurant.name.uppercased()
         cell.locationLabel.text = restaurant.location.uppercased()
-    
+        
+        
+        
         return cell
     }
 
     // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }
 

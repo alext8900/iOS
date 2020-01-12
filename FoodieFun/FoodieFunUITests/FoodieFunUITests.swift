@@ -27,42 +27,64 @@ class FoodieFunUITests: XCTestCase {
     func testLoggingIn() {
         
         let app = XCUIApplication()
-        let textField = app.textFields["Username")
-            textField.tap()
-        textField.typeText("vici23")
-//        app.secureTextFields["Password"].tap()
-//        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).tap()
-//        app.buttons["LOG IN"].tap()
-
+        app.launch()
+        
+        let textFieldUsername = app.textFields["Username"]
+        textFieldUsername.tap()
+        textFieldUsername.typeText("vici23")
+        
+        let textFieldPassword = app.secureTextFields["Password"]
+        textFieldPassword.tap()
+        textFieldPassword.typeText("111")
+        app.buttons["LOG IN"].tap()
+        
+        let title = app.navigationBars["FoodieFun"].staticTexts["FoodieFun"]
+        
+        XCTAssert(title.exists)
     }
     
     func testAddRestaurant() {
         
         let app = XCUIApplication()
-        app.textFields["Username"].tap()
-        app.secureTextFields["Password"].tap()
+        app.launch()
+        
+        let textFieldUsername = app.textFields["Username"]
+        textFieldUsername.tap()
+        textFieldUsername.typeText("vici23")
+        
+        let textFieldPassword = app.secureTextFields["Password"]
+        textFieldPassword.tap()
+        textFieldPassword.typeText("111")
         app.buttons["LOG IN"].tap()
-        app.tabBars.buttons["Add"].tap()
-        app.scrollViews.otherElements.textFields["McDonald's, PF Chang's, Red Lobster"].tap()
-        app.navigationBars["Add a Restaurant"].buttons["Save"].tap()
+        
+        let add = app.tabBars.buttons["Add"]
+        add.tap()
+        
+        let nameTextField = app.scrollViews.otherElements.textFields["McDonald's, PF Chang's, Red Lobster"]
+        nameTextField.tap()
+        
+        let saveButton = app.navigationBars["Add a Restaurant"].buttons["Save"]
+        saveButton.tap()
+        
         let alert = app.alerts["Missing some fields"]
         XCTAssert(alert.exists)
-        
     }
     
     func testSignUpAlert() {
+        
         let app = XCUIApplication()
-        app.buttons["Sign Up"].tap()
-        app.textFields["Username"].tap()
+        app.launch()
         
-        let passwordSecureTextField = app.secureTextFields["Password"]
-        passwordSecureTextField.tap()
-        passwordSecureTextField.tap()
+        let signUpButton = app.buttons["Sign Up"]
+        signUpButton.tap()
         
-        let confirmPasswordSecureTextField = app.secureTextFields["Confirm Password"]
-        confirmPasswordSecureTextField.tap()
-        confirmPasswordSecureTextField.tap()
-        app.buttons["SIGN UP"].tap()
-        let alert = app.alerts["Missing some fields"].scrollViews.otherElements.buttons["OK"].tap()
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        
+        let createButton = app.buttons["SIGN UP"]
+        createButton.tap()
+        
+        let alert = app.alerts["Missing some fields"]
+        XCTAssert(alert.exists)
     }
 }

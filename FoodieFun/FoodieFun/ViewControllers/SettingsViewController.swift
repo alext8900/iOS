@@ -9,6 +9,9 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    @IBAction func signOutTapped(_ sender: Any) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

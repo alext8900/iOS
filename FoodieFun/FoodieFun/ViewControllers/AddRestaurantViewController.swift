@@ -21,6 +21,8 @@ class AddRestaurantViewController: UIViewController {
     @IBOutlet weak var ratingPV: UIPickerView!
     @IBOutlet weak var photoView: UIImageView!
     
+    var modelController: UserController?
+    
     var restaurant: Restaurant?
     var restaurantController = RestaurantController()
     private var pickerData: [String] = ["1", "2", "3", "4", "5"]
@@ -37,6 +39,7 @@ class AddRestaurantViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed() {
+       
         guard let name = self.nameTF.text, !name.isEmpty,
               let cuisine = self.cuisineTF.text, !cuisine.isEmpty,
               let location = self.locationTF.text, !location.isEmpty,
@@ -47,7 +50,16 @@ class AddRestaurantViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 return
+                
         }
+        
+        guard let restaurantString = nameTF.text,
+            let locationString = locationTF.text else { return }
+        if restaurant != nil {
+            modelController?.createRestaurant(restaurant: restaurantString, location: locationString)
+        }
+        
+        navigationController?.popViewController(animated: true)
         self.restaurantController.addRestaurant(name: name,
                                                 cuisine: cuisine,
                                                 location: location,
@@ -61,8 +73,11 @@ class AddRestaurantViewController: UIViewController {
                                                         NotificationCenter.default.post(name: .restaurantDidSaveNotification, object: self)
                                                         DispatchQueue.main.async {
                                                             self.dismiss(animated: true, completion: nil)
+                                                        
+                                                            
                                                         }
                                                     }
+                                                    
         }
     }
     
@@ -98,7 +113,7 @@ class AddRestaurantViewController: UIViewController {
         review.layer.cornerCurve = .continuous
         review.layer.cornerRadius = 8
         review.layer.borderColor = UIColor.gray.cgColor
-        review.layer.borderWidth = 0.5
+        review.layer.borderWidth = 0.9
     }
     
     func addObservers() {

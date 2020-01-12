@@ -22,7 +22,8 @@ class CustomTabBarViewController: UITabBarController, UITabBarControllerDelegate
             let vc = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "AddRestaurant")
             let nc = UINavigationController(rootViewController: vc)
             nc.navigationBar.prefersLargeTitles = true
-            nc.modalPresentationStyle = .overFullScreen
+            nc.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(hue: 355, saturation: 82, brightness: 53, alpha: 1), NSAttributedString.Key.font: UIFont(name: "Quicksand-Bold", size: 42) ?? UIFont.systemFont(ofSize: 42)]
+                        nc.modalPresentationStyle = .overFullScreen
             self.present(nc, animated: true, completion: nil)
             return false
         }
