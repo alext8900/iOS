@@ -19,18 +19,16 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
-    
     private let userController = UserController()
     
     private let signUpController = SignUpController()
     
-    let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
+    let appDel: AppDelegate? = (UIApplication.shared.delegate as? AppDelegate)
     
     func roundSignupButton() {
         signUpButton.layer.cornerRadius = 12
     }
-    
-    
+
     weak var delegate: LoginViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -51,7 +49,9 @@ class SignUpViewController: UIViewController {
               let confirmPassword = self.confirmPasswordTextField.text, !confirmPassword.isEmpty,
               let email = self.emailTextField.text, !email.isEmpty,
               let location = self.locationTextField.text, !location.isEmpty else {
-                let alert = UIAlertController(title: "Missing some fields", message: "Check your information and try again.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Missing some fields",
+                                              message: "Check your information and try again.",
+                                              preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 return
@@ -73,8 +73,10 @@ class SignUpViewController: UIViewController {
         signUpController.signUp(with: signUpRequest) { (error) in
             // this needs to be in the main thread
             DispatchQueue.main.async {
-                if let _ = error {
-                    let alert = UIAlertController(title: "Something wrong", message: "Please try again", preferredStyle: .alert)
+                if error != nil {
+                    let alert = UIAlertController(title: "Something wrong",
+                                                  message: "Please try again",
+                                                  preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     // enable the button if there is an error
@@ -87,7 +89,6 @@ class SignUpViewController: UIViewController {
             }
         }
     }
-    
 
     /*
     // MARK: - Navigation

@@ -9,11 +9,14 @@
 import Foundation
 import CoreData
 
-
 extension User1 {
     var userRepresentation: UserRepresentation? {
         guard let username = username else { return nil }
-        return UserRepresentation(username: username, password: password!, identifier: identifier?.uuidString ?? UUID().uuidString, restaurant: restaurant!, location: location!)
+        return UserRepresentation(username: username,
+                                  password: password!,
+                                  identifier: identifier?.uuidString ?? UUID().uuidString,
+                                  restaurant: restaurant!,
+                                  location: location!)
     }
     convenience init(username: String,
                      password: String,
@@ -29,7 +32,8 @@ extension User1 {
         self.location = location
     }
     
-    @discardableResult convenience init?(userRepresentation: UserRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init?(userRepresentation: UserRepresentation,
+                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         guard let identifierString = userRepresentation.identifier,
             let identifier = UUID(uuidString: identifierString) else { return nil }
         
@@ -41,6 +45,3 @@ extension User1 {
                   context: context)
     }
 }
-
-
-

@@ -14,7 +14,6 @@ protocol DetailViewControllerDelegate: AnyObject {
     func didDelete()
 }
 
-
 class DetailViewController: UIViewController {
     
     // MARK: - Outlets and Properties
@@ -76,7 +75,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
         guard let restaurant = restaurant else { return }
-        restaurantController?.deleteRestaurant(with: restaurant.id, completion: { (restaurant) in
+        restaurantController?.deleteRestaurant(with: restaurant.id, completion: { _ in
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }
@@ -86,9 +85,11 @@ class DetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditSegue" {
             if let nc = segue.destination as? UINavigationController,
-                let editVC = nc.topViewController as? EditRestaurantViewController
-            {
-                editVC.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(hue: 355, saturation: 82, brightness: 53, alpha: 1), NSAttributedString.Key.font: UIFont(name: "Quicksand-Bold", size: 42) ?? UIFont.systemFont(ofSize: 42)]
+                let editVC = nc.topViewController as? EditRestaurantViewController {
+                editVC.navigationController?.navigationBar.largeTitleTextAttributes = [
+                    NSAttributedString.Key.foregroundColor: UIColor(hue: 355, saturation: 82, brightness: 53, alpha: 1),
+                    NSAttributedString.Key.font: UIFont(name: "Quicksand-Bold", size: 42) ?? UIFont.systemFont(ofSize: 42)
+                ]
                 editVC.restaurantController = self.restaurantController
                 editVC.restaurant = self.restaurant
                 editVC.review = self.review

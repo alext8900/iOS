@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class RestaurantController {
     typealias CompletionHandler = (Error?) -> Void
     
@@ -17,8 +16,7 @@ class RestaurantController {
     var reviews: [Review] = []
     var loginController = LoginController.shared
     
-    func fetchAllRestaurants(completion: @escaping (Result<[Restaurant], NetworkError>) -> Void)
-    {
+    func fetchAllRestaurants(completion: @escaping (Result<[Restaurant], NetworkError>) -> Void) {
         let requestURL = baseURL.appendingPathComponent("/restaurants/")
         var request = URLRequest(url: requestURL)
         
@@ -36,7 +34,7 @@ class RestaurantController {
                 completion(.failure(.badAuth))
             }
             
-            if let _ = error {
+            if error != nil {
                 completion(.failure(.otherError))
             }
             
@@ -64,8 +62,7 @@ class RestaurantController {
                        closeTime: Int,
                        days: String = "7 days",
                        url: String = "www.lambdaschool.com",
-                       completion: @escaping (Result<Restaurant, NetworkError>) -> Void)
-    {
+                       completion: @escaping (Result<Restaurant, NetworkError>) -> Void) {
         let requestURL = baseURL.appendingPathComponent("/restaurants/")
         var request = URLRequest(url: requestURL)
         
@@ -103,7 +100,7 @@ class RestaurantController {
                 completion(.failure(.badAuth))
             }
             
-            if let _ = error {
+            if error != nil {
                 completion(.failure(.otherError))
                 return
             }
@@ -132,8 +129,7 @@ class RestaurantController {
                    url: String = "www.lambdaschool.com",
                    rating: Int,
                    review: String,
-        completion: @escaping (Result<Review, NetworkError>) -> Void)
-    {
+                   completion: @escaping (Result<Review, NetworkError>) -> Void) {
         let requestURL = baseURL.appendingPathComponent("/items/")
         var request = URLRequest(url: requestURL)
         
@@ -170,7 +166,7 @@ class RestaurantController {
                 completion(.failure(.badAuth))
             }
             
-            if let _ = error {
+            if error != nil {
                 completion(.failure(.otherError))
             }
             
@@ -200,8 +196,7 @@ class RestaurantController {
                           closeTime: Int,
                           days: String = "7 days",
                           url: String = "www.lambdaschool.com",
-                          completion: @escaping (Result<Restaurant, NetworkError>) -> Void)
-    {
+                          completion: @escaping (Result<Restaurant, NetworkError>) -> Void) {
         guard let index = self.restaurants.firstIndex(where: { restaurant in restaurant.id == id }) else { return }
         
         var updatedRestaurant = self.restaurants[index]
@@ -243,7 +238,7 @@ class RestaurantController {
                 completion(.failure(.badAuth))
             }
             
-            if let _ = error {
+            if error  != nil {
                 completion(.failure(.otherError))
             }
             
@@ -273,8 +268,7 @@ class RestaurantController {
                       url: String,
                       rating: Int,
                       review: String,
-                      completion: @escaping (Result<Review, NetworkError>) -> Void)
-    {
+                      completion: @escaping (Result<Review, NetworkError>) -> Void) {
         let requestURL = baseURL.appendingPathComponent("/items/\(id)")
         var request = URLRequest(url: requestURL)
         
@@ -305,7 +299,7 @@ class RestaurantController {
                 completion(.failure(.badAuth))
             }
             
-            if let _ = error {
+            if error != nil {
                 completion(.failure(.otherError))
             }
             
@@ -328,8 +322,7 @@ class RestaurantController {
         }.resume()
     }
 
-    func fetchReviews(with id: Int, completion: @escaping (Result<[Review], NetworkError>) -> Void)
-    {
+    func fetchReviews(with id: Int, completion: @escaping (Result<[Review], NetworkError>) -> Void) {
         let requestURL = baseURL.appendingPathComponent("/restaurants/\(id)/items")
         var request = URLRequest(url: requestURL)
         
@@ -347,7 +340,7 @@ class RestaurantController {
                 completion(.failure(.badAuth))
             }
             
-            if let _ = error {
+            if error != nil {
                 completion(.failure(.otherError))
             }
             
@@ -368,9 +361,7 @@ class RestaurantController {
         }.resume()
     }
     
-    func deleteRestaurant(with id: Int, completion: @escaping (Result<Restaurant, NetworkError>) -> Void)
-    {
-        
+    func deleteRestaurant(with id: Int, completion: @escaping (Result<Restaurant, NetworkError>) -> Void) {
         let requestURL = baseURL.appendingPathComponent("/restaurants/\(id)")
         
         var request = URLRequest(url: requestURL)
@@ -389,7 +380,7 @@ class RestaurantController {
                 completion(.failure(.badAuth))
             }
             
-            if let _ = error {
+            if error != nil {
                 completion(.failure(.otherError))
             }
             

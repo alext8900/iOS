@@ -73,8 +73,6 @@ class AddRestaurantViewController: UIViewController {
                                                         NotificationCenter.default.post(name: .restaurantDidSaveNotification, object: self)
                                                         DispatchQueue.main.async {
                                                             self.dismiss(animated: true, completion: nil)
-                                                        
-                                                            
                                                         }
                                                     }
                                                     
@@ -178,5 +176,3 @@ extension AddRestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
 }
-
-

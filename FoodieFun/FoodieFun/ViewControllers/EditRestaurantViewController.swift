@@ -142,7 +142,7 @@ class EditRestaurantViewController: UIViewController {
     
     @IBAction func deletePressed(_ sender: Any) {
         guard let restaurant = restaurant else { return }
-          restaurantController?.deleteRestaurant(with: restaurant.id, completion: { (restaurant) in
+          restaurantController?.deleteRestaurant(with: restaurant.id, completion: { _ in
             self.delegate?.didDelete()
           })
     }
@@ -170,4 +170,3 @@ extension EditRestaurantViewController: UIPickerViewDelegate, UIPickerViewDataSo
         self.pickedRating = String(row + 1)
     }
 }
-

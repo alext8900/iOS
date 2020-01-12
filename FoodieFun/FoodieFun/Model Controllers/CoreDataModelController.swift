@@ -31,7 +31,7 @@ class UserController {
             }
             
             do {
-                _ = Array(try JSONDecoder().decode([String : UserRepresentation].self, from: data).values)
+                _ = Array(try JSONDecoder().decode([String: UserRepresentation].self, from: data).values)
                 
             } catch {
                 print("Error decoding user representations: \(error)")
@@ -64,7 +64,7 @@ class UserController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { data, _, error in
+        URLSession.shared.dataTask(with: request) { _, _, error in
             guard error == nil else {
                 print("Error putting user to server: \(error!)")
                 completion()
@@ -76,9 +76,17 @@ class UserController {
     }
     
     @discardableResult func createRestaurant(restaurant: String, location: String) -> User1 {
-        let restaurant = User1(username: "", password: "", restaurant: restaurant, location: location, context: CoreDataStack.shared.mainContext)
+        let restaurant = User1(username: "",
+                               password: "",
+                               restaurant: restaurant,
+                               location: location,
+                               context: CoreDataStack.shared.mainContext)
         put(user: restaurant)
-        try! CoreDataStack.shared.save()
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+        }
+
         return restaurant
     }
     

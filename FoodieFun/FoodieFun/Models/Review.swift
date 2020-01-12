@@ -18,4 +18,3 @@ struct Review: Codable, Equatable {
     var review: String
     let user_id: Int
 }
-
