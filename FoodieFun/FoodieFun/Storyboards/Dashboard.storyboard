@@ -268,7 +268,7 @@
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Agu-hw-sIi">
                                                         <rect key="frame" x="0.0" y="25" width="374" height="303.66666666666669"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -276,8 +276,8 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="Agu-hw-sIi" secondAttribute="bottom" id="4JC-5Y-QwQ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Agu-hw-sIi" secondAttribute="trailing" id="8sT-u9-UAg"/>
                                                     <constraint firstItem="Agu-hw-sIi" firstAttribute="top" secondItem="m2R-wx-9el" secondAttribute="bottom" constant="8" id="hvj-lZ-GO7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Agu-hw-sIi" secondAttribute="trailing" id="rM6-0S-q7R"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -287,6 +287,9 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vpR-co-zq2" secondAttribute="trailing" id="VRi-w7-0Pz"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.89411764709999997" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -343,13 +346,13 @@
         <scene sceneID="hp2-ag-8RB">
             <objects>
                 <tabBarController id="gqI-zH-ETU" customClass="CustomTabBarViewController" customModule="FoodieFun" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backgroundImage="italian" id="Uyt-k3-Nee">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Uyt-k3-Nee">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="tintColor" red="0.90805132769999997" green="0.119967605" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.91372549020000005" green="0.14117647059999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.94901960780000005" green="0.89411764709999997" blue="0.79215686269999996" alpha="0.23105736301369864" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.91372549020000005" green="0.14117647059999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="255-uD-8fb" kind="relationship" relationship="viewControllers" id="cFJ-r7-GIu"/>
@@ -890,7 +893,6 @@
         <image name="gear" catalog="system" width="64" height="58"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
-        <image name="italian" width="966" height="725"/>
         <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>
